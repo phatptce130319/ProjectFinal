@@ -10,14 +10,14 @@
  */
 public class Invoices {
 
-    private int invoiceNumber;
-    private String orderId;
-    private String employeeId;
-    private String customerId;
+    private Integer invoiceNumber;
+    private Integer orderId;
+    private Integer employeeId;
+    private Integer customerId;
     private String invoiceDate;
 //Constructor
 
-    public Invoices(int invoiceNumber, String Order_id, String employeeId, String customerId, String invoiceDate) throws InvoicesException {
+    public Invoices(Integer invoiceNumber, Integer Order_id, Integer employeeId, Integer customerId, String invoiceDate) throws InvoicesException {
         setInvoiceNumber(invoiceNumber);
         setOrderId(Order_id);
         setEmployeeId(employeeId);
@@ -26,42 +26,42 @@ public class Invoices {
     }
 // Get Invoice  number
 
-    public int getInvoiceNumber() throws InvoicesException {
+    public Integer getInvoiceNumber() throws InvoicesException {
         return invoiceNumber;
     }
 // Set Invoice  number
 
-    public void setInvoiceNumber(int invoiceNumber) throws InvoicesException {
+    public void setInvoiceNumber(Integer invoiceNumber) throws InvoicesException {
         this.invoiceNumber = invoiceNumber;
     }
 //Get order id
 
-    public String getOrderId() throws InvoicesException {
+    public Integer getOrderId() throws InvoicesException {
         return orderId;
     }
 //Set order id
 
-    public void setOrderId(String Order_id) throws InvoicesException {
+    public void setOrderId(Integer Order_id) throws InvoicesException {
         this.orderId = Order_id;
     }
 //Get Employee id
 
-    public String getEmployeeId() throws InvoicesException {
+    public Integer getEmployeeId() throws InvoicesException {
         return employeeId;
     }
 //Set Employee id
 
-    public void setEmployeeId(String employeeId) throws InvoicesException {
+    public void setEmployeeId(Integer employeeId) throws InvoicesException {
         this.employeeId = employeeId;
     }
 //Get Customer id
 
-    public String getCustomerId() throws InvoicesException {
+    public Integer getCustomerId() throws InvoicesException {
         return customerId;
     }
 //Set Customer id
 
-    public void setCustomerId(String customerId) throws InvoicesException {
+    public void setCustomerId(Integer customerId) throws InvoicesException {
         this.customerId = customerId;
     }
 //Get Invoice date

@@ -10,14 +10,14 @@
  */
 public class Orders {
 
-    private String orderId;
+    private Integer orderId;
     private String customerId;
     private String employeeId;
     private String dateOrder;
     private String addressOrder;
     
     //Constructor
-    public Orders(String orderId, String customerId, String employeeId, String dateOrder, String addressOrder) throws OrdersException {
+    public Orders(Integer orderId, String customerId, String employeeId, String dateOrder, String addressOrder) throws OrdersException {
         setOrderId(orderId);
         setCustomerId(customerId);
         setEmployeeId(employeeId);
@@ -26,12 +26,12 @@ public class Orders {
     }
     
     //get order ID
-    public String getOrderId() throws OrdersException {
+    public Integer getOrderId() throws OrdersException {
         return orderId;
     }
     
     //set order ID
-    public void setOrderId(String orderId) throws OrdersException {
+    public void setOrderId(Integer orderId) throws OrdersException {
         this.orderId = orderId;
     }
     

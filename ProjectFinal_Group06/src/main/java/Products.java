@@ -10,7 +10,7 @@
  */
 public class Products {
 
-    private String productID;
+    private Integer productID;
     private String productName;
     private double productPrice;
     private String productColor;
@@ -18,7 +18,7 @@ public class Products {
     private String productDescription;
     
     //Constructor
-    public Products(String productID, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException{
+    public Products(Integer productID, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
         setProductID(productID);
         setProductName(productName);
         setProductPrice(productPrice);
@@ -26,14 +26,13 @@ public class Products {
         setProductSize(productSize);
         setProductDescription(productDescription);
     }
-    
     //get product ID
-    public String getProductID() throws ProductsException{
+    public Integer getProductID() throws ProductsException {
         return productID;
     }
     
     //set product ID
-    public void setProductID(String productID) throws ProductsException {
+    public void setProductID(Integer productID) throws ProductsException {
         this.productID = productID;
     }
     

@@ -10,18 +10,24 @@
  */
 public class OrderItems  {
 
-    private String orderItemId;
+    private Integer orderItemId;
     private String orderID;
     private String productID;
     private String productPrice;
     private int productQuantity;
-// Get order item id
-    public String getOrderItemId() throws OrderItemsException {
-        return orderItemId;
+
+    //Constructor
+    public OrderItems(Integer orderItemId, String orderID, String productID, String productPrice, int productQuantity) throws OrderItemsException {
+        setOrderID(orderID);
+        setOrderItemId(orderItemId);
+        setProductID(productID);
+        setProductPrice(productPrice);
+        setProductQuantity(productQuantity);
     }
-// Set order item id
-    public void setOrderItemId(String orderItemId) throws OrderItemsException {
-        this.orderItemId = orderItemId;
+
+// Get order item id
+public Integer getOrderItemId() throws OrderItemsException {
+        return orderItemId;
     }
 //Get order id
     public String getOrderID() throws OrderItemsException {
@@ -55,13 +61,10 @@ public class OrderItems  {
     public void setProductQuantity(int productQuantity) throws OrderItemsException {
         this.productQuantity = productQuantity;
     }
-//Constructor
-    public OrderItems(String orderItemId, String orderID, String productID, String productPrice, int productQuantity) throws OrderItemsException {
-       setOrderID(orderID);
-       setOrderItemId(orderItemId);
-       setProductID(productID);
-       setProductPrice(productPrice);
-       setProductQuantity(productQuantity);
+
+    // Set order item id
+    public void setOrderItemId(Integer orderItemId) throws OrderItemsException {
+        this.orderItemId = orderItemId;
     }
 }
 
