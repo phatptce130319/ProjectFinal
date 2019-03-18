@@ -6,9 +6,10 @@
 
 /**
  *
- * @author Admin
+ * @author Dang Buu Hoa
  */
 public class OrdersException extends Exception {
+    //throw exception
     public OrdersException(String message) {
         super (message);
         System.out.println("Orders Exception: " + message);

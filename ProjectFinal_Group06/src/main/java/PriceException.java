@@ -6,9 +6,10 @@
 
 /**
  *
- * @author Admin
+ * @author Dang Buu Hoa
  */
 public class PriceException extends Exception {
+    //throw exception
     public PriceException(String message) {
         super (message);
         System.out.println("Price Exception: " + message);
