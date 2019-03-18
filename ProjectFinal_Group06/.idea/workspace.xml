@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bc2fddee-cd65-4db6-b0b6-497c58d83161" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Employees.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -113,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Customers.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -130,8 +127,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Employees.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1226">
-              <caret line="64" column="93" selection-start-line="64" selection-start-column="93" selection-end-line="64" selection-end-column="93" />
+            <state relative-caret-position="1180">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
         </entry>
@@ -147,6 +144,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -158,8 +156,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/ea84513d-e49c-4eb5-9d18-f2d24c64d03e/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/java/DatabaseConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Employees.java" />
         <option value="$PROJECT_DIR$/src/main/java/Customers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Employees.java" />
       </list>
     </option>
   </component>
@@ -296,7 +294,7 @@
       <option name="presentableId" value="Default" />
       <updated>1552894434410</updated>
       <workItem from="1552894436992" duration="643000" />
-      <workItem from="1552903387813" duration="8471000" />
+      <workItem from="1552903387813" duration="8734000" />
     </task>
     <task id="LOCAL-00001" summary="Fix database">
       <created>1552922741885</created>
@@ -305,11 +303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552922741885</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update the getter and the setter of Customers and Employees class">
+      <created>1552925008202</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552925008202</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9114000" />
+    <option name="totallyTimeSpent" value="9377000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -353,6 +358,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
       <list>
@@ -364,8 +372,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Fix database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix database" />
+    <MESSAGE value="Update the getter and the setter of Customers and Employees class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the getter and the setter of Customers and Employees class" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/26830623-cf4b-4e44-9b60-717042f79b51/console.sql">
@@ -446,14 +459,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Customers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Employees.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1226">
-          <caret line="64" column="93" selection-start-line="64" selection-start-column="93" selection-end-line="64" selection-end-column="93" />
+        <state relative-caret-position="1180">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
     </entry>
