@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import java.util.Date;
+
 /**
  *
  * @author Ha Van Ngoan
@@ -14,10 +16,10 @@ public class Invoices {
     private Integer orderId;
     private Integer employeeId;
     private Integer customerId;
-    private String invoiceDate;
+    private Date invoiceDate;
 //Constructor
 
-    public Invoices(Integer invoiceNumber, Integer Order_id, Integer employeeId, Integer customerId, String invoiceDate) throws InvoicesException {
+    public Invoices(Integer invoiceNumber, Integer Order_id, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
         setInvoiceNumber(invoiceNumber);
         setOrderId(Order_id);
         setEmployeeId(employeeId);
@@ -66,12 +68,12 @@ public class Invoices {
     }
 //Get Invoice date
 
-    public String getInvoiceDate() throws InvoicesException {
+    public Date getInvoiceDate() throws InvoicesException {
         return invoiceDate;
     }
 //Set Invoice date
 
-    public void setInvoiceDate(String invoiceDate) throws InvoicesException {
+    public void setInvoiceDate(Date invoiceDate) throws InvoicesException {
         this.invoiceDate = invoiceDate;
     }
 
