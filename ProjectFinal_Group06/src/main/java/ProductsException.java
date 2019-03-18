@@ -6,11 +6,12 @@
 
 /**
  *
- * @author Admin
+ * @author Dang Buu Hoa
  */
 public class ProductsException extends Exception {
+    //throw exception
     public ProductsException(String message) {
         super (message);
-        System.out.println("Product Exception: " + message);
+        System.out.println("Products Exception: " + message);
     }
 }
