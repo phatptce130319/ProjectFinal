@@ -13,17 +13,27 @@ public class Price {
     /**
      * @param args the command line arguments
      */
+    private int productID;
     private double productPrice;
     private double VAT;
     private double promotion;
     
     //Constructor
-    public Price(double productPrice, double VAT, double promotion) throws PriceException {
+    public Price(int productID, double productPrice, double VAT, double promotion) throws PriceException {
+        setProductID(productID);
         setProductPrice(productPrice);
         setVAT(VAT);
         setPromotion(promotion);
     }
-    
+
+    public int getProductID() throws PriceException {
+        return productID;
+    }
+
+    public void setProductID (int productID) throws PriceException {
+        this.productID = productID;
+    }
+
     //get product Price
     public double getProductPrice() throws PriceException {
         return productPrice;
