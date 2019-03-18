@@ -11,5 +11,6 @@
 public class InvoicesException extends Exception {
     public InvoicesException(String message) {
         super (message);
+        System.out.println("Invoices Exception: " + message);
     }
 }

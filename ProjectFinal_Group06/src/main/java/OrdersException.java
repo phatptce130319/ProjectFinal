@@ -11,5 +11,6 @@
 public class OrdersException extends Exception {
     public OrdersException(String message) {
         super (message);
+        System.out.println("Orders Exception: " + message);
     }
 }

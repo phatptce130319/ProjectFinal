@@ -11,5 +11,6 @@
 public class OrderItemsException extends Exception {
     public OrderItemsException(String message) {
         super (message);
+        System.out.println("Order Items Exception: " + message);
     }
 }
