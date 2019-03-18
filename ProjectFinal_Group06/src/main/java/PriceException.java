@@ -8,8 +8,8 @@
  *
  * @author Dang Buu Hoa
  */
+//The exception is generated if Price has errors
 public class PriceException extends Exception {
-    //throw exception
     public PriceException(String message) {
         super (message);
         System.out.println("Price Exception: " + message);

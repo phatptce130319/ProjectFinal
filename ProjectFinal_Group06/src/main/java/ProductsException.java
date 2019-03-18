@@ -8,8 +8,8 @@
  *
  * @author Dang Buu Hoa
  */
+//The exception is generated if Products has errors
 public class ProductsException extends Exception {
-    //throw exception
     public ProductsException(String message) {
         super (message);
         System.out.println("Products Exception: " + message);
