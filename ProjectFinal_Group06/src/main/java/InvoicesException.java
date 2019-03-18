@@ -6,9 +6,10 @@
 
 /**
  *
- * @author Admin
+ * @author Ha Van Ngoan
  */
 public class InvoicesException extends Exception {
+    //Throw exception
     public InvoicesException(String message) {
         super (message);
         System.out.println("Invoices Exception: " + message);

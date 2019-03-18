@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Admin
+ * @author Ha Van Ngoan
  */
 public class OrderItems  {
 
@@ -15,47 +15,47 @@ public class OrderItems  {
     private String productID;
     private String productPrice;
     private int productQuantity;
-
+// Get order item id
     public String getOrderItemId() throws OrderItemsException {
         return orderItemId;
     }
-
+// Set order item id
     public void setOrderItemId(String orderItemId) throws OrderItemsException {
         this.orderItemId = orderItemId;
     }
-
+//Get order id
     public String getOrderID() throws OrderItemsException {
         return orderID;
     }
-
+//Set order id
     public void setOrderID(String orderID) throws OrderItemsException {
         this.orderID = orderID;
     }
-
+//Get product id
     public String getProductID() throws OrderItemsException {
         return productID;
     }
-
+//Set Product id
     public void setProductID(String productID) throws OrderItemsException {
         this.productID = productID;
     }
-
+//Get product price
     public String getProductPrice() throws OrderItemsException {
         return productPrice;
     }
-
+//Set product pice
     public void setProductPrice(String productPrice) throws OrderItemsException {
         this.productPrice = productPrice;
     }
-
+//Get product quantity
     public int getProductQuantity() throws OrderItemsException {
         return productQuantity;
     }
-
+//Set product quantity
     public void setProductQuantity(int productQuantity) throws OrderItemsException {
         this.productQuantity = productQuantity;
     }
-
+//Constructor
     public OrderItems(String orderItemId, String orderID, String productID, String productPrice, int productQuantity) throws OrderItemsException {
        setOrderID(orderID);
        setOrderItemId(orderItemId);
