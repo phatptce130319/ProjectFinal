@@ -103,7 +103,7 @@ public class ProductsModel {
     //Use this to describe the object shortly
     @Override
     public String toString() {
-        return "Type model has " + getSize() + " records";
+        return "Products model has " + getSize() + " records";
     } //override
 
     //When the object is deposed, close the connection
