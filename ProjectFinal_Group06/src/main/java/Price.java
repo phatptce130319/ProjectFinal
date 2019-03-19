@@ -4,9 +4,6 @@
  */
 public class Price {
 
-    /**
-     * @param args the command line arguments
-     */
     private Double productPrice;
     private Double VAT;
     private Double promotion;

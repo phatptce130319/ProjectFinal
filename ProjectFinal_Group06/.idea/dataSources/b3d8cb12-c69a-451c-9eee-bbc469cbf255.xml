@@ -67,7 +67,7 @@
     </schema>
     <schema id="19" parent="5" name="product_manager">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2019-03-19.04:43:53.040</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-03-20.03:21:33.360</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="20" parent="5" name="sys">
@@ -76,12 +76,12 @@
     <table id="21" parent="19" name="customers">
       <ObjectId>1205579333</ObjectId>
       <CreatedTimestamp>2019-03-19.00:05:19.610</CreatedTimestamp>
-      <ModifiedTimestamp>2019-03-19.00:08:12.690</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-03-20.03:09:16.073</ModifiedTimestamp>
     </table>
     <table id="22" parent="19" name="employees">
       <ObjectId>1269579561</ObjectId>
       <CreatedTimestamp>2019-03-19.00:13:23.367</CreatedTimestamp>
-      <ModifiedTimestamp>2019-03-19.00:13:23.367</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-03-20.03:21:33.207</ModifiedTimestamp>
     </table>
     <table id="23" parent="19" name="invoices">
       <ObjectId>1237579447</ObjectId>
@@ -121,7 +121,7 @@
     </column>
     <column id="30" parent="21" name="gender">
       <Position>3</Position>
-      <DataType>varchar(1 char)|0s</DataType>
+      <DataType>varchar(10 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="31" parent="21" name="email_address">
@@ -160,9 +160,9 @@
       <Unique>1</Unique>
     </index>
     <key id="38" parent="21" name="customers_pk">
-      <ObjectId>1221579390</ObjectId>
-      <CreatedTimestamp>2019-03-19.00:05:19.633</CreatedTimestamp>
-      <ModifiedTimestamp>2019-03-19.00:05:19.633</ModifiedTimestamp>
+      <ObjectId>1525580473</ObjectId>
+      <CreatedTimestamp>2019-03-20.03:06:26.033</CreatedTimestamp>
+      <ModifiedTimestamp>2019-03-20.03:06:26.033</ModifiedTimestamp>
       <ColNames>customer_id</ColNames>
       <UnderlyingIndexName>customers_pk</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -190,7 +190,7 @@
     </column>
     <column id="43" parent="22" name="gender">
       <Position>5</Position>
-      <DataType>nvarchar(1 char)|0s</DataType>
+      <DataType>nvarchar(10 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="44" parent="22" name="employees_pk">

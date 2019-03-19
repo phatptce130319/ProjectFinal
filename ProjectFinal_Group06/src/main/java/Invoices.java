@@ -24,7 +24,7 @@ public class Invoices {
     private Date invoiceDate;
 //Constructor
 
-    public Invoices(Integer invoiceNumber, Integer Order_id, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
+    public Invoices(Integer invoiceNumber, Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
         setInvoiceNumber(invoiceNumber);
         setOrderId(orderId);
         setEmployeeId(employeeId);

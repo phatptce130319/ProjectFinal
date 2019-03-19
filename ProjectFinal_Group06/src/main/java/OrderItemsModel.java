@@ -57,14 +57,14 @@ public class OrderItemsModel {
     }
 
     //Update a type with a specific ID
-    boolean updateInvoice(Integer orderItemId, Integer orderId, Integer productID, Double productPrice, Integer productQuantity) throws InvoicesException {
+    boolean updateOrderItem(Integer orderItemId, Integer orderId, Integer productID, Double productPrice, Integer productQuantity) throws InvoicesException {
         //language=TSQL
         String update = "UPDATE product_manager.order_items SET order_id = ?, product_id = ?, product_price = ?, product_quantity = ? WHERE order_item_id = ?";
         try {
             setValue(orderId,productID,productPrice,productQuantity,update);
             mPreparedStatement.setInt(5, orderItemId);
             mPreparedStatement.executeUpdate();
-            if (sOrderItemsList.size() == 0) throw new InvoicesException("The Type list is empty, cannot update");
+            if (sOrderItemsList.size() == 0) throw new OrderItemsException("The OrderItem list is empty, cannot update");
             for (int i = 0; i < sOrderItemsList.size(); i++) {
                 if (sOrderItemsList.get(i).getOrderItemId().equals(orderItemId)) {
                     sOrderItemsList.set(i,new OrderItems(orderItemId,orderId,productID,productPrice,productQuantity));
@@ -89,7 +89,7 @@ public class OrderItemsModel {
         for (OrderItems orderItem : sOrderItemsList) {
             if (orderItem.getOrderItemId().equals(orderItemId)) return orderItem;
         }
-        throw new OrderItemsException("Cannot find the satisfied product");
+        throw new OrderItemsException("Cannot find the satisfied order item");
     }
 
     //Get the total size of the list

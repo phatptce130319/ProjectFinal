@@ -57,7 +57,7 @@ public class InvoicesModel {
     }
 
     //Update a type with a specific ID
-    boolean updateInvoice(Integer invoiceNum, Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
+    boolean updateInvoice(Integer invoiceNum, Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) {
         //language=TSQL
         String update = "UPDATE product_manager.invoices SET employee_id = ?, employee_id = ?, customer_id = ?, invoice_date = ? WHERE invoice_number = ?";
         try {
@@ -89,7 +89,7 @@ public class InvoicesModel {
         for (Invoices invoices : sInvoicesList) {
             if (invoices.getInvoiceNumber().equals(invoiceNum)) return invoices;
         }
-        throw new InvoicesException("Cannot find the satisfied product");
+        throw new InvoicesException("Cannot find the satisfied invoice");
     }
 
     //Get the total size of the list

@@ -9,8 +9,8 @@
  * @author Ha Van Ngoan
  */
 //The exception is generated if Invoidces has errors
-public class InvoicesException extends Exception {
-    public InvoicesException(String message) {
+class InvoicesException extends Exception {
+    InvoicesException(String message) {
         super (message);
         System.out.println("Invoices Exception: " + message);
     }

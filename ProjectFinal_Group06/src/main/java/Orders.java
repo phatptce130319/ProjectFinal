@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  *
  * @author Dang Buu Hoa
@@ -6,12 +8,12 @@ public class Orders {
 
     private Integer orderId;
     private Integer customerId;
-    private String employeeId;
-    private String dateOrder;
+    private Integer employeeId;
+    private Date dateOrder;
     private String addressOrder;
     
     //Constructor
-    public Orders(Integer orderId, Integer customerId, String employeeId, String dateOrder, String addressOrder) throws OrdersException {
+    public Orders(Integer orderId, Integer customerId, Integer employeeId, Date dateOrder, String addressOrder) throws OrdersException {
         setOrderId(orderId);
         setCustomerId(customerId);
         setEmployeeId(employeeId);
@@ -46,25 +48,25 @@ public class Orders {
     }
     
     //get employee ID
-    public String getEmployeeId() throws OrdersException {
+    public Integer getEmployeeId() throws OrdersException {
         if (employeeId == null) throw new OrdersException("Cannot get the employee's ID");
         return employeeId;
     }
     
     //set employee ID
-    public void setEmployeeId(String employeeId) throws OrdersException {
+    public void setEmployeeId(Integer employeeId) throws OrdersException {
         if (!employeeId.toString().chars().allMatch(Character::isDigit))
             throw new OrdersException("Only accept numbers");
         this.employeeId = employeeId;
     }
     
     //get date Order
-    public String getDateOrder() throws OrdersException {
+    public Date getDateOrder() throws OrdersException {
         return dateOrder;
     }
     
     //set date Order
-    public void setDateOrder(String dateOrder) throws OrdersException {
+    public void setDateOrder(Date dateOrder) throws OrdersException {
         this.dateOrder = dateOrder;
     }
     

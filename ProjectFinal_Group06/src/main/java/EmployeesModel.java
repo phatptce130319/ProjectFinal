@@ -9,16 +9,16 @@ public class EmployeesModel {
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
     //Initialize some connection
-    EmployeesModel() throws CustomersException {
+    EmployeesModel() throws EmployeesException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
         } catch (SQLException e) {
-            throw new CustomersException("Cannot connect to database");
+            throw new EmployeesException("Cannot connect to database");
         }
     }
     //Load data from database and add to local list
-    void loadEmployees() throws CustomersException {
+    void loadEmployees() throws EmployeesException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.employees";
@@ -33,7 +33,7 @@ public class EmployeesModel {
                 sEmployeesList.add(new Employees(id,employeeName,phoneNumber,emailAddress,employeeGender));
             }
         } catch (SQLException | EmployeesException s) {
-            throw new CustomersException("Cannot load database");
+            throw new EmployeesException("Cannot load database");
         }
     }
 
@@ -64,7 +64,7 @@ public class EmployeesModel {
             setValue(employeeName, employeeGender, emailAddress, phoneNumber,update);
             mPreparedStatement.setInt(5, employeeId);
             mPreparedStatement.executeUpdate();
-            if (sEmployeesList.size() == 0) throw new ProductsException("The Type list is empty, cannot update");
+            if (sEmployeesList.size() == 0) throw new ProductsException("The employees list is empty, cannot update");
             for (int i = 0; i < sEmployeesList.size(); i++) {
                 if (sEmployeesList.get(i).getEmployeeId().equals(employeeId)) {
                     sEmployeesList.set(i,new Employees(employeeId,employeeName,phoneNumber,emailAddress,employeeGender));
@@ -89,7 +89,7 @@ public class EmployeesModel {
         for (Employees employee : sEmployeesList) {
             if (employee.getEmployeeId().equals(employeeID)) return employee;
         }
-        throw new EmployeesException("Cannot find the satisfied product");
+        throw new EmployeesException("Cannot find the satisfied employee");
     }
 
     //Get the total size of the list
@@ -100,7 +100,7 @@ public class EmployeesModel {
     //Use this to describe the object shortly
     @Override
     public String toString() {
-        return "Customers model has " + getSize() + " records";
+        return "Employes model has " + getSize() + " records";
     } //override
 
     //When the object is deposed, close the connection

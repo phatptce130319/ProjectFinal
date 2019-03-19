@@ -76,9 +76,9 @@ public class OrderItems  {
     }
 //Set product pice
     public void setProductPrice(Double productPrice) throws OrderItemsException {
-        /*if(!productPrice.toString().chars().allMatch(Character::isDigit)){
-            throw new OrderItemsException("Only accept numbrs");
-        }*/
+        if(!productPrice.toString().chars().allMatch(Character::isDigit)){
+            throw new OrderItemsException("Only accept numbers");
+        }
         if(productPrice <= 0){
             throw new OrderItemsException("Product quantity must be positive number");
         }

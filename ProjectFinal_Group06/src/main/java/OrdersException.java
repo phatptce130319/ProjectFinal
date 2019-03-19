@@ -9,8 +9,8 @@
  * @author Dang Buu Hoa
  */
 //The exception is generated if Orders has errors
-public class OrdersException extends Exception {
-    public OrdersException(String message) {
+class OrdersException extends Exception {
+     OrdersException(String message) {
         super (message);
         System.out.println("Orders Exception: " + message);
     }

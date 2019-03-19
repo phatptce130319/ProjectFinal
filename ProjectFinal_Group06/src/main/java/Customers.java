@@ -11,7 +11,7 @@ public class Customers {
     private String country;
 
     //Constructor to create customers
-    public Customers(Integer customerId, String customerName, String Gender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) throws CustomersException {
+    Customers(Integer customerId, String customerName, String Gender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) throws CustomersException {
         setCustomerId(customerId);
         setCustomerName(customerName);
         setGender(Gender);
@@ -24,13 +24,13 @@ public class Customers {
     }
 
     //Get customer ID
-    public Integer getCustomerId() throws CustomersException {
+    Integer getCustomerId() throws CustomersException {
         if (customerId == null) throw new CustomersException("Cannot get the customer's ID");
         return customerId;
     }
 
     //Set customer ID
-    public void setCustomerId(Integer customerId) throws CustomersException {
+    private void setCustomerId(Integer customerId) throws CustomersException {
         if (!customerId.toString().chars().allMatch(Character::isDigit))
             throw new CustomersException("Only accept numbers");
         this.customerId = customerId;
@@ -43,7 +43,7 @@ public class Customers {
     }
 
     //Set customer name
-    public void setCustomerName(String customerName) throws CustomersException {
+    private void setCustomerName(String customerName) throws CustomersException {
         if (customerName.chars().noneMatch(Character::isLetter))
             throw new CustomersException("Only alphabet letters are accepted");
         if (customerName.equals("")) throw new CustomersException("The field cannot be empty");
@@ -57,7 +57,7 @@ public class Customers {
     }
 
     //Set gender
-    public void setGender(String Gender) throws CustomersException {
+    private void setGender(String Gender) throws CustomersException {
         if (Gender.equals("")) throw new CustomersException("The field cannot be empty");
         if (!Gender.equals("Female") & !Gender.equals("Male"))
             throw new CustomersException("Only Female or Male is accepted");
@@ -71,7 +71,7 @@ public class Customers {
     }
 
     //Set email address
-    public void setEmailAddress(String emailAddress) throws CustomersException {
+    private void setEmailAddress(String emailAddress) throws CustomersException {
         if (emailAddress.equals("")) throw new CustomersException("The field cannot be empty");
         if (!emailAddress.matches("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new CustomersException("Invalid email address");
@@ -85,7 +85,7 @@ public class Customers {
     }
 
     //Set phone number
-    public void setPhoneNumber(String phoneNumber) throws CustomersException {
+    void setPhoneNumber(String phoneNumber) throws CustomersException {
         if (phoneNumber.equals("")) throw new CustomersException("The field cannot be empty");
         if (phoneNumber.length() != 10 | !phoneNumber.chars().allMatch(Character::isLetter))
             throw new CustomersException("Phone number must be a 10 digits string");
@@ -99,7 +99,7 @@ public class Customers {
     }
 
     //Set address line
-    public void setAddressLine(String addressLine) throws CustomersException {
+     void setAddressLine(String addressLine) throws CustomersException {
         if (addressLine.equals("")) throw new CustomersException("The field cannot be empty");
         this.addressLine = addressLine;
     }
@@ -111,7 +111,7 @@ public class Customers {
     }
 
     //Set town city
-    public void setTownCity(String townCity) throws CustomersException {
+    void setTownCity(String townCity) throws CustomersException {
         if (townCity.equals("")) throw new CustomersException("The field cannot be empty");
         this.townCity = townCity;
     }
@@ -136,7 +136,7 @@ public class Customers {
     }
 
     //Set country
-    public void setCountry(String country) throws CustomersException {
+     void setCountry(String country) throws CustomersException {
         if (country.equals("")) throw new CustomersException("The field cannot be empty");
         this.country = country;
     }

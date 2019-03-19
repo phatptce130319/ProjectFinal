@@ -24,6 +24,7 @@ public class ProductsModel {
     //Load data from database and add to local list
     void loadProducts() throws ProductsException {
         try {
+            //language=TSQL
             String query = "SELECT * FROM product_manager.products";
             mResultSet = mStatement.executeQuery(query);
             sProductsList = new ArrayList<>();
@@ -52,6 +53,7 @@ public class ProductsModel {
             mPreparedStatement.setDouble(4, productSize);
             mPreparedStatement.setString(5, productDescription);
             mPreparedStatement.executeUpdate();
+            //language=TSQL
             String query = "SELECT * FROM product_manager.products ORDER BY product_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
