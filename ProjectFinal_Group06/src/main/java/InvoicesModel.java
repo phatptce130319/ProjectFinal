@@ -40,7 +40,7 @@ public class InvoicesModel {
     //Add a type to database
     boolean addInvoice(Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.invoices values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.invoices values(?,?,?,?)";
         try {
             setValue(orderId,employeeId,customerId,invoiceDate,insert);
             mPreparedStatement.executeUpdate();
@@ -64,7 +64,7 @@ public class InvoicesModel {
             setValue(orderId,employeeId,customerId,invoiceDate,update);
             mPreparedStatement.setInt(5, invoiceNum);
             mPreparedStatement.executeUpdate();
-            if (sInvoicesList.size() == 0) throw new InvoicesException("The Type list is empty, cannot update");
+            if (sInvoicesList.isEmpty()) throw new InvoicesException("The Type list is empty, cannot update");
             for (int i = 0; i < sInvoicesList.size(); i++) {
                 if (sInvoicesList.get(i).getEmployeeId().equals(invoiceNum)) {
                     sInvoicesList.set(i,new Invoices(invoiceNum,orderId,employeeId,customerId,invoiceDate));

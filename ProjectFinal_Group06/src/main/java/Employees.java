@@ -1,5 +1,5 @@
 //Author : Phan Tan Phat
-public class Employees{
+public final class Employees{
 
     private Integer employeeId;
     private String employeeName;

@@ -20,6 +20,7 @@ public class CustomersModel {
         //Load data from database and add to local list
         void loadProducts() throws CustomersException {
             try {
+                //language=TSQL
                 String query = "SELECT * FROM product_manager.customers";
                 mResultSet = mStatement.executeQuery(query);
                 sCustomersList = new ArrayList<>();
@@ -42,10 +43,12 @@ public class CustomersModel {
 
         //Add a type to database
         boolean addProduct(String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) {
-            String insert = "INSERT INTO product_manager.customers values(NULL,?,?,?,?,?,?,?,?)";
+            //language=TSQL
+            String insert = "INSERT INTO product_manager.customers values(?,?,?,?,?,?,?,?)";
             try {
                 setValue(customerName, customerGender, emailAddress, phoneNumber, addressLine, townCity, stateCountyProvince, country, insert);
                 mPreparedStatement.executeUpdate();
+                //language=TSQL
                 String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
                 mResultSet = mStatement.executeQuery(query);
                 mResultSet.next();
@@ -59,12 +62,13 @@ public class CustomersModel {
 
         //Update a type with a specific ID
         boolean updateCustomer(int customerId, String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) throws CustomersException {
+            //language=TSQL
             String update = "UPDATE product_manager.customers SET customer_name = ?, gender = ?, email_address = ?, phone_number = ?, address_line = ?, town_city = ?, state_county_province = ?, country = ? WHERE customer_id = ?";
             try {
                 setValue(customerName, customerGender, emailAddress, phoneNumber, addressLine, townCity, stateCountyProvince, country, update);
                 mPreparedStatement.setInt(9, customerId);
                 mPreparedStatement.executeUpdate();
-                if (sCustomersList.size() == 0) throw new ProductsException("The customers list is empty, cannot update");
+                if (sCustomersList.isEmpty()) throw new ProductsException("The customers list is empty, cannot update");
                 for (int i = 0; i < sCustomersList.size(); i++) {
                     if (sCustomersList.get(i).getCustomerId().equals(customerId)) {
                         sCustomersList.set(i,new Customers(customerId,customerName,customerGender,emailAddress,phoneNumber,addressLine,townCity,stateCountyProvince,country));

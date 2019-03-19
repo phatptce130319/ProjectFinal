@@ -15,7 +15,7 @@ import java.util.Date;
  *
  * @author Ha Van Ngoan
  */
-public class Invoices {
+public final class Invoices {
 
     private Integer invoiceNumber;
     private Integer orderId;

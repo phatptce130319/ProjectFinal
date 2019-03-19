@@ -40,7 +40,7 @@ public class OrdersModel {
     //Add a type to database
     boolean addOrder(Integer customerId, Integer employeeId, Date orderDate, String orderAddress) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.orders values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.orders values(?,?,?,?)";
         try {
             setValue(customerId,employeeId,orderDate,orderAddress,insert);
             mPreparedStatement.executeUpdate();
@@ -64,7 +64,7 @@ public class OrdersModel {
             setValue(customerId,employeeId,orderDate,orderAddress,update);
             mPreparedStatement.setInt(5, orderId);
             mPreparedStatement.executeUpdate();
-            if (sOrderList.size() == 0) throw new OrdersException("The Order list is empty, cannot update");
+            if (sOrderList.isEmpty()) throw new OrdersException("The Order list is empty, cannot update");
             for (int i = 0; i < sOrderList.size(); i++) {
                 if (sOrderList.get(i).getOrderId().equals(orderId)) {
                     sOrderList.set(i,new Orders(orderId,customerId,employeeId,orderDate,orderAddress));

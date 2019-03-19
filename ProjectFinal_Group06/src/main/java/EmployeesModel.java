@@ -40,7 +40,7 @@ public class EmployeesModel {
     //Add a type to database
     boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.employees values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.employees values(?,?,?,?)";
         try {
             setValue(employeesName, employeesGender, emailAddress, phoneNumber,insert);
             mPreparedStatement.executeUpdate();
@@ -64,7 +64,7 @@ public class EmployeesModel {
             setValue(employeeName, employeeGender, emailAddress, phoneNumber,update);
             mPreparedStatement.setInt(5, employeeId);
             mPreparedStatement.executeUpdate();
-            if (sEmployeesList.size() == 0) throw new ProductsException("The employees list is empty, cannot update");
+            if (sEmployeesList.isEmpty()) throw new ProductsException("The employees list is empty, cannot update");
             for (int i = 0; i < sEmployeesList.size(); i++) {
                 if (sEmployeesList.get(i).getEmployeeId().equals(employeeId)) {
                     sEmployeesList.set(i,new Employees(employeeId,employeeName,phoneNumber,emailAddress,employeeGender));

@@ -2,7 +2,7 @@
  *
  * @author Dang Buu Hoa
  */
-public class Products {
+public final class Products {
 
     private Integer productId;
     private String productName;
@@ -27,7 +27,7 @@ public class Products {
     }
     
     //set product ID
-    public void setProductId(Integer productID) throws ProductsException {
+    public void setProductId(Integer productId) throws ProductsException {
         if (!productId.toString().chars().allMatch(Character::isDigit))
             throw new ProductsException("Only accept numbers");
         this.productId = productId;
