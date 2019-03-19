@@ -40,7 +40,7 @@ public class EmployeesModel {
     //Add a type to database
     boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.employees values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.employees values(?,?,?,?)";
         try {
             setValue(employeesName, employeesGender, emailAddress, phoneNumber,insert);
             mPreparedStatement.executeUpdate();

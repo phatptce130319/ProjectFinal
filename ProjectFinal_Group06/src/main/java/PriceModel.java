@@ -22,6 +22,7 @@ public class PriceModel {
 //Load data from database and add to local list
     void loadPrice() throws PriceException {
         try {
+            //language=TSQL
             String query = "SELECT * FROM product_manager.price";
             mResultSet = mStatement.executeQuery(query);
             sPriceList = new ArrayList<>();
@@ -38,10 +39,12 @@ public class PriceModel {
     }
 //Add a price to database
     boolean addPrice(Double productPrice, Double vat, Double promotion) {
-        String insert = "INSERT INTO product_manager.price values(NULL,?,?,?)";
+        //language=TSQL
+        String insert = "INSERT INTO product_manager.price values(?,?,?)";
         try {
             setValue(productPrice, vat, promotion, insert);
             mPreparedStatement.executeUpdate();
+            //language=TSQL
             String query = "SELECT * FROM product_manager.price ORDER BY product_price DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
@@ -54,6 +57,7 @@ public class PriceModel {
     }
 //Update a price with a specific ID
     boolean updatePrice(Integer productId, Double productPrice, Double vat, Double promotion) throws PriceException {
+        //language=TSQL
         String update = "UPDATE product_manager.price SET vat = ?, promotion = ?, product_price = ? WHERE product_id = ?";
         try {
             setValue(productPrice, vat, promotion, update);

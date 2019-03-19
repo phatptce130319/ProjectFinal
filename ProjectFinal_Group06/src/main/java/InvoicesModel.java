@@ -40,7 +40,7 @@ public class InvoicesModel {
     //Add a type to database
     boolean addInvoice(Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.invoices values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.invoices values(?,?,?,?)";
         try {
             setValue(orderId,employeeId,customerId,invoiceDate,insert);
             mPreparedStatement.executeUpdate();

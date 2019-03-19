@@ -40,7 +40,7 @@ public class OrderItemsModel {
     //Add a type to database
     boolean addOrderItem(Integer orderId, Integer productID, Double productPrice, Integer productQuantity) {
         //language=TSQL
-        String insert = "INSERT INTO product_manager.order_items values(NULL,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.order_items values(?,?,?,?)";
         try {
             setValue(orderId,productID,productPrice,productQuantity,insert);
             mPreparedStatement.executeUpdate();
