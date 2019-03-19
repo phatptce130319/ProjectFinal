@@ -11,13 +11,13 @@
 public class OrderItems  {
 
     private Integer orderItemId;
-    private String orderID;
-    private String productID;
-    private String productPrice;
-    private int productQuantity;
+    private Integer orderID;
+    private Integer productID;
+    private double productPrice;
+    private Integer productQuantity;
 
     //Constructor
-    public OrderItems(Integer orderItemId, String orderID, String productID, String productPrice, int productQuantity) throws OrderItemsException {
+    public OrderItems(Integer orderItemId, Integer orderID, Integer productID, Double productPrice, int productQuantity) throws OrderItemsException {
         setOrderID(orderID);
         setOrderItemId(orderItemId);
         setProductID(productID);
@@ -30,27 +30,27 @@ public Integer getOrderItemId() throws OrderItemsException {
         return orderItemId;
     }
 //Get order id
-    public String getOrderID() throws OrderItemsException {
+    public Integer getOrderID() throws OrderItemsException {
         return orderID;
     }
 //Set order id
-    public void setOrderID(String orderID) throws OrderItemsException {
+    public void setOrderID(Integer orderID) throws OrderItemsException {
         this.orderID = orderID;
     }
 //Get product id
-    public String getProductID() throws OrderItemsException {
+    public Integer getProductID() throws OrderItemsException {
         return productID;
     }
 //Set Product id
-    public void setProductID(String productID) throws OrderItemsException {
+    public void setProductID(Integer productID) throws OrderItemsException {
         this.productID = productID;
     }
 //Get product price
-    public String getProductPrice() throws OrderItemsException {
+    public Double getProductPrice() throws OrderItemsException {
         return productPrice;
     }
 //Set product pice
-    public void setProductPrice(String productPrice) throws OrderItemsException {
+    public void setProductPrice(Double productPrice) throws OrderItemsException {
         this.productPrice = productPrice;
     }
 //Get product quantity
