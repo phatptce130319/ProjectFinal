@@ -64,7 +64,7 @@ public class OrderItemsModel {
             setValue(orderId,productID,productPrice,productQuantity,update);
             mPreparedStatement.setInt(5, orderItemId);
             mPreparedStatement.executeUpdate();
-            if (sOrderItemsList.size() == 0) throw new OrderItemsException("The OrderItem list is empty, cannot update");
+            if (sOrderItemsList.isEmpty()) throw new OrderItemsException("The OrderItem list is empty, cannot update");
             for (int i = 0; i < sOrderItemsList.size(); i++) {
                 if (sOrderItemsList.get(i).getOrderItemId().equals(orderItemId)) {
                     sOrderItemsList.set(i,new OrderItems(orderItemId,orderId,productID,productPrice,productQuantity));

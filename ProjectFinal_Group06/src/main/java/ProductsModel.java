@@ -77,7 +77,7 @@ public class ProductsModel {
             mPreparedStatement.setString(5, productDescription);
             mPreparedStatement.setInt(6, productId);
             mPreparedStatement.executeUpdate();
-            if (sProductsList.size() == 0) throw new ProductsException("The Type list is empty, cannot update");
+            if (sProductsList.isEmpty()) throw new ProductsException("The Type list is empty, cannot update");
             for (int i = 0; i < sProductsList.size(); i++) {
                 if (sProductsList.get(i).getProductId().equals(productId)) {
                     sProductsList.set(i,new Products(productId,productName,productPrice,productColor,productSize,productDescription));

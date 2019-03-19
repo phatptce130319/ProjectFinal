@@ -1,5 +1,5 @@
 //Author : Phan Tan Phat
-public class Customers {
+public final class Customers {
     private Integer customerId;
     private String customerName;
     private String gender;

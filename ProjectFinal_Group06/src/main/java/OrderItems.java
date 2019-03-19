@@ -8,7 +8,7 @@
  *
  * @author Ha Van Ngoan
  */
-public class OrderItems  {
+public final class OrderItems  {
 
     private Integer orderItemId;
     private Integer orderId;

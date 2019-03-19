@@ -64,7 +64,7 @@ public class InvoicesModel {
             setValue(orderId,employeeId,customerId,invoiceDate,update);
             mPreparedStatement.setInt(5, invoiceNum);
             mPreparedStatement.executeUpdate();
-            if (sInvoicesList.size() == 0) throw new InvoicesException("The Type list is empty, cannot update");
+            if (sInvoicesList.isEmpty()) throw new InvoicesException("The Type list is empty, cannot update");
             for (int i = 0; i < sInvoicesList.size(); i++) {
                 if (sInvoicesList.get(i).getEmployeeId().equals(invoiceNum)) {
                     sInvoicesList.set(i,new Invoices(invoiceNum,orderId,employeeId,customerId,invoiceDate));

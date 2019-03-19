@@ -4,7 +4,7 @@ import java.util.Date;
  *
  * @author Dang Buu Hoa
  */
-public class Orders {
+public final class Orders {
 
     private Integer orderId;
     private Integer customerId;

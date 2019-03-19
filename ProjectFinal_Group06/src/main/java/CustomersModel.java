@@ -64,7 +64,7 @@ public class CustomersModel {
                 setValue(customerName, customerGender, emailAddress, phoneNumber, addressLine, townCity, stateCountyProvince, country, update);
                 mPreparedStatement.setInt(9, customerId);
                 mPreparedStatement.executeUpdate();
-                if (sCustomersList.size() == 0) throw new ProductsException("The customers list is empty, cannot update");
+                if (sCustomersList.isEmpty()) throw new ProductsException("The customers list is empty, cannot update");
                 for (int i = 0; i < sCustomersList.size(); i++) {
                     if (sCustomersList.get(i).getCustomerId().equals(customerId)) {
                         sCustomersList.set(i,new Customers(customerId,customerName,customerGender,emailAddress,phoneNumber,addressLine,townCity,stateCountyProvince,country));

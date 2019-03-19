@@ -2,7 +2,7 @@
  *
  * @author Dang Buu Hoa
  */
-public class Price {
+public final class Price {
 
     private Double productPrice;
     private Double VAT;

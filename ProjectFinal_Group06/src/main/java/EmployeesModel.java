@@ -64,7 +64,7 @@ public class EmployeesModel {
             setValue(employeeName, employeeGender, emailAddress, phoneNumber,update);
             mPreparedStatement.setInt(5, employeeId);
             mPreparedStatement.executeUpdate();
-            if (sEmployeesList.size() == 0) throw new ProductsException("The employees list is empty, cannot update");
+            if (sEmployeesList.isEmpty()) throw new ProductsException("The employees list is empty, cannot update");
             for (int i = 0; i < sEmployeesList.size(); i++) {
                 if (sEmployeesList.get(i).getEmployeeId().equals(employeeId)) {
                     sEmployeesList.set(i,new Employees(employeeId,employeeName,phoneNumber,emailAddress,employeeGender));
