@@ -37,6 +37,9 @@ public class Employees{
 
     //Set employee name
     public void setEmployeeName(String employeeName) throws EmployeesException {
+        if (employeeName.chars().noneMatch(Character::isLetter))
+            throw new EmployeesException("Only alphabet letters are accepted");
+        if (employeeName.equals("")) throw new EmployeesException("The field cannot be empty");
         this.employeeName = employeeName;
     }
 
@@ -48,6 +51,9 @@ public class Employees{
 
     //set phone number
     public void setPhoneNumber(String phoneNumber) throws EmployeesException {
+        if (phoneNumber.equals("")) throw new EmployeesException("The field cannot be empty");
+        if (phoneNumber.length() != 10 | !phoneNumber.chars().allMatch(Character::isLetter))
+            throw new EmployeesException("Phone number must be a 10 digits string");
         this.phoneNumber = phoneNumber;
     }
 
@@ -59,6 +65,9 @@ public class Employees{
 
     //Set email address
     public void setEmailAddress(String emailAddress) throws EmployeesException {
+        if (emailAddress.equals("")) throw new EmployeesException("The field cannot be empty");
+        if (!emailAddress.matches("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
+            throw new EmployeesException("Invalid email address");
         this.emailAddress = emailAddress;
     }
 

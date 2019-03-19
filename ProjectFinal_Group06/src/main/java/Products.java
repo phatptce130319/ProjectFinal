@@ -1,25 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Dang Buu Hoa
  */
 public class Products {
 
-    private Integer productID;
+    private Integer productId;
     private String productName;
-    private double productPrice;
+    private Double productPrice;
     private String productColor;
-    private double productSize;
+    private Double productSize;
     private String productDescription;
     
     //Constructor
-    public Products(Integer productID, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
-        setProductID(productID);
+    public Products(Integer productId, String productName, Double productPrice, String productColor, Double productSize, String productDescription) throws ProductsException {
+        setProductId(productId);
         setProductName(productName);
         setProductPrice(productPrice);
         setProductColor(productColor);
@@ -27,62 +21,83 @@ public class Products {
         setProductDescription(productDescription);
     }
     //get product ID
-    public Integer getProductID() throws ProductsException {
-        return productID;
+    public Integer getProductId() throws ProductsException {
+        if (productId == null) throw new ProductsException("Cannot get the product's ID");
+        return productId;
     }
     
     //set product ID
-    public void setProductID(Integer productID) throws ProductsException {
-        this.productID = productID;
+    public void setProductId(Integer productID) throws ProductsException {
+        if (!productId.toString().chars().allMatch(Character::isDigit))
+            throw new ProductsException("Only accept numbers");
+        this.productId = productId;
     }
     
     //get product Name
     public String getProductName()throws ProductsException {
+        if (productName == null) throw new ProductsException("Cannot get the product's name");
         return productName;
     }
     
     //set product Name
     public void setProductName(String productName) throws ProductsException {
+        if (productName.chars().noneMatch(Character::isLetter))
+            throw new ProductsException("Only alphabet letters are accepted");
+        if (productName.equals("")) throw new ProductsException("The field cannot be empty");
         this.productName = productName;
     }
     
     //get product Price
-    public double getProductPrice() {
+    public Double getProductPrice() throws ProductsException {
+        if (productPrice == null) throw new ProductsException("Cannot get the product price");
         return productPrice;
     }
     
     //set product Price
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(Double productPrice) throws ProductsException {
+        if (!productPrice.toString().chars().allMatch(Character::isDigit))
+            throw new ProductsException("Only accept numbers");
         this.productPrice = productPrice;
     }
 
     //get product Color
-    public String getProductColor() {
+    public String getProductColor() throws ProductsException {
+        if (productColor == null) throw new ProductsException("Cannot get the product's color");
         return productColor;
     }
 
     //set product Color
-    public void setProductColor(String productColor) {
+    public void setProductColor(String productColor) throws ProductsException {
+        if (productColor.chars().noneMatch(Character::isLetter))
+            throw new ProductsException("Only alphabet letters are accepted");
+        if (productColor.equals("")) throw new ProductsException("The field cannot be empty");
         this.productColor = productColor;
     }
 
     //get product Size
-    public double getProductSize() throws ProductsException {
+    public Double getProductSize() throws ProductsException {
+        if (productSize == null) throw new ProductsException("Cannot get the product size");
         return productSize;
     }
 
     //set product Size
-    public void setProductSize(double productSize) throws ProductsException {
+    public void setProductSize(Double productSize) throws ProductsException {
+        if (!productSize.toString().chars().allMatch(Character::isDigit))
+            throw new ProductsException("Only accept numbers");
         this.productSize = productSize;
     }
 
     //get product Description
     public String getProductDescription() throws ProductsException {
+        if (productDescription == null) throw new ProductsException("Cannot get the product's description");
         return productDescription;
     }
 
     //set product Description
-    public void setProductDescription(String productDescription) {
+    public void setProductDescription(String productDescription) throws ProductsException {
+        if (productDescription.chars().noneMatch(Character::isLetter))
+            throw new ProductsException("Only alphabet letters are accepted");
+        if (productDescription.equals("")) throw new ProductsException("The field cannot be empty");
         this.productDescription = productDescription;
     }
 }
