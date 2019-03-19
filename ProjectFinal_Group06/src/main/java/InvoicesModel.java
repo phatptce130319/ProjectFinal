@@ -57,17 +57,17 @@ public class InvoicesModel {
     }
 
     //Update a type with a specific ID
-    boolean updateInvoice(int employeeId, String employeeName, String employeeGender, String emailAddress, String phoneNumber) throws InvoicesException {
+    boolean updateInvoice(Integer invoiceNum, Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
         //language=TSQL
-        String update = "UPDATE product_manager.employees SET employee_name = ?, gender = ?, email_address = ?, phone_number = ? WHERE employee_id = ?";
+        String update = "UPDATE product_manager.invoices SET employee_id = ?, employee_id = ?, customer_id = ?, invoice_date = ? WHERE invoice_number = ?";
         try {
-            setValue(employeeName, employeeGender, emailAddress, phoneNumber,update);
-            mPreparedStatement.setInt(5, employeeId);
+            setValue(orderId,employeeId,customerId,invoiceDate,update);
+            mPreparedStatement.setInt(5, invoiceNum);
             mPreparedStatement.executeUpdate();
-            if (sEmployeesList.size() == 0) throw new ProductsException("The Type list is empty, cannot update");
-            for (int i = 0; i < sEmployeesList.size(); i++) {
-                if (sEmployeesList.get(i).getEmployeeId().equals(employeeId)) {
-                    sEmployeesList.set(i,new Employees(employeeId,employeeName,phoneNumber,emailAddress,employeeGender));
+            if (sInvoicesList.size() == 0) throw new InvoicesException("The Type list is empty, cannot update");
+            for (int i = 0; i < sInvoicesList.size(); i++) {
+                if (sInvoicesList.get(i).getEmployeeId().equals(invoiceNum)) {
+                    sInvoicesList.set(i,new Invoices(invoiceNum,orderId,employeeId,customerId,invoiceDate));
                 }
             }
             return true;
@@ -76,12 +76,12 @@ public class InvoicesModel {
         }
     }
 
-    private void setValue(String employeesName, String employeesGender, String emailAddress, String phoneNumber, String update) throws SQLException {
+    private void setValue(Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate, String update) throws SQLException {
         mPreparedStatement = mConnection.prepareStatement(update);
-        mPreparedStatement.setString(1, employeesName);
-        mPreparedStatement.setString(2, phoneNumber);
-        mPreparedStatement.setString(3, emailAddress);
-        mPreparedStatement.setString(4, employeesGender);
+        mPreparedStatement.setInt(1, orderId);
+        mPreparedStatement.setInt(2, employeeId);
+        mPreparedStatement.setInt(3, customerId);
+        mPreparedStatement.setDate(4, invoiceDate);
     }
 
     //Get the type by giving an ID
@@ -100,7 +100,7 @@ public class InvoicesModel {
     //Use this to describe the object shortly
     @Override
     public String toString() {
-        return "Customers model has " + getSize() + " records";
+        return "Invoices model has " + getSize() + " records";
     } //override
 
     //When the object is deposed, close the connection
