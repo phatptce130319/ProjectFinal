@@ -1,49 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
- * @author Admin
+ * @author Dang Buu Hoa
  */
 public class Price {
 
     /**
      * @param args the command line arguments
      */
-    private double productPrice;
-    private double VAT;
-    private double promotion;
-
-    public Price(double productPrice, double VAT, double promotion) throws PriceException {
+    private Double productPrice;
+    private Double VAT;
+    private Double promotion;
+    
+    //Constructor
+    public Price(Double productPrice, Double VAT, Double promotion) throws PriceException {
         setProductPrice(productPrice);
         setVAT(VAT);
         setPromotion(promotion);
     }
-
-    public double getProductPrice() throws PriceException {
+    
+    //get product Price
+    public Double getProductPrice() throws PriceException {
+        if (productPrice == null) throw new PriceException("Cannot get the product price");
         return productPrice;
     }
-
-    public void setProductPrice(double productPrice) throws PriceException {
+    
+    //set product Price
+    public void setProductPrice(Double productPrice) throws PriceException {
+        if (!productPrice.toString().chars().allMatch(Character::isDigit))
+            throw new PriceException("Only accept numbers");
         this.productPrice = productPrice;
     }
-
-    public double getVAT() throws PriceException {
+    
+    //get VAT
+    public Double getVAT() throws PriceException {
+        if (VAT == null) throw new PriceException("Cannot get the VAT");
         return VAT;
     }
-
-    public void setVAT(double VAT) throws PriceException {
+    
+    //set VAT
+    public void setVAT(Double VAT) throws PriceException {
+        if (!VAT.toString().chars().allMatch(Character::isDigit))
+            throw new PriceException("Only accept numbers");
         this.VAT = VAT;
     }
-
-    public double getPromotion() throws PriceException {
+    
+    //get promotion
+    public Double getPromotion() throws PriceException {
+        if (promotion == null) throw new PriceException("Cannot get the product promotion");
         return promotion;
     }
-
-    public void setPromotion(double promotion) throws PriceException {
+    
+    //set promotion
+    public void setPromotion(Double promotion) throws PriceException {
+        if (!promotion.toString().chars().allMatch(Character::isDigit))
+            throw new PriceException("Only accept numbers");
         this.promotion = promotion;
     }
 }

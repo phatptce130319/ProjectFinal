@@ -9,6 +9,8 @@ import java.util.Date;
  * and open the template in the editor.
  */
 
+import java.util.Date;
+
 /**
  *
  * @author Ha Van Ngoan
@@ -16,13 +18,13 @@ import java.util.Date;
 public class Invoices {
 
     private Integer invoiceNumber;
-    private String orderId;
-    private String employeeId;
-    private String customerId;
-    private String invoiceDate;
+    private Integer orderId;
+    private Integer employeeId;
+    private Integer customerId;
+    private Date invoiceDate;
 //Constructor
 
-    public Invoices(Integer invoiceNumber, String orderId, String employeeId, String customerId, String invoiceDate) throws InvoicesException {
+    public Invoices(Integer invoiceNumber, Integer Order_id, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
         setInvoiceNumber(invoiceNumber);
         setOrderId(orderId);
         setEmployeeId(employeeId);
@@ -119,7 +121,7 @@ public class Invoices {
         }
         this.invoiceDate = invoiceDate;
     }
-    
+
     public static boolean ValidDate(String date) {
         SimpleDateFormat CheckDate = new SimpleDateFormat("dd/MM/yyyy");
         Date testDate = null;

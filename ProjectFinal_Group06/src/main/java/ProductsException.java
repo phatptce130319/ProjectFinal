@@ -6,11 +6,12 @@
 
 /**
  *
- * @author Admin
+ * @author Dang Buu Hoa
  */
+//The exception is generated if Products has errors
 public class ProductsException extends Exception {
     public ProductsException(String message) {
         super (message);
-        System.out.println("Product Exception: " + message);
+        System.out.println("Products Exception: " + message);
     }
 }

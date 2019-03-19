@@ -15,7 +15,7 @@ public class OrderItems  {
     private String productId;
     private String productPrice;
     private Integer productQuantity;
-    
+
     //Constructor
     public OrderItems(String orderItemId, String orderId, String productId, String productPrice, Integer productQuantity) throws OrderItemsException {
        setOrderId(orderId);
@@ -24,7 +24,7 @@ public class OrderItems  {
        setProductPrice(productPrice);
        setProductQuantity(productQuantity);
     }
-    
+
 // Get order item id
     public String getOrderItemId() throws OrderItemsException {
         if (orderItemId == null) {
@@ -111,6 +111,8 @@ public class OrderItems  {
         this.productQuantity = productQuantity;
     }
 
+    // Set order item id
+    public void setOrderItemId(Integer orderItemId) throws OrderItemsException {
+        this.orderItemId = orderItemId;
+    }
 }
-
-
