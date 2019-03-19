@@ -49,7 +49,7 @@ public class CustomersModel {
                 String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
                 mResultSet = mStatement.executeQuery(query);
                 mResultSet.next();
-                sCustomersList.add(new Customers(mResultSet.getInt("customer_id"),mResultSet.getString("customer_name"),mResultSet.getString("gender"),mResultSet.getString("email_address"),mResultSet.getString("phone_number"),mResultSet.getString("address_line"),mResultSet.getString("town_city"),mResultSet.getString("state_county_province"),mResultSet.getString("country"));
+                sCustomersList.add(new Customers(mResultSet.getInt("customer_id"),mResultSet.getString("customer_name"),mResultSet.getString("gender"),mResultSet.getString("email_address"),mResultSet.getString("phone_number"),mResultSet.getString("address_line"),mResultSet.getString("town_city"),mResultSet.getString("state_county_province"),mResultSet.getString("country")));
                 return true;
             } catch (SQLException | CustomersException e) {
                 System.out.println(e.getMessage());
@@ -59,16 +59,15 @@ public class CustomersModel {
 
         //Update a type with a specific ID
         boolean updateCustomer(int customerId, String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) throws CustomersException {
-            String update = "UPDATE product_manager.customers SET customer_name = ?, gender = ?, email_address = ?, phone_number = ?, address_line = ?, town_city = ?, state_county_province = ?, country = ? WHERE product_id = ?";
+            String update = "UPDATE product_manager.customers SET customer_name = ?, gender = ?, email_address = ?, phone_number = ?, address_line = ?, town_city = ?, state_county_province = ?, country = ? WHERE customer_id = ?";
             try {
                 setValue(customerName, customerGender, emailAddress, phoneNumber, addressLine, townCity, stateCountyProvince, country, update);
                 mPreparedStatement.setInt(9, customerId);
-
                 mPreparedStatement.executeUpdate();
-                if (sProductsList.size() == 0) throw new ProductsException("The Type list is empty, cannot update");
-                for (int i = 0; i < sProductsList.size(); i++) {
-                    if (sProductsList.get(i).getProductId().equals(productId)) {
-                        sProductsList.set(i,new Products(productId,productName,productPrice,productColor,productSize,productDescription));
+                if (sCustomersList.size() == 0) throw new ProductsException("The Type list is empty, cannot update");
+                for (int i = 0; i < sCustomersList.size(); i++) {
+                    if (sCustomersList.get(i).getCustomerId().equals(customerId)) {
+                        sCustomersList.set(i,new Customers(customerId,customerName,customerGender,emailAddress,phoneNumber,addressLine,townCity,stateCountyProvince,country));
                     }
                 }
                 return true;
@@ -90,22 +89,22 @@ public class CustomersModel {
     }
 
     //Get the type by giving an ID
-        Products getProduct(Integer productId) throws ProductsException {
-            for (Products product : sProductsList) {
-                if (product.getProductId().equals(productId)) return product;
+        Customers getCustomer(Integer customerID) throws CustomersException {
+            for (Customers customer : sCustomersList) {
+                if (customer.getCustomerId().equals(customerID)) return customer;
             }
-            throw new ProductsException("Cannot find the satisfied product");
+            throw new CustomersException("Cannot find the satisfied product");
         }
 
         //Get the total size of the list
         private int getSize() {
-            return sProductsList.size();
+            return sCustomersList.size();
         }
 
         //Use this to describe the object shortly
         @Override
         public String toString() {
-            return "Products model has " + getSize() + " records";
+            return "Customers model has " + getSize() + " records";
         } //override
 
         //When the object is deposed, close the connection
