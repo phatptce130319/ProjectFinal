@@ -49,27 +49,24 @@ public class Invoices {
     }
 //Get order id
 
-    public String getOrderId() throws InvoicesException {
+    public Integer getOrderId() throws InvoicesException {
         if (orderId == null) {
             throw new InvoicesException("Can't get the Order's Id");
         }
         return orderId;
     }
 //Set order id
-    c
+    
 
-    public void setOrderId(String orderId) throws InvoicesException {
-        if (!orderId.chars().allMatch(Character::isDigit)) {
+    public void setOrderId(Integer orderId) throws InvoicesException {
+        if (!orderId.toString().chars().allMatch(Character::isDigit)) {
             throw new InvoicesException("Only accept numbers");
-        }
-        if (orderId.equals("")) {
-            throw new InvoicesException("The field can't empty");
         }
         this.orderId = orderId;
     }
 //Get Employee id
 
-    public String getEmployeeId() throws InvoicesException {
+    public Integer getEmployeeId() throws InvoicesException {
         if (employeeId == null) {
             throw new InvoicesException("Can't get the Employee's Id");
         }
@@ -77,18 +74,15 @@ public class Invoices {
     }
 //Set Employee id
 
-    public void setEmployeeId(String employeeId) throws InvoicesException {
-        if (!employeeId.chars().allMatch(Character::isDigit)) {
+    public void setEmployeeId(Integer employeeId) throws InvoicesException {
+        if (!employeeId.toString().chars().allMatch(Character::isDigit)) {
             throw new InvoicesException("Only accept numbers");
-        }
-        if (employeeId.equals("")) {
-            throw new InvoicesException("The field can't empty");
         }
         this.employeeId = employeeId;
     }
 //Get Customer id
 
-    public String getCustomerId() throws InvoicesException {
+    public Integer getCustomerId() throws InvoicesException {
         if (customerId == null) {
             throw new InvoicesException("Can't get the Customer's Id");
         }
@@ -96,18 +90,15 @@ public class Invoices {
     }
 //Set Customer id
 
-    public void setCustomerId(String customerId) throws InvoicesException {
-        if (!customerId.chars().allMatch(Character::isDigit)) {
+    public void setCustomerId(Integer customerId) throws InvoicesException {
+        if (!customerId.toString().chars().allMatch(Character::isDigit)) {
             throw new InvoicesException("Only accept numbers");
-        }
-        if (customerId.equals("")) {
-            throw new InvoicesException("The field can't empty");
         }
         this.customerId = customerId;
     }
 //Get Invoice date
 
-    public String getInvoiceDate() throws InvoicesException {
+    public Date getInvoiceDate() throws InvoicesException {
         if (invoiceDate == null) {
             throw new InvoicesException("Can't get the Invoice date");
         }
@@ -115,25 +106,8 @@ public class Invoices {
     }
 //Set Invoice date
 
-    public void setInvoiceDate(String invoiceDate) throws InvoicesException {
-        if(ValidDate(invoiceDate) == false){
-            throw new InvoicesException("Invoice date invalid");
-        }
+    public void setInvoiceDate(Date invoiceDate) throws InvoicesException {
         this.invoiceDate = invoiceDate;
-    }
-
-    public static boolean ValidDate(String date) {
-        SimpleDateFormat CheckDate = new SimpleDateFormat("dd/MM/yyyy");
-        Date testDate = null;
-        try {
-            testDate = CheckDate.parse(date);
-        } catch (ParseException e) {
-            return false;
-        }
-        if (!CheckDate.format(testDate).equals(date)) {
-            return false;
-        }
-        return true;
     }
 
 }
