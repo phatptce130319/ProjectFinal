@@ -1,0 +1,30 @@
+.button-raised{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -jfx-button-type: RAISED;
+    -fx-background-color: rgb(77,102,204);
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+}
+.button-delete{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -jfx-button-type: RAISED;
+    -fx-background-color: red;
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+}
+.animated-option-button {
+    -fx-pref-width:60px;
+    -fx-background-color: #44B449;
+    -fx-background-radius: 50px;
+    -fx-pref-height: 60px;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 50px;
+    -fx-border-width: 4px;
+}
+
+.animated-option-sub-button{
+    -fx-background-color: #43609C;
+}

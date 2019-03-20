@@ -1,6 +1,7 @@
 package gui;
 
 import com.jfoenix.controls.JFXTabPane;
+import entity.Customers;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -77,10 +78,10 @@ public class MainController {
             }
         };
 
-        configureTab(customersTab, "Customers", "/user-profile.png", customersContainer, getClass().getResource("/customers_view.fxml"), replaceBackgroundColorHandler);
-        configureTab(productsTab, "Products", "/settings.png", productsContainer, getClass().getResource("/products_view.fxml"), replaceBackgroundColorHandler);
-        configureTab(employeesTab, "Employees", "/logout.png", employeesContainer, getClass().getResource("/employees_view.fxml"), replaceBackgroundColorHandler);
-        configureTab(ordersTab,"Orders","/settings.png",ordersContainer,getClass().getResource("/orders_view.fxml"),replaceBackgroundColorHandler);
+        configureTab(customersTab, "Customers", "/customers.png", customersContainer, getClass().getResource("/customers_view.fxml"), replaceBackgroundColorHandler);
+        configureTab(productsTab, "Products", "/products.png", productsContainer, getClass().getResource("/products_view.fxml"), replaceBackgroundColorHandler);
+        configureTab(employeesTab, "Employees", "/employees.png", employeesContainer, getClass().getResource("/employees_view.fxml"), replaceBackgroundColorHandler);
+        configureTab(ordersTab,"Orders","/orders.png",ordersContainer,getClass().getResource("/orders_view.fxml"),replaceBackgroundColorHandler);
         customersTab.setStyle("-fx-background-color: -fx-focus-color;");
     }
 
