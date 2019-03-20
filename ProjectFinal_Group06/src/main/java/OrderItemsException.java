@@ -9,8 +9,8 @@
  * @author Ha Van Ngoan
  */
 //The exception is generated if Order Items has errors
-public class OrderItemsException extends Exception {
-    public OrderItemsException(String message) {
+class OrderItemsException extends Exception {
+     OrderItemsException(String message) {
         super (message);
         System.out.println("Order Items Exception: " + message);
     }

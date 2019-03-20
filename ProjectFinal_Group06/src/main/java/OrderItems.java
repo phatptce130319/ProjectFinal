@@ -8,61 +8,97 @@
  *
  * @author Ha Van Ngoan
  */
-public class OrderItems  {
+public final class OrderItems  {
 
-    private String orderItemId;
-    private String orderID;
-    private String productID;
-    private String productPrice;
-    private int productQuantity;
-// Get order item id
-    public String getOrderItemId() throws OrderItemsException {
-        return orderItemId;
-    }
-// Set order item id
-    public void setOrderItemId(String orderItemId) throws OrderItemsException {
-        this.orderItemId = orderItemId;
-    }
-//Get order id
-    public String getOrderID() throws OrderItemsException {
-        return orderID;
-    }
-//Set order id
-    public void setOrderID(String orderID) throws OrderItemsException {
-        this.orderID = orderID;
-    }
-//Get product id
-    public String getProductID() throws OrderItemsException {
-        return productID;
-    }
-//Set Product id
-    public void setProductID(String productID) throws OrderItemsException {
-        this.productID = productID;
-    }
-//Get product price
-    public String getProductPrice() throws OrderItemsException {
-        return productPrice;
-    }
-//Set product pice
-    public void setProductPrice(String productPrice) throws OrderItemsException {
-        this.productPrice = productPrice;
-    }
-//Get product quantity
-    public int getProductQuantity() throws OrderItemsException {
-        return productQuantity;
-    }
-//Set product quantity
-    public void setProductQuantity(int productQuantity) throws OrderItemsException {
-        this.productQuantity = productQuantity;
-    }
-//Constructor
-    public OrderItems(String orderItemId, String orderID, String productID, String productPrice, int productQuantity) throws OrderItemsException {
-       setOrderID(orderID);
+    private Integer orderItemId;
+    private Integer orderId;
+    private Integer productId;
+    private Double productPrice;
+    private Integer productQuantity;
+
+    //Constructor
+    public OrderItems(Integer orderItemId, Integer orderId, Integer productId, Double productPrice, Integer productQuantity) throws OrderItemsException {
+       setOrderId(orderId);
        setOrderItemId(orderItemId);
-       setProductID(productID);
+       setProductId(productId);
        setProductPrice(productPrice);
        setProductQuantity(productQuantity);
     }
+
+// Get order item id
+    public Integer getOrderItemId() throws OrderItemsException {
+        if (orderItemId == null) {
+            throw new OrderItemsException("Can't get the order item Id");
+        }
+        return orderItemId;
+    }
+// Set order item id
+    public void setOrderItemId(Integer orderItemId) throws OrderItemsException {
+        if (!orderItemId.toString().chars().allMatch(Character::isDigit)) {
+            throw new OrderItemsException("Only accept numbers");
+        }
+        this.orderItemId = orderItemId;
+    }
+//Get order id
+    public Integer getOrderId() throws OrderItemsException {
+        if (orderId == null) {
+            throw new OrderItemsException("Can't get the order's id");
+        }
+        return orderId;
+    }
+//Set order id
+    public void setOrderId(Integer orderId) throws OrderItemsException {
+        if (!orderId.toString().chars().allMatch(Character::isDigit)) {
+            throw new OrderItemsException("Only accept numbers");
+        }
+        this.orderId = orderId;
+    }
+//Get product id
+    public Integer getProductId() throws OrderItemsException {
+        if (productId == null) {
+            throw new OrderItemsException("Can't get the product's Id");
+        }
+        return productId;
+    }
+//Set Product id
+    public void setProductId(Integer productId) throws OrderItemsException {
+        if (!productId.toString().chars().allMatch(Character::isDigit)) {
+            throw new OrderItemsException("Only accept numbers");
+        }
+        this.productId = productId;
+    }
+//Get product price
+    public Double getProductPrice() throws OrderItemsException {
+        if (productPrice == null) {
+            throw new OrderItemsException("Can't get the product price");
+        }
+        return productPrice;
+    }
+//Set product pice
+    public void setProductPrice(Double productPrice) throws OrderItemsException {
+        if(!productPrice.toString().chars().allMatch(Character::isDigit)){
+            throw new OrderItemsException("Only accept numbers");
+        }
+        if(productPrice <= 0){
+            throw new OrderItemsException("Product quantity must be positive number");
+        }
+        this.productPrice = productPrice;
+    }
+//Get product quantity
+    public Integer getProductQuantity() throws OrderItemsException {
+        if (productQuantity == null) {
+            throw new OrderItemsException("Can't get the product quantity");
+        }
+        return productQuantity;
+    }
+//Set product quantity
+    public void setProductQuantity(Integer productQuantity) throws OrderItemsException {
+        if(!productQuantity.toString().chars().allMatch(Character::isDigit)){
+            throw new OrderItemsException("Only accept numbers");
+        }
+        if(productQuantity <= 0){
+            throw new OrderItemsException("Product quantity must be positive number");
+        }
+        this.productQuantity = productQuantity;
+    }
 }
-
-

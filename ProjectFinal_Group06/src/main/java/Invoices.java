@@ -1,77 +1,112 @@
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import java.util.Date;
+
 /**
  *
  * @author Ha Van Ngoan
  */
-public class Invoices {
+public final class Invoices {
 
-    private int invoiceNumber;
-    private String orderId;
-    private String employeeId;
-    private String customerId;
-    private String invoiceDate;
+    private Integer invoiceNumber;
+    private Integer orderId;
+    private Integer employeeId;
+    private Integer customerId;
+    private Date invoiceDate;
 //Constructor
 
-    public Invoices(int invoiceNumber, String Order_id, String employeeId, String customerId, String invoiceDate) throws InvoicesException {
+    public Invoices(Integer invoiceNumber, Integer orderId, Integer employeeId, Integer customerId, Date invoiceDate) throws InvoicesException {
         setInvoiceNumber(invoiceNumber);
-        setOrderId(Order_id);
+        setOrderId(orderId);
         setEmployeeId(employeeId);
         setCustomerId(customerId);
         setInvoiceDate(invoiceDate);
     }
 // Get Invoice  number
 
-    public int getInvoiceNumber() throws InvoicesException {
+    public Integer getInvoiceNumber() throws InvoicesException {
+        if (invoiceNumber == null) {
+            throw new InvoicesException("Can't get the Invoice number");
+        }
         return invoiceNumber;
     }
 // Set Invoice  number
 
-    public void setInvoiceNumber(int invoiceNumber) throws InvoicesException {
+    public void setInvoiceNumber(Integer invoiceNumber) throws InvoicesException {
+        if (!invoiceNumber.toString().chars().allMatch(Character::isDigit)) {
+            throw new InvoicesException("Only accept numbers");
+        }
         this.invoiceNumber = invoiceNumber;
     }
 //Get order id
 
-    public String getOrderId() throws InvoicesException {
+    public Integer getOrderId() throws InvoicesException {
+        if (orderId == null) {
+            throw new InvoicesException("Can't get the Order's Id");
+        }
         return orderId;
     }
 //Set order id
+    
 
-    public void setOrderId(String Order_id) throws InvoicesException {
-        this.orderId = Order_id;
+    public void setOrderId(Integer orderId) throws InvoicesException {
+        if (!orderId.toString().chars().allMatch(Character::isDigit)) {
+            throw new InvoicesException("Only accept numbers");
+        }
+        this.orderId = orderId;
     }
 //Get Employee id
 
-    public String getEmployeeId() throws InvoicesException {
+    public Integer getEmployeeId() throws InvoicesException {
+        if (employeeId == null) {
+            throw new InvoicesException("Can't get the Employee's Id");
+        }
         return employeeId;
     }
 //Set Employee id
 
-    public void setEmployeeId(String employeeId) throws InvoicesException {
+    public void setEmployeeId(Integer employeeId) throws InvoicesException {
+        if (!employeeId.toString().chars().allMatch(Character::isDigit)) {
+            throw new InvoicesException("Only accept numbers");
+        }
         this.employeeId = employeeId;
     }
 //Get Customer id
 
-    public String getCustomerId() throws InvoicesException {
+    public Integer getCustomerId() throws InvoicesException {
+        if (customerId == null) {
+            throw new InvoicesException("Can't get the Customer's Id");
+        }
         return customerId;
     }
 //Set Customer id
 
-    public void setCustomerId(String customerId) throws InvoicesException {
+    public void setCustomerId(Integer customerId) throws InvoicesException {
+        if (!customerId.toString().chars().allMatch(Character::isDigit)) {
+            throw new InvoicesException("Only accept numbers");
+        }
         this.customerId = customerId;
     }
 //Get Invoice date
 
-    public String getInvoiceDate() throws InvoicesException {
+    public Date getInvoiceDate() throws InvoicesException {
+        if (invoiceDate == null) {
+            throw new InvoicesException("Can't get the Invoice date");
+        }
         return invoiceDate;
     }
 //Set Invoice date
 
-    public void setInvoiceDate(String invoiceDate) throws InvoicesException {
+    public void setInvoiceDate(Date invoiceDate) throws InvoicesException {
         this.invoiceDate = invoiceDate;
     }
 

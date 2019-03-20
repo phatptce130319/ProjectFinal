@@ -1,56 +1,82 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
  * @author Dang Buu Hoa
  */
-public class Price {
+public final class Price {
 
-    /**
-     * @param args the command line arguments
-     */
-    private double productPrice;
-    private double VAT;
-    private double promotion;
-    
+    private Double productPrice;
+    private Double VAT;
+    private Double promotion;
+    private Integer productId;
+
     //Constructor
-    public Price(double productPrice, double VAT, double promotion) throws PriceException {
+    public Price(Integer productId, Double productPrice, Double VAT, Double promotion) throws PriceException {
         setProductPrice(productPrice);
         setVAT(VAT);
         setPromotion(promotion);
+        setProductId(productId);
     }
-    
+    //Get product id
+    public Integer getProductId() throws PriceException {
+        if (productId == null) {
+            throw new PriceException("Cannot get the product's id");
+        }
+        return productId;
+    }
+    //Set product id
+    public void setProductId(Integer productId) throws PriceException {
+        if (!productId.toString().chars().allMatch(Character::isDigit)) {
+            throw new PriceException("Only accept numbers");
+        }
+        this.productId = productId;
+    }
+
     //get product Price
-    public double getProductPrice() throws PriceException {
+    public Double getProductPrice() throws PriceException {
+        if (productPrice == null) {
+            throw new PriceException("Cannot get the product price");
+        }
         return productPrice;
     }
-    
+
     //set product Price
-    public void setProductPrice(double productPrice) throws PriceException {
+    public void setProductPrice(Double productPrice) throws PriceException {
+        if (!productPrice.toString().chars().allMatch(Character::isDigit)) {
+            throw new PriceException("Only accept numbers");
+        }
         this.productPrice = productPrice;
     }
-    
+
     //get VAT
-    public double getVAT() throws PriceException {
+    public Double getVAT() throws PriceException {
+        if (VAT == null) {
+            throw new PriceException("Cannot get the VAT");
+        }
         return VAT;
     }
-    
+
     //set VAT
-    public void setVAT(double VAT) throws PriceException {
+    public void setVAT(Double VAT) throws PriceException {
+        if (!VAT.toString().chars().allMatch(Character::isDigit)) {
+            throw new PriceException("Only accept numbers");
+        }
         this.VAT = VAT;
     }
-    
+
     //get promotion
-    public double getPromotion() throws PriceException {
+    public Double getPromotion() throws PriceException {
+        if (promotion == null) {
+            throw new PriceException("Cannot get the product promotion");
+        }
         return promotion;
     }
-    
+
     //set promotion
-    public void setPromotion(double promotion) throws PriceException {
+    public void setPromotion(Double promotion) throws PriceException {
+        if (!promotion.toString().chars().allMatch(Character::isDigit)) {
+            throw new PriceException("Only accept numbers");
+        }
         this.promotion = promotion;
     }
 }
