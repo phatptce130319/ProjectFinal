@@ -4,11 +4,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entity.Products;
 import entity.ProductsException;
+import entity.ProductsModel;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddProductDialogController {
+    private ProductsModel pm;
     @FXML
     private JFXTextField nameField;
     @FXML
@@ -24,6 +26,12 @@ public class AddProductDialogController {
 
     @FXML
     private void initialize() {
+        try {
+            pm = new ProductsModel();
+            pm.loadProducts();
+        } catch (ProductsException e) {
+            e.printStackTrace();
+        }
         setAddAction();
     }
     private void setAddAction() {
@@ -34,7 +42,7 @@ public class AddProductDialogController {
             String size = sizeField.getText();
             String description = descriptionField.getText();
             try {
-                ProductsController.addProduct = new Products(0, name, Double.parseDouble(price), color, Double.parseDouble(size), description);
+                ProductsController.addProduct = new Products(pm.getLastedIndex() + 1, name, Double.parseDouble(price), color, Double.parseDouble(size), description);
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 ProductsController.isAdd = true;
                 stage.close();

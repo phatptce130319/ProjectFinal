@@ -66,19 +66,17 @@ public class OrdersModel {
 
     public int getLastedIndex() {
         //language=TSQL
+        int index = -1;
         String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
         try {
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
+            index = mResultSet.getInt("order_id");
+            mStatement.execute("DBCC CHECKIDENT ('[product_manager].[orders]' , RESEED, " + index + ")");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try {
-            return mResultSet.getInt("order_id");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
+        return index;
     }
     //Update a type with a specific ID
     public boolean updateOrder(Integer orderId, Integer customerId, Integer employeeId, Date orderDate, String orderAddress) throws OrdersException {

@@ -10,7 +10,6 @@ public class CustomersModel {
         private Statement mStatement;
         private PreparedStatement mPreparedStatement;
         private ResultSet mResultSet;
-        public static int latestID = -1;
         //Initialize some connection
         public CustomersModel() throws CustomersException {
             try {
@@ -55,7 +54,6 @@ public class CustomersModel {
                 String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
                 mResultSet = mStatement.executeQuery(query);
                 mResultSet.next();
-                latestID = mResultSet.getInt("customer_id");
                 sCustomersList.add(new Customers(mResultSet.getInt("customer_id"),mResultSet.getString("customer_name"),mResultSet.getString("gender"),mResultSet.getString("email_address"),mResultSet.getString("phone_number"),mResultSet.getString("address_line"),mResultSet.getString("town_city"),mResultSet.getString("state_county_province"),mResultSet.getString("country")));
                 return true;
             } catch (SQLException | CustomersException e) {
@@ -63,6 +61,21 @@ public class CustomersModel {
                 return false;
             }
         }
+
+    public int getLastedIndex() {
+        //language=TSQL
+        int index = -1;
+        String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
+        try {
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            index = mResultSet.getInt("customer_id");
+            mStatement.execute("DBCC CHECKIDENT ('[product_manager].[customers]' , RESEED, " + index + ")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return index;
+    }
 
     public void deleteCustomer(int customerID) {
             String delete = "DELETE FROM product_manager.customers WHERE customer_id = ?";

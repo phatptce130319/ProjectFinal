@@ -3,20 +3,18 @@ package gui;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXNodesList;
 import com.jfoenix.controls.JFXTextField;
-import entity.*;
+import entity.Products;
+import entity.ProductsException;
+import entity.ProductsModel;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
@@ -25,15 +23,11 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ProductsController {
     private List<String> productsName;
@@ -168,32 +162,7 @@ public class ProductsController {
         FilteredList<Products> filteredData = new FilteredList<>(productsList, p -> true);
 
 
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(product -> {
-            // If filter text is empty, display all persons.
-            if (newValue == null || newValue.isEmpty()) {
-                return true;
-            }
-
-            // Compare first name and last name of every person with filter text.
-            String lowerCaseFilter = newValue.toLowerCase();
-
-            try {
-                if (product.getProductName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (product.getProductId().toString().equals(lowerCaseFilter)) {
-                    return true;
-                }
-            } catch (ProductsException e) {
-                e.printStackTrace();
-            }
-            return false; // Does not match.
-        }));
-
-        SortedList<Products> sortedData = new SortedList<>(filteredData);
-
-        sortedData.comparatorProperty().bind(productsTable.comparatorProperty());
-
-        productsTable.setItems(sortedData);
+        AddOrderController.sortData(filteredData, searchField, productsTable);
 
     }
 
@@ -221,24 +190,7 @@ public class ProductsController {
         int row = pos.getRow();
         Products product = event.getTableView().getItems().get(row);
         try {
-            switch (columnIndex) {
-                case 2:
-                    product.setProductName(value);
-                    break;
-                case 3:
-                    product.setProductPrice(Double.parseDouble(value));
-                    break;
-                case 4:
-                    product.setProductColor(value);
-                    break;
-                case 5:
-                    product.setProductSize(Double.parseDouble(value));
-                    break;
-                case 6:
-                    product.setProductDescription(value);
-                    break;
-            }
-            pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
+            AddOrderController.setIndex(columnIndex, value, product, pm);
         } catch (ProductsException e) {
             e.printStackTrace();
         }
@@ -250,7 +202,6 @@ public class ProductsController {
             if (isAdd) {
                 try {
                     pm.addProduct(addProduct.getProductName(), addProduct.getProductPrice(), addProduct.getProductColor(), addProduct.getProductSize(), addProduct.getProductDescription());
-                    addProduct.setProductId(EmployeesModel.latestID);
                     productsList.add(addProduct);
                     productsName.add(addProduct.getProductName());
                     TextFields.bindAutoCompletion(searchField,productsName);

@@ -44,7 +44,7 @@ public class ProductsModel {
 
     //Add a type to database
     public boolean addProduct(String productName, double productPrice, String productColor, double productSize, String productDescription) {
-        String insert = "INSERT INTO product_manager.products values(NULL,?,?,?,?,?)";
+        String insert = "INSERT INTO product_manager.products values(?,?,?,?,?)";
         try {
             mPreparedStatement = mConnection.prepareStatement(insert);
             mPreparedStatement.setString(1, productName);
@@ -57,7 +57,7 @@ public class ProductsModel {
             String query = "SELECT * FROM product_manager.products ORDER BY product_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            latestID = mResultSet.getInt("customer_id");
+            latestID = mResultSet.getInt("product_id");
             sProductsList.add(new Products(mResultSet.getInt("product_id"),mResultSet.getString("product_name"),mResultSet.getDouble("product_price"),mResultSet.getString("product_color"),mResultSet.getDouble("product_size"),mResultSet.getString("product_description")));
             return true;
         } catch (SQLException | ProductsException e) {
@@ -101,6 +101,20 @@ public class ProductsModel {
         }
     }
 
+    public int getLastedIndex() {
+        //language=TSQL
+        int index = -1;
+        String query = "SELECT * FROM product_manager.products ORDER BY product_id DESC";
+        try {
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            index = mResultSet.getInt("product_id");
+            mStatement.execute("DBCC CHECKIDENT ('[product_manager].[products]' , RESEED, " + index + ")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return index;
+    }
     //Get the type by giving an ID
     public Products getProduct(Integer productId) throws ProductsException {
         for (Products product : sProductsList) {

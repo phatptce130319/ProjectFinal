@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entity.Customers;
 import entity.CustomersException;
+import entity.CustomersModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -11,6 +12,7 @@ import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddDialogController {
+    private CustomersModel cm;
     @FXML
     private JFXTextField nameField;
     @FXML
@@ -34,6 +36,12 @@ public class AddDialogController {
     private ToggleGroup genderGroup;
     @FXML
     private void initialize(){
+        try {
+            cm = new CustomersModel();
+            cm.loadCustomers();
+        } catch (CustomersException e) {
+            e.printStackTrace();
+        }
         genderGroup = new ToggleGroup();
         maleRadio.setToggleGroup(genderGroup);
         femaleRadio.setToggleGroup(genderGroup);
@@ -52,7 +60,7 @@ public class AddDialogController {
             RadioButton genderRadio = (RadioButton) genderGroup.getSelectedToggle();
             String gender = genderRadio.getText();
             try {
-                CustomersController.addCustomer = new Customers(0,name,gender,email,phone,address,townCity,stateCountyProvince,country);
+                CustomersController.addCustomer = new Customers(cm.getLastedIndex() + 1, name, gender, email, phone, address, townCity, stateCountyProvince, country);
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 CustomersController.isAdd = true;
                 stage.close();

@@ -68,7 +68,7 @@ public final class Employees{
     //Set email address
     public void setEmailAddress(String emailAddress) throws EmployeesException {
         if (emailAddress.equals("")) throw new EmployeesException("The field cannot be empty");
-        if (!emailAddress.matches("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
+        if (!emailAddress.matches("^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new EmployeesException("Invalid email address");
         this.emailAddress = emailAddress;
     }

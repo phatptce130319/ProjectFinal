@@ -2,76 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0077b00-77cf-4f84-9f26-3f5d069b6c5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/AddOrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/AddQuantityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/EditOrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/InfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edit_order_dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/info_dialog.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/quantity_product.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b3d8cb12-c69a-451c-9eee-bbc469cbf255.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b3d8cb12-c69a-451c-9eee-bbc469cbf255.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b3d8cb12-c69a-451c-9eee-bbc469cbf255/storage_v2/_src_/database/product_manager.XSQ-ww/schema/product_manager.XSQ-ww.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b3d8cb12-c69a-451c-9eee-bbc469cbf255/storage_v2/_src_/database/product_manager.XSQ-ww/schema/product_manager.XSQ-ww.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_manager_product_manager_customers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product_manager_product_manager_customers.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_manager_product_manager_employees.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product_manager_product_manager_employees.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_manager_product_manager_order_items.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product_manager_product_manager_order_items.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_manager_product_manager_orders.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product_manager_product_manager_orders.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_manager_product_manager_products.sql" beforeDir="false" afterPath="$PROJECT_DIR$/product_manager_product_manager_products.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Customers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Employees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/EmployeesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/EmployeesException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrderItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrderItemsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrderItemsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Orders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrdersException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrdersException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Gender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrdersModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrdersModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/AddOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/AddOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/EmployeesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/EmployeesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/OrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/customers_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/customers_view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/customers_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/customers_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/delete_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/delete_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/employees_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/employees_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/orders_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/orders_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/products_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/add_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/add_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/add_product_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/add_product_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/customers_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/customers_view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/customers_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/customers_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/employees_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/employees_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/CustomersModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/CustomersModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Employees.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Employees.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/EmployeesException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/EmployeesException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/EmployeesModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/EmployeesModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/OrderItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrderItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/OrderItemsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrderItemsException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entity/OrderItemsModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrderItemsModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Orders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/OrdersException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrdersException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entity/OrdersModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrdersModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Products.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/ProductsModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/ProductsModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddProductDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddProductDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/CustomersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/CustomersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddOrderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/DeleteDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/DeleteDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/EmployeesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/EmployeesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/OrdersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/ProductsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/orders_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/orders_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/products_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/products_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/FunctionLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/FunctionLibrary.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -113,6 +70,13 @@
         <item name="product_manager@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
         <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="employees: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="product_manager@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
         <item name="order_items: table" type="63ab2ba1:MsImplModel$Table" />
       </path>
       <path>
@@ -121,6 +85,13 @@
         <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
         <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
         <item name="orders: table" type="63ab2ba1:MsImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="product_manager@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="products: table" type="63ab2ba1:MsImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -131,65 +102,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.css">
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="52" />
+            <state relative-caret-position="441">
+              <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/CustomersModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+            <state relative-caret-position="207">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddDialogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="12" column="34" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#629#630#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddQuantityController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="222">
+              <caret line="62" column="85" selection-start-line="62" selection-start-column="85" selection-end-line="62" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -200,31 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddOrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#7402#7403#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="38" column="24" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/InfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+            <state relative-caret-position="23">
+              <caret line="133" column="13" lean-forward="true" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -232,12 +143,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="214" column="11" selection-start-line="214" selection-start-column="11" selection-end-line="214" selection-end-column="11" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="81" column="5" lean-forward="true" selection-start-line="68" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/EmployeesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1558">
+              <caret line="252" column="149" selection-start-line="252" selection-start-column="149" selection-end-line="252" selection-end-column="149" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrdersModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="59" column="55" selection-start-line="59" selection-start-column="55" selection-end-line="59" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/CustomersController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="311" column="266" selection-start-line="311" selection-start-column="266" selection-end-line="311" selection-end-column="266" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -264,6 +225,9 @@
       <find>name</find>
       <find>unfo</find>
       <find>linear</find>
+      <find>println</find>
+      <find>printl</find>
+      <find>pri</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -273,10 +237,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/orders_view.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/Test.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mainScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/Gender.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/CustomersException.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/EmployeesException.java" />
@@ -284,30 +245,14 @@
         <option value="$PROJECT_DIR$/src/main/java/entity/OrdersException.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/PriceException.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/ProductsException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/Customers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/Employees.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_3.sql" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Products.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Orders.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/main/resources/edit_order_dialog.fxml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/EmployeesController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/OrderItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/AddQuantityController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/OrdersModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/OrdersController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/global.css" />
         <option value="$PROJECT_DIR$/src/main/java/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml" />
@@ -320,10 +265,29 @@
         <option value="$PROJECT_DIR$/src/main/resources/quantity_product.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/info_dialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/gui/InfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/AddOrderController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/customers_view.css" />
         <option value="$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/add_dialog.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_5.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_4.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/OrdersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/Customers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/Employees.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/Gender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/AddOrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/EmployeesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/OrdersModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" />
       </list>
     </option>
   </component>
@@ -346,7 +310,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -407,8 +373,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,8 +383,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553058457907" />
     <property name="database.console.LAST_STATE" value="false" />
+    <property name="last.edited.regexp" value="sda@gmail.com" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/sqljdbc_7.2/enu/mssql-jdbc-7.2.1.jre8.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -518,7 +483,8 @@
       <workItem from="1553138524037" duration="35579000" />
       <workItem from="1553175639840" duration="970000" />
       <workItem from="1553176613473" duration="91000" />
-      <workItem from="1553176707604" duration="3279000" />
+      <workItem from="1553176707604" duration="9608000" />
+      <workItem from="1553190602803" duration="2258000" />
     </task>
     <task id="LOCAL-00001" summary="Fix database">
       <created>1552922741885</created>
@@ -555,23 +521,31 @@
       <option name="project" value="LOCAL" />
       <updated>1553144291796</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Done all functions needed, need to comment">
+      <created>1553188267676</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1553188267676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101555000" />
+    <option name="totallyTimeSpent" value="110142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21428572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicates" weight="0.32977587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977587" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29028815" />
@@ -596,7 +570,7 @@
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="SciView" order="6" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="7" weight="0.34221748" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.34221748" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
@@ -624,7 +598,8 @@
     <MESSAGE value="Update All ID to Integer, using Integer instead of int primative. Add a model to be a sample for other inherit." />
     <MESSAGE value="Update date type to match the SQL Server date type" />
     <MESSAGE value="Update the Products layout Gui with some error catching" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the Products layout Gui with some error catching" />
+    <MESSAGE value="Done all functions needed, need to comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done all functions needed, need to comment" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -633,161 +608,156 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java</url>
-          <line>63</line>
+          <url>file://$PROJECT_DIR$/src/main/java/gui/InfoController.java</url>
+          <line>64</line>
           <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrdersException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/delete_dialog.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/employees_view.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        <state relative-caret-position="451">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/orders_view.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/products_view.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/quantity_product.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/info_dialog.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="38" column="24" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="24" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/PriceException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Customers.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
-          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/EmployeesException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="214" column="11" selection-start-line="214" selection-start-column="11" selection-end-line="214" selection-end-column="11" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        <state relative-caret-position="115">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Employees.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="48" column="62" lean-forward="true" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+        <state relative-caret-position="184">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_5.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
-          <caret line="31" column="65" lean-forward="true" selection-start-line="31" selection-start-column="65" selection-end-line="31" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/PriceModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_3.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Products.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="78" column="22" lean-forward="true" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b3d8cb12-c69a-451c-9eee-bbc469cbf255/database/product_manager/schema/product_manager/table/products">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/CustomersModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="75" column="5" lean-forward="true" selection-start-line="66" selection-start-column="4" selection-end-line="75" selection-end-column="5" />
+          <caret line="1" column="57" lean-forward="true" selection-end-line="1" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-744">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="201">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+          <folding>
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1188#1189#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/edit_order_dialog.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/InfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/EmployeesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+        <state relative-caret-position="339">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Orders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="69" column="13" lean-forward="true" selection-end-line="277" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="79" column="65" lean-forward="true" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItemsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+    <entry file="das://b3d8cb12-c69a-451c-9eee-bbc469cbf255/database/product_manager/schema/product_manager/table/order_items">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -798,17 +768,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrdersModel.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/OrdersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="21" column="56" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        <state relative-caret-position="1805">
+          <caret line="222" column="40" selection-start-line="222" selection-start-column="40" selection-end-line="222" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_4.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Customers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-674">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/CustomersException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/DatabaseConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/EmployeesException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Gender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Invoices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="-46">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -824,155 +849,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+        <state relative-caret-position="958">
+          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="100" column="22" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-          <folding>
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#5772#5773#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CustomersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="315" column="28" selection-end-line="345" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/OrdersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="114" column="44" selection-start-line="114" selection-start-column="44" selection-end-line="114" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b3d8cb12-c69a-451c-9eee-bbc469cbf255/database/product_manager/schema/product_manager/table/order_items">
+    <entry file="das://b3d8cb12-c69a-451c-9eee-bbc469cbf255/database/product_manager/schema/product_manager/table/products">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mainScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="49" column="76" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/delete_dialog.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/employees_view.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/orders_view.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/products_view.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/quantity_product.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/info_dialog.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/InfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,63 +874,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddOrderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+        <state relative-caret-position="383">
+          <caret line="44" column="83" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7402#7403#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="216" column="13" lean-forward="true" selection-start-line="216" selection-start-column="13" selection-end-line="216" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Employees.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="79" column="65" lean-forward="true" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Products.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddEmployeeDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="485">
+          <caret line="50" column="85" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="24" />
+    <entry file="das://b3d8cb12-c69a-451c-9eee-bbc469cbf255/database/product_manager/schema/product_manager/table/employees">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddOrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="34" />
+        <state relative-caret-position="23">
+          <caret line="133" column="13" lean-forward="true" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/EmployeesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="52" />
+        <state relative-caret-position="1558">
+          <caret line="252" column="149" selection-start-line="252" selection-start-column="149" selection-end-line="252" selection-end-column="149" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b3d8cb12-c69a-451c-9eee-bbc469cbf255/console_2.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        <state>
+          <caret lean-forward="true" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="214" column="11" selection-start-line="214" selection-start-column="11" selection-end-line="214" selection-end-column="11" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/EmployeesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="81" column="5" lean-forward="true" selection-start-line="68" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="114" column="21" lean-forward="true" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrdersModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/OrderItemsModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="59" column="55" selection-start-line="59" selection-start-column="55" selection-end-line="59" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/CustomersModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/CustomersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="311" column="266" selection-start-line="311" selection-start-column="266" selection-end-line="311" selection-end-column="266" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddDialogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="62" column="85" selection-start-line="62" selection-start-column="85" selection-end-line="62" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
