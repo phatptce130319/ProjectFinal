@@ -112,6 +112,71 @@ public class AddOrderController {
         });
     }
 
+    static void sortData(FilteredList<Products> filteredData, JFXTextField searchField, TableView<Products> productsTable) {
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(product -> {
+            // If filter text is empty, display all persons.
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            // Compare first name and last name of every person with filter text.
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            try {
+                if (product.getProductName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (product.getProductId().toString().equals(lowerCaseFilter)) {
+                    return true;
+                }
+            } catch (ProductsException e) {
+                e.printStackTrace();
+            }
+            return false; // Does not match.
+        }));
+
+        SortedList<Products> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(productsTable.comparatorProperty());
+
+        productsTable.setItems(sortedData);
+    }
+
+    static void setIndex(int columnIndex, String value, Products product, ProductsModel pm) throws ProductsException {
+        switch (columnIndex) {
+            case 2:
+                product.setProductName(value);
+                break;
+            case 3:
+                product.setProductPrice(Double.parseDouble(value));
+                break;
+            case 4:
+                product.setProductColor(value);
+                break;
+            case 5:
+                product.setProductSize(Double.parseDouble(value));
+                break;
+            case 6:
+                product.setProductDescription(value);
+                break;
+        }
+        pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
+    }
+
+    private void setEditTable() {
+        setEditableColumn();
+    }
+    private void setEditableColumn() {
+        productsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        productsNameColumn.setOnEditCommit(event -> setEditOnColumn(event, 2));
+        productsPriceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
+        productsColorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
+        productsSizeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        productsSizeColumn.setOnEditCommit(event -> setEditOnColumn(event, 5));
+
+    }
+
     private void mappingData() {
         productsNameColumn.setCellValueFactory(cellData -> {
             try {
@@ -147,46 +212,7 @@ public class AddOrderController {
         });
 
         FilteredList<Products> filteredData = new FilteredList<>(productsList, p -> true);
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(product -> {
-            // If filter text is empty, display all persons.
-            if (newValue == null || newValue.isEmpty()) {
-                return true;
-            }
-
-            // Compare first name and last name of every person with filter text.
-            String lowerCaseFilter = newValue.toLowerCase();
-
-            try {
-                if (product.getProductName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (product.getProductId().toString().equals(lowerCaseFilter)) {
-                    return true;
-                }
-            } catch (ProductsException e) {
-                e.printStackTrace();
-            }
-            return false; // Does not match.
-        }));
-
-        SortedList<Products> sortedData = new SortedList<>(filteredData);
-
-        sortedData.comparatorProperty().bind(productsTable.comparatorProperty());
-
-        productsTable.setItems(sortedData);
-
-    }
-    private void setEditTable() {
-        setEditableColumn();
-    }
-    private void setEditableColumn() {
-        productsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsNameColumn.setOnEditCommit(event -> setEditOnColumn(event, 2));
-        productsPriceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
-        productsColorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
-        productsSizeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsSizeColumn.setOnEditCommit(event -> setEditOnColumn(event, 5));
+        sortData(filteredData, searchField, productsTable);
 
     }
 
@@ -196,24 +222,7 @@ public class AddOrderController {
         int row = pos.getRow();
         Products product = event.getTableView().getItems().get(row);
         try {
-            switch (columnIndex) {
-                case 2:
-                    product.setProductName(value);
-                    break;
-                case 3:
-                    product.setProductPrice(Double.parseDouble(value));
-                    break;
-                case 4:
-                    product.setProductColor(value);
-                    break;
-                case 5:
-                    product.setProductSize(Double.parseDouble(value));
-                    break;
-                case 6:
-                    product.setProductDescription(value);
-                    break;
-            }
-            pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
+            setIndex(columnIndex, value, product, pm);
         } catch (ProductsException ignored) {
 
         }

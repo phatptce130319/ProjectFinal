@@ -15,12 +15,9 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
@@ -30,15 +27,11 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class CustomersController {
     static Customers addCustomer;
@@ -317,7 +310,6 @@ public class CustomersController {
             if (isAdd) {
                 try {
                     cm.addCustomer(addCustomer.getCustomerName(),addCustomer.getGender(),addCustomer.getEmailAddress(),addCustomer.getPhoneNumber(),addCustomer.getAddressLine(),addCustomer.getTownCity(),addCustomer.getStateCountyProvince(),addCustomer.getCountry());
-                    addCustomer.setCustomerId(CustomersModel.latestID);
                     customerList.add(addCustomer);
                     customerName.add(addCustomer.getCustomerName());
                     TextFields.bindAutoCompletion(searchField,customerName);

@@ -77,7 +77,7 @@ public final class Customers {
     //Set email address
     public void setEmailAddress(String emailAddress) throws CustomersException {
         if (emailAddress.equals("")) throw new CustomersException("The field cannot be empty");
-        if (!emailAddress.matches("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
+        if (!emailAddress.matches("^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new CustomersException("Invalid email address");
         this.emailAddress = FunctionLibrary.convertToTitleCase(emailAddress);
     }

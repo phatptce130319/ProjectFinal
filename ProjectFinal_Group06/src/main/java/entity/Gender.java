@@ -7,7 +7,7 @@ public enum Gender {
     private String code;
     private String text;
 
-    private Gender(String code, String text) {
+    Gender(String code, String text) {
         this.code = code;
         this.text = text;
     }

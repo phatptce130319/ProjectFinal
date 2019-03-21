@@ -2,10 +2,9 @@ package gui;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import entity.Customers;
-import entity.CustomersException;
 import entity.Employees;
 import entity.EmployeesException;
+import entity.EmployeesModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -13,6 +12,7 @@ import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddEmployeeDialogController {
+    private EmployeesModel em;
     @FXML
     private JFXTextField nameField;
     @FXML
@@ -28,6 +28,12 @@ public class AddEmployeeDialogController {
     private ToggleGroup genderGroup;
     @FXML
     private void initialize(){
+        try {
+            em = new EmployeesModel();
+            em.loadEmployees();
+        } catch (EmployeesException e) {
+            e.printStackTrace();
+        }
         genderGroup = new ToggleGroup();
         maleRadio.setToggleGroup(genderGroup);
         femaleRadio.setToggleGroup(genderGroup);
@@ -42,7 +48,7 @@ public class AddEmployeeDialogController {
             RadioButton genderRadio = (RadioButton) genderGroup.getSelectedToggle();
             String gender = genderRadio.getText();
             try {
-                EmployeesController.addEmployee = new Employees(0,name,phone,email,gender);
+                EmployeesController.addEmployee = new Employees(em.getLastedIndex() + 1, name, phone, email, gender);
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 EmployeesController.isAdd = true;
                 stage.close();

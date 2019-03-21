@@ -6,7 +6,6 @@ import java.util.List;
 
 public class EmployeesModel {
     public static List<Employees> sEmployeesList;
-    public static int latestID;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
@@ -54,19 +53,33 @@ public class EmployeesModel {
         //language=TSQL
         String insert = "INSERT INTO product_manager.employees values(?,?,?,?)";
         try {
-            setValue(employeesName, employeesGender, emailAddress, phoneNumber,insert);
+            setValue(employeesName, phoneNumber, emailAddress, employeesGender, insert);
             mPreparedStatement.executeUpdate();
             //language=TSQL
             String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            latestID = mResultSet.getInt("employee_id");
             sEmployeesList.add(new Employees(mResultSet.getInt("employee_id"),mResultSet.getString("employee_name"),mResultSet.getString("phone_number"),mResultSet.getString("email_address"),mResultSet.getString("gender")));
             return true;
         } catch (SQLException | EmployeesException e) {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public int getLastedIndex() {
+        //language=TSQL
+        int index = -1;
+        String query = "SELECT * FROM product_manager.employees ORDER BY employee_id DESC";
+        try {
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            index = mResultSet.getInt("employee_id");
+            mStatement.execute("DBCC CHECKIDENT ('[product_manager].[employees]' , RESEED, " + index + ")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return index;
     }
 
     //Update a type with a specific ID
