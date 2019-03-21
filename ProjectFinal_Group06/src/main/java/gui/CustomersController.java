@@ -203,6 +203,8 @@ public class CustomersController {
             try {
                 if (customer.getCustomerName().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
+                } else if (customer.getCustomerId().toString().equals(lowerCaseFilter)) {
+                    return true;
                 }
             } catch (CustomersException e) {
                 e.printStackTrace();
@@ -314,10 +316,11 @@ public class CustomersController {
         });
         deleteButton.setOnMouseClicked(event -> {
             setUpNewWindows("/delete_dialog.fxml","Delete Customer Dialog");
+            DeleteDialogController.type = DeleteDialogController.CUSTOMERS;
             if (isDelete) {
                 customerList.remove(selectedItem);
                 try {
-                    cm.deleteWord(selectedItem.getCustomerId());
+                    cm.deleteCustomer(selectedItem.getCustomerId());
                 } catch (CustomersException e) {
                     e.printStackTrace();
                 }

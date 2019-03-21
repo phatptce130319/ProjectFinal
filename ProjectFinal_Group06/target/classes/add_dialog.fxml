@@ -64,7 +64,7 @@
             <Insets right="25.0" />
          </GridPane.margin>
       </RadioButton>
-      <RadioButton fx:id="maleRadio" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <RadioButton fx:id="maleRadio" mnemonicParsing="false" selected="true" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets left="25.0" />
          </GridPane.margin>

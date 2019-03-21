@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import util.FunctionLibrary;
 
 public class AddDialogController {
     @FXML
@@ -52,12 +53,12 @@ public class AddDialogController {
             String gender = genderRadio.getText();
             try {
                 CustomersController.addCustomer = new Customers(0,name,gender,email,phone,address,townCity,stateCountyProvince,country);
+                Stage stage = (Stage) addButton.getScene().getWindow();
+                CustomersController.isAdd = true;
+                stage.close();
             } catch (CustomersException e) {
-                e.printStackTrace();
+                FunctionLibrary.showAlertError(e.getMessage());
             }
-            Stage stage = (Stage) addButton.getScene().getWindow();
-            CustomersController.isAdd = true;
-            stage.close();
         });
     }
 }

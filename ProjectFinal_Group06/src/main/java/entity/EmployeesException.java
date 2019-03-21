@@ -5,6 +5,6 @@ package entity;
 class EmployeesException extends Exception {
     EmployeesException(String message) {
         super (message);
-        System.out.println("entity.Employees Exception: " + message);
+        System.out.println("Employees Exception: " + message);
     }
 }

@@ -7,13 +7,13 @@ import java.util.List;
 public class ProductsModel {
 
 
-    static List<Products> sProductsList;
+    public static List<Products> sProductsList;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
     //Initialize some connection
-    ProductsModel() throws ProductsException {
+    public ProductsModel() throws ProductsException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
@@ -22,7 +22,7 @@ public class ProductsModel {
         }
     }
     //Load data from database and add to local list
-    void loadProducts() throws ProductsException {
+    public void loadProducts() throws ProductsException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.products";
@@ -43,7 +43,7 @@ public class ProductsModel {
     }
 
     //Add a type to database
-    boolean addProduct(String productName, double productPrice,String productColor, double productSize, String productDescription) {
+    public boolean addProduct(String productName, double productPrice, String productColor, double productSize, String productDescription) {
         String insert = "INSERT INTO product_manager.products values(NULL,?,?,?,?,?)";
         try {
             mPreparedStatement = mConnection.prepareStatement(insert);
@@ -66,7 +66,7 @@ public class ProductsModel {
     }
 
     //Update a type with a specific ID
-    boolean updateProduct(int productId, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
+    public boolean updateProduct(int productId, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
         String update = "UPDATE product_manager.products SET product_name = ?, product_price = ?, product_color = ?, product_size = ?, product_description = ? WHERE product_id = ?";
         try {
             mPreparedStatement = mConnection.prepareStatement(update);
@@ -86,6 +86,17 @@ public class ProductsModel {
             return true;
         } catch (SQLException | ProductsException e) {
             return false;
+        }
+    }
+
+    public void deleteProduct(int productID) {
+        String delete = "DELETE FROM product_manager.products WHERE product_id = ?";
+        try {
+            mPreparedStatement = mConnection.prepareStatement(delete);
+            mPreparedStatement.setInt(1, productID);
+            mPreparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
