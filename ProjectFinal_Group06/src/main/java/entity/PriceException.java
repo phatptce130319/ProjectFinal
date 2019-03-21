@@ -12,6 +12,6 @@ package entity;/*
 class PriceException extends Exception {
      PriceException(String message) {
         super (message);
-        System.out.println("entity.Price Exception: " + message);
+         System.out.println("Price Exception: " + message);
     }
 }

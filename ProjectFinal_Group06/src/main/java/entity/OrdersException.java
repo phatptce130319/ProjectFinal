@@ -9,9 +9,9 @@ package entity;/*
  * @author Dang Buu Hoa
  */
 //The exception is generated if entity.Orders has errors
-class OrdersException extends Exception {
+public class OrdersException extends Exception {
      OrdersException(String message) {
         super (message);
-        System.out.println("entity.Orders Exception: " + message);
+         System.out.println("Orders Exception: " + message);
     }
 }

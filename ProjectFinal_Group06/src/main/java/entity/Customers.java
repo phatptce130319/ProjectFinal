@@ -1,5 +1,7 @@
 package entity;
 
+import util.FunctionLibrary;
+
 //Author : Phan Tan Phat
 public final class Customers {
     private Integer customerId;
@@ -49,7 +51,7 @@ public final class Customers {
         if (customerName.chars().noneMatch(Character::isLetter))
             throw new CustomersException("Only alphabet letters are accepted");
         if (customerName.equals("")) throw new CustomersException("The field cannot be empty");
-        this.customerName = customerName;
+        this.customerName = FunctionLibrary.convertToTitleCase(customerName);
     }
 
     //Get gender
@@ -63,7 +65,7 @@ public final class Customers {
         if (Gender.equals("")) throw new CustomersException("The field cannot be empty");
         if (!Gender.equals("Female") & !Gender.equals("Male"))
             throw new CustomersException("Only Female or Male is accepted");
-        this.gender = Gender;
+        this.gender = FunctionLibrary.convertToTitleCase(Gender);
     }
 
     //Get email address
@@ -77,7 +79,7 @@ public final class Customers {
         if (emailAddress.equals("")) throw new CustomersException("The field cannot be empty");
         if (!emailAddress.matches("^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new CustomersException("Invalid email address");
-        this.emailAddress = emailAddress;
+        this.emailAddress = FunctionLibrary.convertToTitleCase(emailAddress);
     }
 
     //Get phone number
@@ -89,8 +91,8 @@ public final class Customers {
     //Set phone number
     public void setPhoneNumber(String phoneNumber) throws CustomersException {
         if (phoneNumber.equals("")) throw new CustomersException("The field cannot be empty");
-        /*if (phoneNumber.length() != 10 | !phoneNumber.chars().allMatch(Character::isLetter))
-            throw new CustomersException("Phone number must be a 10 digits string");*/
+        if (phoneNumber.length() != 10 | phoneNumber.chars().anyMatch(Character::isLetter))
+            throw new CustomersException("Phone number must be a 10 digits string");
         this.phoneNumber = phoneNumber;
     }
 
@@ -115,7 +117,7 @@ public final class Customers {
     //Set town city
     public void setTownCity(String townCity) throws CustomersException {
         if (townCity.equals("")) throw new CustomersException("The field cannot be empty");
-        this.townCity = townCity;
+        this.townCity = FunctionLibrary.convertToTitleCase(townCity);
     }
 
     //Get state, county and province
@@ -128,7 +130,7 @@ public final class Customers {
     //Set state, county and province
     public void setStateCountyProvince(String stateCountyProvince) throws CustomersException {
         if (stateCountyProvince.equals("")) throw new CustomersException("The field cannot be empty");
-        this.stateCountyProvince = stateCountyProvince;
+        this.stateCountyProvince = FunctionLibrary.convertToTitleCase(stateCountyProvince);
     }
 
     //Get country
@@ -140,7 +142,7 @@ public final class Customers {
     //Set country
     public void setCountry(String country) throws CustomersException {
         if (country.equals("")) throw new CustomersException("The field cannot be empty");
-        this.country = country;
+        this.country = FunctionLibrary.convertToTitleCase(country);
     }
     @Override
     public String toString(){

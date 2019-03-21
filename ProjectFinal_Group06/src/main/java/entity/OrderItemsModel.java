@@ -6,21 +6,26 @@ import java.util.List;
 
 public class OrderItemsModel {
     static List<OrderItems> sOrderItemsList;
+    public static int orderIndex;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
     //Initialize some connection
-    OrderItemsModel() throws OrderItemsException {
+    public OrderItemsModel() throws OrderItemsException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
+            String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            orderIndex = mResultSet.getInt("order_id");
         } catch (SQLException e) {
             throw new OrderItemsException("Cannot connect to database");
         }
     }
     //Load data from database and add to local list
-    void loadOrderItems() throws OrderItemsException {
+    public void loadOrderItems() throws OrderItemsException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.order_items";
@@ -30,24 +35,30 @@ public class OrderItemsModel {
                 int orderItemId = mResultSet.getInt("order_item_id");
                 int orderId = mResultSet.getInt("order_id");
                 int productId = mResultSet.getInt("product_id");
-                double productPrice = mResultSet.getDouble("customer_price");
+                double productPrice = mResultSet.getDouble("product_price");
                 int productQuantity = mResultSet.getInt("product_quantity");
                 sOrderItemsList.add(new OrderItems(orderItemId,orderId,productId,productPrice,productQuantity));
             }
         } catch (SQLException | OrderItemsException s) {
-            throw new OrderItemsException("Cannot load database");
+            throw new OrderItemsException(s.getMessage());
         }
     }
 
     //Add a type to database
-    boolean addOrderItem(Integer orderId, Integer productID, Double productPrice, Integer productQuantity) {
+    public boolean addOrderItem(Integer orderId, Integer productID, Double productPrice, Integer productQuantity) {
         //language=TSQL
         String insert = "INSERT INTO product_manager.order_items values(?,?,?,?)";
         try {
             setValue(orderId,productID,productPrice,productQuantity,insert);
             mPreparedStatement.executeUpdate();
+
             //language=TSQL
-            String query = "SELECT * FROM product_manager.order_items ORDER BY order_id DESC";
+            String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            orderIndex = mResultSet.getInt("order_id");
+            System.out.println("Order ID " + orderIndex);
+            query = "SELECT * FROM product_manager.order_items ORDER BY order_item_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
             sOrderItemsList.add(new OrderItems(mResultSet.getInt("order_item_id"), mResultSet.getInt("order_id") ,mResultSet.getInt("product_id"),mResultSet.getDouble("product_price"),mResultSet.getInt("product_quantity")));
@@ -58,8 +69,9 @@ public class OrderItemsModel {
         }
     }
 
+
     //Update a type with a specific ID
-    boolean updateOrderItem(Integer orderItemId, Integer orderId, Integer productID, Double productPrice, Integer productQuantity) throws InvoicesException {
+    public boolean updateOrderItem(Integer orderItemId, Integer orderId, Integer productID, Double productPrice, Integer productQuantity) throws InvoicesException {
         //language=TSQL
         String update = "UPDATE product_manager.order_items SET order_id = ?, product_id = ?, product_price = ?, product_quantity = ? WHERE order_item_id = ?";
         try {
@@ -77,8 +89,19 @@ public class OrderItemsModel {
             return false;
         }
     }
+    public List<OrderItems>getAllItemInOrder(int orderId){
+        List<OrderItems> result = new ArrayList<>();
+        for (OrderItems item: sOrderItemsList){
+            try {
+                if (item.getOrderId().equals(orderId)) result.add(item);
+            } catch (OrderItemsException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 
-    private void setValue(Integer orderId, Integer productID, Double productPrice, Integer productQuantity, String update) throws SQLException {
+    public void setValue(Integer orderId, Integer productID, Double productPrice, Integer productQuantity, String update) throws SQLException {
         mPreparedStatement = mConnection.prepareStatement(update);
         mPreparedStatement.setInt(1, orderId);
         mPreparedStatement.setInt(2, productID);
@@ -87,7 +110,7 @@ public class OrderItemsModel {
     }
 
     //Get the type by giving an ID
-    OrderItems getInvoice(Integer orderItemId) throws OrderItemsException {
+    public OrderItems getInvoice(Integer orderItemId) throws OrderItemsException {
         for (OrderItems orderItem : sOrderItemsList) {
             if (orderItem.getOrderItemId().equals(orderItemId)) return orderItem;
         }

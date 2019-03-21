@@ -6,14 +6,14 @@ import java.util.List;
 
 public class ProductsModel {
 
-
-    static List<Products> sProductsList;
+    public static int latestID;
+    public static List<Products> sProductsList;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
     //Initialize some connection
-    ProductsModel() throws ProductsException {
+    public ProductsModel() throws ProductsException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
@@ -22,7 +22,7 @@ public class ProductsModel {
         }
     }
     //Load data from database and add to local list
-    void loadProducts() throws ProductsException {
+    public void loadProducts() throws ProductsException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.products";
@@ -43,7 +43,7 @@ public class ProductsModel {
     }
 
     //Add a type to database
-    boolean addProduct(String productName, double productPrice,String productColor, double productSize, String productDescription) {
+    public boolean addProduct(String productName, double productPrice, String productColor, double productSize, String productDescription) {
         String insert = "INSERT INTO product_manager.products values(NULL,?,?,?,?,?)";
         try {
             mPreparedStatement = mConnection.prepareStatement(insert);
@@ -57,6 +57,7 @@ public class ProductsModel {
             String query = "SELECT * FROM product_manager.products ORDER BY product_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
+            latestID = mResultSet.getInt("customer_id");
             sProductsList.add(new Products(mResultSet.getInt("product_id"),mResultSet.getString("product_name"),mResultSet.getDouble("product_price"),mResultSet.getString("product_color"),mResultSet.getDouble("product_size"),mResultSet.getString("product_description")));
             return true;
         } catch (SQLException | ProductsException e) {
@@ -66,7 +67,7 @@ public class ProductsModel {
     }
 
     //Update a type with a specific ID
-    boolean updateProduct(int productId, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
+    public boolean updateProduct(int productId, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
         String update = "UPDATE product_manager.products SET product_name = ?, product_price = ?, product_color = ?, product_size = ?, product_description = ? WHERE product_id = ?";
         try {
             mPreparedStatement = mConnection.prepareStatement(update);
@@ -89,8 +90,19 @@ public class ProductsModel {
         }
     }
 
+    public void deleteProduct(int productID) {
+        String delete = "DELETE FROM product_manager.products WHERE product_id = ?";
+        try {
+            mPreparedStatement = mConnection.prepareStatement(delete);
+            mPreparedStatement.setInt(1, productID);
+            mPreparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     //Get the type by giving an ID
-    Products getProduct(Integer productId) throws ProductsException {
+    public Products getProduct(Integer productId) throws ProductsException {
         for (Products product : sProductsList) {
             if (product.getProductId().equals(productId)) return product;
         }

@@ -67,7 +67,7 @@
     </schema>
     <schema id="19" parent="5" name="product_manager">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2019-03-21.04:02:41.027</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2019-03-21.20:29:39.737</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="20" parent="5" name="sys">
@@ -106,7 +106,7 @@
     <table id="27" parent="19" name="products">
       <ObjectId>1365579903</ObjectId>
       <CreatedTimestamp>2019-03-19.00:25:36.687</CreatedTimestamp>
-      <ModifiedTimestamp>2019-03-19.00:26:48.667</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-03-21.20:29:38.953</ModifiedTimestamp>
     </table>
     <column id="28" parent="21" name="customer_id">
       <Position>1</Position>
@@ -382,7 +382,7 @@
     </column>
     <column id="78" parent="27" name="product_description">
       <Position>6</Position>
-      <DataType>nvarchar(200 char)|0s</DataType>
+      <DataType>nvarchar(500 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="79" parent="27" name="products_pk">

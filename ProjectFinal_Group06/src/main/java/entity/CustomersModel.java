@@ -63,7 +63,8 @@ public class CustomersModel {
                 return false;
             }
         }
-        public void deleteWord(int customerID) {
+
+    public void deleteCustomer(int customerID) {
             String delete = "DELETE FROM product_manager.customers WHERE customer_id = ?";
         try {
             mPreparedStatement = mConnection.prepareStatement(delete);

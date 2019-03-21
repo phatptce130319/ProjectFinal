@@ -2,16 +2,18 @@
     -fx-padding: 0.7em 0.57em;
     -fx-font-size: 14px;
     -jfx-button-type: RAISED;
-    -fx-background-color: rgb(77,102,204);
+    -fx-background-color: linear-gradient(#009688,#4CAF50);
     -fx-pref-width: 200;
+    -fx-font-family: "Book Antiqua";
     -fx-text-fill: WHITE;
 }
 .button-delete{
     -fx-padding: 0.7em 0.57em;
     -fx-font-size: 14px;
     -jfx-button-type: RAISED;
-    -fx-background-color: red;
+    -fx-background-color: linear-gradient(#EC407A,#AD1457);
     -fx-pref-width: 200;
+    -fx-font-family: "Book Antiqua";
     -fx-text-fill: WHITE;
 }
 .animated-option-button {
@@ -22,9 +24,25 @@
     -fx-text-fill: white;
     -fx-border-color: white;
     -fx-border-radius: 50px;
+    -fx-font-family: "Book Antiqua";
     -fx-border-width: 4px;
 }
 
 .animated-option-sub-button{
-    -fx-background-color: #43609C;
+    -fx-background-color: linear-gradient(#1DE9B6,#76FF03);
+    -fx-font-family: "Book Antiqua";
+}
+.tittle{
+    -fx-font-family: "Book Antiqua";
+    -fx-text-fill:linear-gradient(#009688,#4CAF50) ;
+    -fx-font-size: 24px ;
+}
+.radio-button .dot{
+    -fx-mark-color: linear-gradient(#009688,#4CAF50) ;
+}
+.text-field{
+    -fx-font-family: "Book Antiqua";
+}
+.table-row-cell:selected {
+    -fx-background-color: linear-gradient(#009688,#4CAF50);
 }

@@ -32,12 +32,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
+import util.FunctionLibrary;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CustomersController {
     static Customers addCustomer;
+    List<String>customerName;
     static boolean isAdd = false;
     private static Customers selectedItem = null;
     static boolean isDelete = false;
@@ -75,6 +80,12 @@ public class CustomersController {
         try {
             cm = new CustomersModel();
             cm.loadCustomers();
+            customerName = new ArrayList<>();
+            customerName = new ArrayList<>();
+            for (Customers customers : CustomersModel.sCustomersList){
+                customerName.add(customers.getCustomerName());
+            }
+            TextFields.bindAutoCompletion(searchField,customerName);
         } catch (CustomersException ignored) {
         }
         customerList = FXCollections.observableList(CustomersModel.sCustomersList);
@@ -203,6 +214,8 @@ public class CustomersController {
             try {
                 if (customer.getCustomerName().toLowerCase().contains(lowerCaseFilter)) {
                     return true; // Filter matches first name.
+                } else if (customer.getCustomerId().toString().equals(lowerCaseFilter)) {
+                    return true;
                 }
             } catch (CustomersException e) {
                 e.printStackTrace();
@@ -300,12 +313,14 @@ public class CustomersController {
     }
     private void setButtonClick(){
         addButton.setOnMouseClicked(event -> {
-            setUpNewWindows("/add_dialog.fxml","Add Customer Dialog");
+            FunctionLibrary.setUpNewWindows("/add_dialog.fxml","Add Customer Dialog");
             if (isAdd) {
                 try {
                     cm.addCustomer(addCustomer.getCustomerName(),addCustomer.getGender(),addCustomer.getEmailAddress(),addCustomer.getPhoneNumber(),addCustomer.getAddressLine(),addCustomer.getTownCity(),addCustomer.getStateCountyProvince(),addCustomer.getCountry());
                     addCustomer.setCustomerId(CustomersModel.latestID);
                     customerList.add(addCustomer);
+                    customerName.add(addCustomer.getCustomerName());
+                    TextFields.bindAutoCompletion(searchField,customerName);
                 } catch (CustomersException e) {
                     e.printStackTrace();
                 }
@@ -313,32 +328,18 @@ public class CustomersController {
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
-            setUpNewWindows("/delete_dialog.fxml","Delete Customer Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Customer Dialog");
+            DeleteDialogController.type = DeleteDialogController.CUSTOMERS;
             if (isDelete) {
                 customerList.remove(selectedItem);
                 try {
-                    cm.deleteWord(selectedItem.getCustomerId());
+                    cm.deleteCustomer(selectedItem.getCustomerId());
                 } catch (CustomersException e) {
                     e.printStackTrace();
                 }
             }
             isDelete = false;
         });
-    }
-    private void setUpNewWindows(String resource, String windowName) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(resource));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = new Stage();
-        stage.setTitle(windowName);
-        stage.setScene(new Scene(Objects.requireNonNull(root), 450, 450));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setResizable(false);
-        stage.setFullScreen(false);
-        stage.showAndWait();
     }
 
 }

@@ -3,19 +3,16 @@
     -fx-color: -fx-base;
 
     -fx-font-family: "Arial";
-    /*-fx-accent: linear-gradient(#CDDC39,#8BC34A);*/
-    -fx-accent: red;
+   -fx-accent: linear-gradient(#CDDC39,#8BC34A);
     -fx-default-button: -fx-accent;
     -jfx-primary-color: -fx-accent;
     -jfx-light-primary-color: -fx-accent;
     -jfx-dark-primary-color: -fx-accent;
-  /*  -fx-focus-color: linear-gradient(#009688,#4CAF50) ; */
-    -fx-focus-color: blue;
+    -fx-focus-color: linear-gradient(#009688,#4CAF50) ;
     -jfx-secondary-color: -fx-focus-color;
     -jfx-light-secondary-color: -fx-focus-color;
     -jfx-dark-secondary-color: -fx-focus-color;
 }
-
  /* JFX Tab Pane */
 .jfx-tab-pane .headers-region {
     -fx-background-color: -fx-accent;

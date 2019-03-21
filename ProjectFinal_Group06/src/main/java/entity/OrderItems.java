@@ -34,7 +34,7 @@ public final class OrderItems  {
     }
 // Set order item id
     public void setOrderItemId(Integer orderItemId) throws OrderItemsException {
-        if (!orderItemId.toString().chars().allMatch(Character::isDigit)) {
+        if (orderItemId.toString().chars().anyMatch(Character::isLetter)) {
             throw new OrderItemsException("Only accept numbers");
         }
         this.orderItemId = orderItemId;
@@ -48,7 +48,7 @@ public final class OrderItems  {
     }
 //Set order id
     public void setOrderId(Integer orderId) throws OrderItemsException {
-        if (!orderId.toString().chars().allMatch(Character::isDigit)) {
+        if (orderId.toString().chars().anyMatch(Character::isLetter)) {
             throw new OrderItemsException("Only accept numbers");
         }
         this.orderId = orderId;
@@ -62,7 +62,7 @@ public final class OrderItems  {
     }
 //Set Product id
     public void setProductId(Integer productId) throws OrderItemsException {
-        if (!productId.toString().chars().allMatch(Character::isDigit)) {
+        if (productId.toString().chars().anyMatch(Character::isLetter)) {
             throw new OrderItemsException("Only accept numbers");
         }
         this.productId = productId;
@@ -76,7 +76,7 @@ public final class OrderItems  {
     }
 //Set product pice
     public void setProductPrice(Double productPrice) throws OrderItemsException {
-        if(!productPrice.toString().chars().allMatch(Character::isDigit)){
+        if(productPrice.toString().chars().anyMatch(Character::isLetter)){
             throw new OrderItemsException("Only accept numbers");
         }
         if(productPrice <= 0){
@@ -93,7 +93,7 @@ public final class OrderItems  {
     }
 //Set product quantity
     public void setProductQuantity(Integer productQuantity) throws OrderItemsException {
-        if(!productQuantity.toString().chars().allMatch(Character::isDigit)){
+        if(productQuantity.toString().chars().anyMatch(Character::isLetter)){
             throw new OrderItemsException("Only accept numbers");
         }
         if(productQuantity <= 0){

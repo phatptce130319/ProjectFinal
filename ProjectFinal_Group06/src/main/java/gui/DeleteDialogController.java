@@ -5,14 +5,32 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class DeleteDialogController {
+    public static final String CUSTOMERS = "CUSTOMERS";
+    public static final String PRODUCTS = "PRODUCTS";
+    public static final String EMPLOYEES = "EMPLOYEES";
+    public static String type;
     @FXML
     private JFXButton deleteButton;
     @FXML
     private JFXButton cancelButton;
+
     @FXML
     private void initialize(){
+        setButtonAction();
+    }
+    private void setButtonAction() {
         deleteButton.setOnMouseClicked(event -> {
-            CustomersController.isDelete = true;
+            switch (type) {
+                case "CUSTOMERS":
+                    CustomersController.isDelete = true;
+                    break;
+                case "PRODUCTS":
+                    ProductsController.isDelete = true;
+                    break;
+                case "EMPLOYEES":
+                    EmployeesController.isDelete = true;
+                    break;
+            }
             Stage stage = (Stage) deleteButton.getScene().getWindow();
             stage.close();
         });

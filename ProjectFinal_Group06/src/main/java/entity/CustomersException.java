@@ -5,6 +5,6 @@ package entity;
 public class CustomersException extends Exception {
     CustomersException(String message) {
         super (message);
-        System.out.println("entity.Customers Exception: " + message);
+        System.out.println("Customers Exception: " + message);
     }
 }

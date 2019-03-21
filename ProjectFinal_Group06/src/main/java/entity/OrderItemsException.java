@@ -9,7 +9,7 @@ package entity;/*
  * @author Ha Van Ngoan
  */
 //The exception is generated if Order Items has errors
-class OrderItemsException extends Exception {
+public class OrderItemsException extends Exception {
      OrderItemsException(String message) {
         super (message);
         System.out.println("Order Items Exception: " + message);

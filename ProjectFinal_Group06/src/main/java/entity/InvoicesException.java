@@ -12,6 +12,6 @@ package entity;/*
 class InvoicesException extends Exception {
     InvoicesException(String message) {
         super (message);
-        System.out.println("entity.Invoices Exception: " + message);
+        System.out.println("Invoices Exception: " + message);
     }
 }
