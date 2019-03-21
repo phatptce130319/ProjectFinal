@@ -8,6 +8,7 @@ public class DeleteDialogController {
     public static final String CUSTOMERS = "CUSTOMERS";
     public static final String PRODUCTS = "PRODUCTS";
     public static final String EMPLOYEES = "EMPLOYEES";
+    public static final String ORDERS = "ORDERS";
     public static String type;
     @FXML
     private JFXButton deleteButton;
@@ -30,6 +31,8 @@ public class DeleteDialogController {
                 case "EMPLOYEES":
                     EmployeesController.isDelete = true;
                     break;
+                case "ORDERS":
+                    OrdersController.isDelete = true;
             }
             Stage stage = (Stage) deleteButton.getScene().getWindow();
             stage.close();

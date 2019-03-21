@@ -5,35 +5,26 @@ import com.jfoenix.controls.JFXNodesList;
 import com.jfoenix.controls.JFXTextField;
 import entity.*;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.ComboBoxTableCell;
-import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
-import java.io.IOException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class OrdersController {
     private List<String> orderName;
@@ -86,6 +77,7 @@ public class OrdersController {
             }
             TextFields.bindAutoCompletion(searchField,orderName);
         } catch (OrdersException | CustomersException | EmployeesException ignored) {
+            return;
         }
         ordersList = FXCollections.observableList(OrdersModel.sOrderList);
         mappingData();
@@ -111,7 +103,7 @@ public class OrdersController {
         nodesList.addAnimatedNode(menuButton);
         nodesList.addAnimatedNode(addButton);
         nodesList.addAnimatedNode(deleteButton);
-        nodesList.addAnimatedNode(editButton);
+        //nodesList.addAnimatedNode(editButton);
         nodesList.addAnimatedNode(infoButton);
         mainFrame.add(nodesList,1,2);
         GridPane.setValignment(nodesList, VPos.CENTER);
@@ -212,8 +204,8 @@ public class OrdersController {
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
+            DeleteDialogController.type = DeleteDialogController.ORDERS;
             FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Order Dialog");
-            DeleteDialogController.type = DeleteDialogController.CUSTOMERS;
             if (isDelete) {
                 ordersList.remove(selectedItem);
                 try {
@@ -223,12 +215,17 @@ public class OrdersController {
                 }
             }
             isDelete = false;
+            deleteButton.setDisable(true);
         });
         editButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/edit_order_dialog.fxml","Edit Order Dialog");
+            infoButton.setDisable(true);
+            editButton.setDisable(true);
         });
         infoButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/info_dialog.fxml","Detail of order");
+            infoButton.setDisable(true);
+            editButton.setDisable(true);
         });
     }
 
