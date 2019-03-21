@@ -26,7 +26,6 @@ public class AddProductDialogController {
     private void initialize() {
         setAddAction();
     }
-
     private void setAddAction() {
         addButton.setOnMouseClicked(event -> {
             String name = nameField.getText();

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ProductsModel {
 
-
+    public static int latestID;
     public static List<Products> sProductsList;
     private Connection mConnection;
     private Statement mStatement;
@@ -57,6 +57,7 @@ public class ProductsModel {
             String query = "SELECT * FROM product_manager.products ORDER BY product_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
+            latestID = mResultSet.getInt("customer_id");
             sProductsList.add(new Products(mResultSet.getInt("product_id"),mResultSet.getString("product_name"),mResultSet.getDouble("product_price"),mResultSet.getString("product_color"),mResultSet.getDouble("product_size"),mResultSet.getString("product_description")));
             return true;
         } catch (SQLException | ProductsException e) {
@@ -101,7 +102,7 @@ public class ProductsModel {
     }
 
     //Get the type by giving an ID
-    Products getProduct(Integer productId) throws ProductsException {
+    public Products getProduct(Integer productId) throws ProductsException {
         for (Products product : sProductsList) {
             if (product.getProductId().equals(productId)) return product;
         }

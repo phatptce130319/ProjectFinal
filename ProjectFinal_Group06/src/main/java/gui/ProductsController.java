@@ -3,10 +3,7 @@ package gui;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXNodesList;
 import com.jfoenix.controls.JFXTextField;
-import entity.CustomersModel;
-import entity.Products;
-import entity.ProductsException;
-import entity.ProductsModel;
+import entity.*;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -30,11 +27,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
+import util.FunctionLibrary;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ProductsController {
+    private List<String> productsName;
     static Products addProduct;
     static boolean isAdd = false;
     static boolean isDelete = false;
@@ -68,6 +70,11 @@ public class ProductsController {
         try {
             pm = new ProductsModel();
             pm.loadProducts();
+            productsName = new ArrayList<>();
+            for (Products products : ProductsModel.sProductsList){
+                productsName.add(products.getProductName());
+            }
+            TextFields.bindAutoCompletion(searchField,productsName);
         } catch (ProductsException ignored) {
         }
         productsList = FXCollections.observableList(ProductsModel.sProductsList);
@@ -239,12 +246,14 @@ public class ProductsController {
 
     private void setButtonClick() {
         addButton.setOnMouseClicked(event -> {
-            setUpNewWindows("/add_product_dialog.fxml", "Add Product Dialog");
+            FunctionLibrary.setUpNewWindows("/add_product_dialog.fxml", "Add Product Dialog");
             if (isAdd) {
                 try {
                     pm.addProduct(addProduct.getProductName(), addProduct.getProductPrice(), addProduct.getProductColor(), addProduct.getProductSize(), addProduct.getProductDescription());
-                    addProduct.setProductId(CustomersModel.latestID);
+                    addProduct.setProductId(EmployeesModel.latestID);
                     productsList.add(addProduct);
+                    productsName.add(addProduct.getProductName());
+                    TextFields.bindAutoCompletion(searchField,productsName);
                 } catch (ProductsException e) {
                     e.printStackTrace();
                 }
@@ -253,7 +262,7 @@ public class ProductsController {
         });
         deleteButton.setOnMouseClicked(event -> {
             DeleteDialogController.type = DeleteDialogController.PRODUCTS;
-            setUpNewWindows("/delete_dialog.fxml", "Delete Product Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Product Dialog");
             if (isDelete) {
                 productsList.remove(selectedItem);
                 try {
@@ -265,21 +274,4 @@ public class ProductsController {
             isDelete = false;
         });
     }
-
-    private void setUpNewWindows(String resource, String windowName) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(resource));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = new Stage();
-        stage.setTitle(windowName);
-        stage.setScene(new Scene(Objects.requireNonNull(root), 450, 450));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setResizable(false);
-        stage.setFullScreen(false);
-        stage.showAndWait();
-    }
-
 }

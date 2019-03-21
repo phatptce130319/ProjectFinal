@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeesModel {
-    static List<Employees> sEmployeesList;
+    public static List<Employees> sEmployeesList;
+    public static int latestID;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
     //Initialize some connection
-    EmployeesModel() throws EmployeesException {
+    public EmployeesModel() throws EmployeesException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
@@ -20,15 +21,15 @@ public class EmployeesModel {
         }
     }
     //Load data from database and add to local list
-    void loadEmployees() throws EmployeesException {
+    public void loadEmployees() throws EmployeesException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.employees";
             mResultSet = mStatement.executeQuery(query);
             sEmployeesList = new ArrayList<>();
             while (mResultSet.next()) {
-                int id = mResultSet.getInt("employees_id");
-                String employeeName = mResultSet.getString("employees_name");
+                int id = mResultSet.getInt("employee_id");
+                String employeeName = mResultSet.getString("employee_name");
                 String employeeGender = mResultSet.getString("gender");
                 String emailAddress = mResultSet.getString("email_address");
                 String phoneNumber = mResultSet.getString("phone_number");
@@ -38,9 +39,18 @@ public class EmployeesModel {
             throw new EmployeesException("Cannot load database");
         }
     }
-
+    public void deleteEmployee(int employeeID) {
+        String delete = "DELETE FROM product_manager.employees WHERE employee_id = ?";
+        try {
+            mPreparedStatement = mConnection.prepareStatement(delete);
+            mPreparedStatement.setInt(1, employeeID);
+            mPreparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     //Add a type to database
-    boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) {
+    public boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) {
         //language=TSQL
         String insert = "INSERT INTO product_manager.employees values(?,?,?,?)";
         try {
@@ -50,6 +60,7 @@ public class EmployeesModel {
             String query = "SELECT * FROM product_manager.customers ORDER BY customer_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
+            latestID = mResultSet.getInt("employee_id");
             sEmployeesList.add(new Employees(mResultSet.getInt("employee_id"),mResultSet.getString("employee_name"),mResultSet.getString("phone_number"),mResultSet.getString("email_address"),mResultSet.getString("gender")));
             return true;
         } catch (SQLException | EmployeesException e) {
@@ -59,7 +70,7 @@ public class EmployeesModel {
     }
 
     //Update a type with a specific ID
-    boolean updateEmployee(int employeeId, String employeeName, String employeeGender, String emailAddress, String phoneNumber) throws EmployeesException {
+    public boolean updateEmployee(int employeeId, String employeeName, String employeeGender, String emailAddress, String phoneNumber) throws EmployeesException {
         //language=TSQL
         String update = "UPDATE product_manager.employees SET employee_name = ?, gender = ?, email_address = ?, phone_number = ? WHERE employee_id = ?";
         try {
@@ -87,7 +98,7 @@ public class EmployeesModel {
     }
 
     //Get the type by giving an ID
-    Employees getEmployee(Integer employeeID) throws EmployeesException {
+    public Employees getEmployee(Integer employeeID) throws EmployeesException {
         for (Employees employee : sEmployeesList) {
             if (employee.getEmployeeId().equals(employeeID)) return employee;
         }

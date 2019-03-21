@@ -8,7 +8,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddProductDialogController">
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.LinearGradient?>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@customers_view.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddProductDialogController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,32 +24,122 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <JFXTextField fx:id="nameField" promptText="Product Name" GridPane.rowIndex="1">
+        <JFXTextField fx:id="nameField" labelFloat="true" promptText="Product Name" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets right="5.0" />
             </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
         </JFXTextField>
-        <JFXTextField fx:id="descriptionField" promptText="Product Description" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+        <JFXTextField fx:id="descriptionField" labelFloat="true" promptText="Product Description" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
             <GridPane.margin>
                 <Insets left="5.0" />
             </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
         </JFXTextField>
-        <JFXTextField fx:id="colorField" layoutX="10.0" layoutY="65.0" promptText="Product Color" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <JFXTextField fx:id="colorField" labelFloat="true" layoutX="10.0" layoutY="65.0" promptText="Product Color" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets left="5.0" />
             </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
         </JFXTextField>
-        <JFXTextField fx:id="sizeField" layoutX="10.0" layoutY="65.0" promptText="Product Size" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <JFXTextField fx:id="sizeField" labelFloat="true" layoutX="10.0" layoutY="65.0" promptText="Product Size" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets right="5.0" />
             </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
         </JFXTextField>
-        <JFXTextField fx:id="priceField" layoutX="10.0" layoutY="65.0" promptText="Product Price" GridPane.rowIndex="2">
+        <JFXTextField fx:id="priceField" labelFloat="true" layoutX="10.0" layoutY="65.0" promptText="Product Price" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets right="5.0" />
             </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
         </JFXTextField>
-        <Label text="Add Product " GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+        <Label styleClass="tittle" stylesheets="@customers_view.css" text="Add Product " GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
         <JFXButton fx:id="addButton" buttonType="RAISED" mnemonicParsing="false" styleClass="button-raised" stylesheets="@customers_view.css" text="Add" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
     </children>
     <padding>

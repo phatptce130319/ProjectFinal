@@ -5,22 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdersModel {
-    static List<Orders> sOrderList;
+    public static List<Orders> sOrderList;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
+    public static int lastedIndex;
     //Initialize some connection
-    OrdersModel() throws OrdersException {
+    public OrdersModel() throws OrdersException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
+            String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+            lastedIndex = mResultSet.getInt("order_id");
         } catch (SQLException e) {
             throw new OrdersException("Cannot connect to database");
         }
     }
     //Load data from database and add to local list
-    void loadOrders() throws OrdersException {
+    public void loadOrders() throws OrdersException {
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.orders";
@@ -40,7 +45,7 @@ public class OrdersModel {
     }
 
     //Add a type to database
-    boolean addOrder(Integer customerId, Integer employeeId, Date orderDate, String orderAddress) {
+    public boolean addOrder(Integer customerId, Integer employeeId, Date orderDate, String orderAddress) {
         //language=TSQL
         String insert = "INSERT INTO product_manager.orders values(?,?,?,?)";
         try {
@@ -50,6 +55,7 @@ public class OrdersModel {
             String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
+            lastedIndex = mResultSet.getInt("order_id");
             sOrderList.add(new Orders(mResultSet.getInt("order_id"), mResultSet.getInt("customer_id") ,mResultSet.getInt("employee_id"),mResultSet.getDate("order_date"),mResultSet.getString("order_address")));
             return true;
         } catch (SQLException | OrdersException e) {
@@ -59,7 +65,7 @@ public class OrdersModel {
     }
 
     //Update a type with a specific ID
-    boolean updateOrder(Integer orderId, Integer customerId, Integer employeeId, Date orderDate, String orderAddress) throws OrdersException {
+    public boolean updateOrder(Integer orderId, Integer customerId, Integer employeeId, Date orderDate, String orderAddress) throws OrdersException {
         //language=TSQL
         String update = "UPDATE product_manager.orders SET customer_id = ?, employee_id = ?, order_date = ?, order_address = ? WHERE order_id = ?";
         try {
@@ -75,6 +81,16 @@ public class OrdersModel {
             return true;
         } catch (SQLException | OrdersException e) {
             return false;
+        }
+    }
+    public void deleteOrder(int orderID) {
+        String delete = "DELETE FROM product_manager.orders WHERE order_id = ?";
+        try {
+            mPreparedStatement = mConnection.prepareStatement(delete);
+            mPreparedStatement.setInt(1, orderID);
+            mPreparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@customers_view.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddEmployeeDialogController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <JFXTextField fx:id="phoneField" labelFloat="true" promptText="Phone" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="5.0" />
+            </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
+        </JFXTextField>
+        <JFXTextField fx:id="nameField" labelFloat="true" promptText="Employee Name" styleClass="dot" stylesheets="@customers_view.css" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets right="5.0" />
+            </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
+        </JFXTextField>
+        <JFXTextField fx:id="emailField" labelFloat="true" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="5.0" />
+            </GridPane.margin>
+            <focusColor>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4caf50" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </focusColor>
+            <unFocusColor>
+                <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                    <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#009688" offset="0.007662835249042145" />
+                        <Stop color="#4ca84f" offset="1.0" />
+                    </stops>
+                </RadialGradient>
+            </unFocusColor>
+         <font>
+            <Font name="Book Antiqua" size="12.0" />
+         </font>
+        </JFXTextField>
+        <Label styleClass="tittle" stylesheets="@customers_view.css" text="Add Employee" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Book Antiqua" size="24.0" />
+         </font></Label>
+        <RadioButton fx:id="femaleRadio" mnemonicParsing="false" styleClass="dot" stylesheets="@customers_view.css" text="Female" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <GridPane.margin>
+                <Insets right="25.0" />
+            </GridPane.margin>
+        </RadioButton>
+        <RadioButton fx:id="maleRadio" mnemonicParsing="false" selected="true" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <GridPane.margin>
+                <Insets left="25.0" />
+            </GridPane.margin>
+        </RadioButton>
+        <Label styleClass="text-field" text="Gender" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Book Antiqua" size="12.0" />
+         </font></Label>
+        <JFXButton fx:id="addButton" buttonType="RAISED" mnemonicParsing="false" styleClass="button-raised" stylesheets="@customers_view.css" text="Add" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</GridPane>

@@ -1,8 +1,15 @@
 package util;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 //Phan Tan Phat
@@ -12,7 +19,6 @@ public final class FunctionLibrary {
 
     private FunctionLibrary() {
     }
-
     //Convert string to title case
     public static String convertToTitleCase(String text) {
         if (text == null || text.isEmpty()) {
@@ -35,5 +41,20 @@ public final class FunctionLibrary {
         alert.setHeaderText("Error happened");
         alert.setContentText(alertInfo);
         alert.showAndWait();
+    }
+    public static void setUpNewWindows(String resource, String windowName) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(FunctionLibrary.class.getResource(resource));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle(windowName);
+        stage.setScene(new Scene(Objects.requireNonNull(root), 1080, 768));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
+        stage.setFullScreen(false);
+        stage.showAndWait();
     }
 }

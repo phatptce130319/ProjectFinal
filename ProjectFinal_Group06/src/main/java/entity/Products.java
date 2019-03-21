@@ -30,7 +30,7 @@ public final class Products {
     
     //set product ID
     public void setProductId(Integer productId) throws ProductsException {
-        if (!productId.toString().chars().allMatch(Character::isDigit))
+        if (productId.toString().chars().anyMatch(Character::isLetter))
             throw new ProductsException("Only accept numbers");
         this.productId = productId;
     }
@@ -57,7 +57,7 @@ public final class Products {
     
     //set product entity.Price
     public void setProductPrice(Double productPrice) throws ProductsException {
-        if (!productPrice.toString().chars().allMatch(Character::isDigit))
+        if (productPrice.toString().chars().anyMatch(Character::isLetter))
             throw new ProductsException("Only accept numbers");
         this.productPrice = productPrice;
     }
@@ -84,7 +84,7 @@ public final class Products {
 
     //set product Size
     public void setProductSize(Double productSize) throws ProductsException {
-        if (!productSize.toString().chars().allMatch(Character::isDigit))
+        if (productSize.toString().chars().anyMatch(Character::isLetter))
             throw new ProductsException("Only accept numbers");
         this.productSize = productSize;
     }

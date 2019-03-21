@@ -54,7 +54,7 @@ public final class Employees{
     //set phone number
     public void setPhoneNumber(String phoneNumber) throws EmployeesException {
         if (phoneNumber.equals("")) throw new EmployeesException("The field cannot be empty");
-        if (phoneNumber.length() != 10 | !phoneNumber.chars().allMatch(Character::isLetter))
+        if (phoneNumber.length() != 10 | phoneNumber.chars().anyMatch(Character::isLetter))
             throw new EmployeesException("Phone number must be a 10 digits string");
         this.phoneNumber = phoneNumber;
     }
