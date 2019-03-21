@@ -10,27 +10,28 @@ public class OrdersModel {
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
-    public static int lastedIndex;
+    public static int lastedIndex = 1;
     //Initialize some connection
     public OrdersModel() throws OrdersException {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
+            //language=TSQL
             String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
             lastedIndex = mResultSet.getInt("order_id");
         } catch (SQLException e) {
-            throw new OrdersException("Cannot connect to database");
+            sOrderList = new ArrayList<>();
         }
     }
     //Load data from database and add to local list
     public void loadOrders() throws OrdersException {
+        sOrderList = new ArrayList<>();
         try {
             //language=TSQL
             String query = "SELECT * FROM product_manager.orders";
             mResultSet = mStatement.executeQuery(query);
-            sOrderList = new ArrayList<>();
             while (mResultSet.next()) {
                 int orderId = mResultSet.getInt("order_id");
                 int customerId = mResultSet.getInt("customer_id");
@@ -59,11 +60,26 @@ public class OrdersModel {
             sOrderList.add(new Orders(mResultSet.getInt("order_id"), mResultSet.getInt("customer_id") ,mResultSet.getInt("employee_id"),mResultSet.getDate("order_date"),mResultSet.getString("order_address")));
             return true;
         } catch (SQLException | OrdersException e) {
-            System.out.println(e.getMessage());
             return false;
         }
     }
 
+    public int getLastedIndex() {
+        //language=TSQL
+        String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
+        try {
+            mResultSet = mStatement.executeQuery(query);
+            mResultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            return mResultSet.getInt("order_id");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
     //Update a type with a specific ID
     public boolean updateOrder(Integer orderId, Integer customerId, Integer employeeId, Date orderDate, String orderAddress) throws OrdersException {
         //language=TSQL

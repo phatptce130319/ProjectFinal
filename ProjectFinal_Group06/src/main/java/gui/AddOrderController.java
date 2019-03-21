@@ -3,47 +3,37 @@ package gui;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entity.*;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import util.FunctionLibrary;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 
 public class AddOrderController {
-    private List<Integer> idBought = new ArrayList<>();
-    private List<String> productsName;
     public static int quantity;
-    static Products addProduct;
     static boolean isAdd = false;
-    static boolean isDelete = false;
     private static Products selectedItem = null;
     private ObservableList<Products> productsList;
     private ProductsModel pm;
     private OrderItemsModel oim;
+    private OrdersModel om;
     @FXML
     private GridPane mainFrame;
     @FXML
@@ -71,12 +61,12 @@ public class AddOrderController {
         try {
             pm = new ProductsModel();
             oim = new OrderItemsModel();
+            om = new OrdersModel();
             oim.loadOrderItems();
             pm.loadProducts();
-            productsName = new ArrayList<>();
 
-        } catch (ProductsException | OrderItemsException e) {
-            e.printStackTrace();
+        } catch (ProductsException | OrderItemsException | OrdersException ignored) {
+
         }
         doneButton.setOnMouseClicked(event -> {
             OrdersController.isAdd = true;
@@ -97,16 +87,10 @@ public class AddOrderController {
             row.setOnMouseClicked(mouseEvent -> {
                 if (mouseEvent.getClickCount() == 2) {
                     selectedItem = row.getItem();
-                    try {
-                        System.out.println(selectedItem.getProductId());
-                    } catch (ProductsException | NullPointerException e) {
-                        return;
-                    }
                     Parent root = null;
                     try {
                         root = FXMLLoader.load(FunctionLibrary.class.getResource("/quantity_product.fxml"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (IOException ignored) {
                     }
                     Stage stage = new Stage();
                     stage.setTitle("Confirm buying");
@@ -117,9 +101,8 @@ public class AddOrderController {
                     stage.showAndWait();
                     if (isAdd) {
                         try {
-                            oim.addOrderItem(OrderItemsModel.orderIndex, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
-                        } catch (ProductsException e) {
-                            e.printStackTrace();
+                            oim.addOrderItem(om.getLastedIndex() + 1, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
+                        } catch (ProductsException ignored) {
                         }
                     }
                 }
@@ -134,7 +117,7 @@ public class AddOrderController {
             try {
                 return new SimpleStringProperty(cellData.getValue().getProductName());
             } catch (ProductsException e) {
-                e.printStackTrace();
+
                 return null;
             }
         });
@@ -231,8 +214,8 @@ public class AddOrderController {
                     break;
             }
             pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
-        } catch (ProductsException e) {
-            e.printStackTrace();
+        } catch (ProductsException ignored) {
+
         }
     }
 

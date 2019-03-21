@@ -21,7 +21,8 @@ public class OrderItemsModel {
             mResultSet.next();
             orderIndex = mResultSet.getInt("order_id");
         } catch (SQLException e) {
-            throw new OrderItemsException("Cannot connect to database");
+            sOrderItemsList = new ArrayList<>();
+
         }
     }
     //Load data from database and add to local list
@@ -57,14 +58,13 @@ public class OrderItemsModel {
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
             orderIndex = mResultSet.getInt("order_id");
-            System.out.println("Order ID " + orderIndex);
             query = "SELECT * FROM product_manager.order_items ORDER BY order_item_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            sOrderItemsList.add(new OrderItems(mResultSet.getInt("order_item_id"), mResultSet.getInt("order_id") ,mResultSet.getInt("product_id"),mResultSet.getDouble("product_price"),mResultSet.getInt("product_quantity")));
+            sOrderItemsList.add(new OrderItems(mResultSet.getInt("order_item_id"), OrdersModel.lastedIndex + 1, mResultSet.getInt("product_id"), mResultSet.getDouble("product_price"), mResultSet.getInt("product_quantity")));
             return true;
         } catch (SQLException | OrderItemsException e) {
-            System.out.println(e.getMessage());
+
             return false;
         }
     }
