@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0077b00-77cf-4f84-9f26-3f5d069b6c5a" name="Default Changelist" comment="Update date type to match the SQL Server date type">
-      <change afterPath="$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml" afterDir="false" />
+    <list default="true" id="c0077b00-77cf-4f84-9f26-3f5d069b6c5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Customers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CustomersException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CustomersException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CustomersModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/EmployeesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/EmployeesException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/InvoicesException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/InvoicesException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/OrdersException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/OrdersException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/PriceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/PriceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ProductsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ProductsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ProductsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/AddDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/CustomersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/FunctionLibrary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/customers_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/customers_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/products_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/add_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/add_dialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/customers_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/customers_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entity/Customers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Customers.class" afterDir="false" />
@@ -101,8 +82,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="23" column="19" lean-forward="true" selection-end-line="78" />
+            <state relative-caret-position="322">
+              <caret line="19" column="19" lean-forward="true" selection-end-line="75" />
             </state>
           </provider>
         </entry>
@@ -133,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="782">
-              <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
+              <caret line="270" column="13" lean-forward="true" selection-start-line="270" selection-start-column="13" selection-end-line="270" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,8 +138,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="20" column="79" lean-forward="true" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+            <state relative-caret-position="276">
+              <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -166,12 +147,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+            <state relative-caret-position="-339">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#697#698#0" expanded="true" />
-                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#629#630#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,7 +161,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#275#276#0" expanded="true" />
@@ -195,7 +175,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+              <caret line="102" column="33" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
               <folding>
                 <element signature="e#5327#5328#0" expanded="true" />
                 <element signature="e#5495#5496#0" expanded="true" />
@@ -467,7 +447,7 @@
       <workItem from="1553087396729" duration="4649000" />
       <workItem from="1553092056960" duration="11924000" />
       <workItem from="1553105651227" duration="4672000" />
-      <workItem from="1553138524037" duration="5479000" />
+      <workItem from="1553138524037" duration="5768000" />
     </task>
     <task id="LOCAL-00001" summary="Fix database">
       <created>1552922741885</created>
@@ -497,11 +477,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552927376709</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update the Products layout Gui with some error catching">
+      <created>1553144291796</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553144291796</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67115000" />
+    <option name="totallyTimeSpent" value="67404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
@@ -565,7 +552,8 @@
     <MESSAGE value="Update the getter and the setter of Customers and Employees class" />
     <MESSAGE value="Update All ID to Integer, using Integer instead of int primative. Add a model to be a sample for other inherit." />
     <MESSAGE value="Update date type to match the SQL Server date type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update date type to match the SQL Server date type" />
+    <MESSAGE value="Update the Products layout Gui with some error catching" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the Products layout Gui with some error catching" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -801,7 +789,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/ProductsModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <caret line="102" column="33" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
           <folding>
             <element signature="e#5327#5328#0" expanded="true" />
             <element signature="e#5495#5496#0" expanded="true" />
@@ -840,7 +828,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/DeleteDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#275#276#0" expanded="true" />
@@ -852,7 +840,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
-          <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
+          <caret line="270" column="13" lean-forward="true" selection-start-line="270" selection-start-column="13" selection-end-line="270" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -862,16 +850,16 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="23" column="19" lean-forward="true" selection-end-line="78" />
+        <state relative-caret-position="322">
+          <caret line="19" column="19" lean-forward="true" selection-end-line="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/add_product_dialog.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="20" column="79" lean-forward="true" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+        <state relative-caret-position="276">
+          <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -887,12 +875,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/AddProductDialogController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state relative-caret-position="-339">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#697#698#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
           </folding>
         </state>
       </provider>
