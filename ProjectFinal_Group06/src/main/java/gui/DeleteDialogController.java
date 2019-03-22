@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 public class DeleteDialogController {
+    //Declare some GUI views, and some code to find out what to delete
     public static final String CUSTOMERS = "CUSTOMERS";
     public static final String PRODUCTS = "PRODUCTS";
     public static final String EMPLOYEES = "EMPLOYEES";
@@ -22,6 +23,7 @@ public class DeleteDialogController {
     private void setButtonAction() {
         deleteButton.setOnMouseClicked(event -> {
             switch (type) {
+                //Delete will alter depends on type of delete, save time for creating isolating frames
                 case "CUSTOMERS":
                     CustomersController.isDelete = true;
                     break;

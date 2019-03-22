@@ -65,7 +65,6 @@ public class ProductsModel {
             return false;
         }
     }
-
     //Update a type with a specific ID
     public boolean updateProduct(int productId, String productName, double productPrice, String productColor, double productSize, String productDescription) throws ProductsException {
         String update = "UPDATE product_manager.products SET product_name = ?, product_price = ?, product_color = ?, product_size = ?, product_description = ? WHERE product_id = ?";
@@ -89,7 +88,6 @@ public class ProductsModel {
             return false;
         }
     }
-
     public void deleteProduct(int productID) {
         String delete = "DELETE FROM product_manager.products WHERE product_id = ?";
         try {
@@ -101,6 +99,7 @@ public class ProductsModel {
         }
     }
 
+    //Get the newest id to update and optimize the database
     public int getLastedIndex() {
         //language=TSQL
         int index = -1;

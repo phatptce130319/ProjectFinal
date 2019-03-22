@@ -33,7 +33,7 @@ public final class Price {
         this.productId = productId;
     }
 
-    //get product entity.Price
+    //get product Price
     public Double getProductPrice() throws PriceException {
         if (productPrice == null) {
             throw new PriceException("Cannot get the product price");
@@ -41,7 +41,7 @@ public final class Price {
         return productPrice;
     }
 
-    //set product entity.Price
+    //set product Price
     public void setProductPrice(Double productPrice) throws PriceException {
         if (!productPrice.toString().chars().allMatch(Character::isDigit)) {
             throw new PriceException("Only accept numbers");

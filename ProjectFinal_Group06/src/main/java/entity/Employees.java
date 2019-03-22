@@ -27,7 +27,7 @@ public final class Employees{
     //Set employee id
     public void setEmployeeId(Integer employeeId) throws EmployeesException {
         if (!employeeId.toString().chars().allMatch(Character::isDigit))
-            throw new EmployeesException("Only accept numbers");
+            throw new EmployeesException("Only accept numbers in employee id");
         this.employeeId = employeeId;
     }
 
@@ -39,9 +39,9 @@ public final class Employees{
 
     //Set employee name
     public void setEmployeeName(String employeeName) throws EmployeesException {
-        if (employeeName.chars().noneMatch(Character::isLetter))
-            throw new EmployeesException("Only alphabet letters are accepted");
-        if (employeeName.equals("")) throw new EmployeesException("The field cannot be empty");
+        if (employeeName.chars().anyMatch(Character::isDigit))
+            throw new EmployeesException("Only alphabet letters are accepted in employee's name");
+        if (employeeName.equals("")) throw new EmployeesException("The employee's name cannot be empty");
         this.employeeName = employeeName;
     }
 
@@ -53,7 +53,7 @@ public final class Employees{
 
     //set phone number
     public void setPhoneNumber(String phoneNumber) throws EmployeesException {
-        if (phoneNumber.equals("")) throw new EmployeesException("The field cannot be empty");
+        if (phoneNumber.equals("")) throw new EmployeesException("The phone number cannot be empty");
         if (phoneNumber.length() != 10 | phoneNumber.chars().anyMatch(Character::isLetter))
             throw new EmployeesException("Phone number must be a 10 digits string");
         this.phoneNumber = phoneNumber;
@@ -67,7 +67,7 @@ public final class Employees{
 
     //Set email address
     public void setEmailAddress(String emailAddress) throws EmployeesException {
-        if (emailAddress.equals("")) throw new EmployeesException("The field cannot be empty");
+        if (emailAddress.equals("")) throw new EmployeesException("The email cannot be empty");
         if (!emailAddress.matches("^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new EmployeesException("Invalid email address");
         this.emailAddress = emailAddress;

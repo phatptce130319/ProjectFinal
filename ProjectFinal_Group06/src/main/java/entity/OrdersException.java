@@ -10,7 +10,7 @@ package entity;/*
  */
 //The exception is generated if entity.Orders has errors
 public class OrdersException extends Exception {
-     OrdersException(String message) {
+    public OrdersException(String message) {
         super (message);
          System.out.println("Orders Exception: " + message);
     }

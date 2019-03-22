@@ -10,7 +10,6 @@ public class OrdersModel {
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
     private ResultSet mResultSet;
-    public static int lastedIndex = 1;
     //Initialize some connection
     public OrdersModel() throws OrdersException {
         try {
@@ -20,7 +19,6 @@ public class OrdersModel {
             String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            lastedIndex = mResultSet.getInt("order_id");
         } catch (SQLException e) {
             sOrderList = new ArrayList<>();
         }
@@ -56,25 +54,25 @@ public class OrdersModel {
             String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            lastedIndex = mResultSet.getInt("order_id");
             sOrderList.add(new Orders(mResultSet.getInt("order_id"), mResultSet.getInt("customer_id") ,mResultSet.getInt("employee_id"),mResultSet.getDate("order_date"),mResultSet.getString("order_address")));
             return true;
         } catch (SQLException | OrdersException e) {
+            e.printStackTrace();
             return false;
         }
     }
 
+    //Get the newest id to update and optimize the database
     public int getLastedIndex() {
         //language=TSQL
-        int index = -1;
+        int index = 0;
         String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
         try {
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
             index = mResultSet.getInt("order_id");
             mStatement.execute("DBCC CHECKIDENT ('[product_manager].[orders]' , RESEED, " + index + ")");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ignored) {
         }
         return index;
     }
@@ -97,6 +95,8 @@ public class OrdersModel {
             return false;
         }
     }
+
+    //delete an order
     public void deleteOrder(int orderID) {
         String delete = "DELETE FROM product_manager.orders WHERE order_id = ?";
         try {
@@ -108,6 +108,7 @@ public class OrdersModel {
         }
     }
 
+    //Set a value to a prepared statement
     private void setValue(Integer customerId, Integer employeeId, Date orderDate, String orderAddress, String update) throws SQLException {
         mPreparedStatement = mConnection.prepareStatement(update);
         mPreparedStatement.setInt(1, customerId);

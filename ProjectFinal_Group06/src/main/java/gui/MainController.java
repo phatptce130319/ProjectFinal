@@ -1,7 +1,6 @@
 package gui;
 
 import com.jfoenix.controls.JFXTabPane;
-import entity.Customers;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -57,7 +56,6 @@ public class MainController {
     public void initialize() {
         configureView();
     }
-
     /// Private
 
     private void configureView() {

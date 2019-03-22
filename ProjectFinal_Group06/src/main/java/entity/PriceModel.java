@@ -65,7 +65,7 @@ public class PriceModel {
             mPreparedStatement.setInt(4, productId);
             mPreparedStatement.executeUpdate();
             if (sPriceList.size() == 0) {
-                throw new PriceException("The entity.Price list is empty, cannot update");
+                throw new PriceException("The Price list is empty, cannot update");
             }
             for (int i = 0; i < sPriceList.size(); i++) {
                 if (sPriceList.get(i).getProductId().equals(productId)) {
@@ -99,7 +99,7 @@ public class PriceModel {
      //Use this to describe the object shortly
     @Override
     public String toString() {
-        return "entity.Price model has " + Size() + " records";
+        return "Price model has " + Size() + " records";
     } //override
 
     //When the object is deposed, close the connection

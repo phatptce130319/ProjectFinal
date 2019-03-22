@@ -174,9 +174,9 @@ public class ProductsController {
         productsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         productsNameColumn.setOnEditCommit(event -> setEditOnColumn(event, 2));
         productsPriceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
+        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
         productsColorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
+        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
         productsSizeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         productsSizeColumn.setOnEditCommit(event -> setEditOnColumn(event, 5));
         productsDescriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -189,11 +189,7 @@ public class ProductsController {
         String value = event.getNewValue();
         int row = pos.getRow();
         Products product = event.getTableView().getItems().get(row);
-        try {
-            AddOrderController.setIndex(columnIndex, value, product, pm);
-        } catch (ProductsException e) {
-            e.printStackTrace();
-        }
+        AddOrderController.setIndex(columnIndex, value, product, pm);
     }
 
     private void setButtonClick() {

@@ -10,7 +10,7 @@ package entity;/*
  */
 //The exception is generated if entity.Products has errors
 public class ProductsException extends Exception {
-     ProductsException(String message) {
+    public ProductsException(String message) {
         super (message);
          System.out.println("Products Exception: " + message);
     }

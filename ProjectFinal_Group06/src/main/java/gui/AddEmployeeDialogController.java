@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddEmployeeDialogController {
+    //Declare some GUI views and connection to other tables
     private EmployeesModel em;
     @FXML
     private JFXTextField nameField;
@@ -28,18 +29,22 @@ public class AddEmployeeDialogController {
     private ToggleGroup genderGroup;
     @FXML
     private void initialize(){
+        //initialize the views and load database
         try {
             em = new EmployeesModel();
             em.loadEmployees();
         } catch (EmployeesException e) {
             e.printStackTrace();
         }
+        //Set group to radio buttons
         genderGroup = new ToggleGroup();
         maleRadio.setToggleGroup(genderGroup);
         femaleRadio.setToggleGroup(genderGroup);
         setAddAction();
 
     }
+
+    //Set action on add button
     private void setAddAction(){
         addButton.setOnMouseClicked(event -> {
             String name = nameField.getText();

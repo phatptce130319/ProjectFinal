@@ -102,6 +102,7 @@ public class EmployeesModel {
         }
     }
 
+    //Set a value for the prepared statement
     private void setValue(String employeesName, String employeesGender, String emailAddress, String phoneNumber, String update) throws SQLException {
         mPreparedStatement = mConnection.prepareStatement(update);
         mPreparedStatement.setString(1, employeesName);

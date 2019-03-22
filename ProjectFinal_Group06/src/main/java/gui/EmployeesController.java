@@ -238,7 +238,7 @@ public class EmployeesController {
             }
             em.updateEmployee(employee.getEmployeeId(),employee.getEmployeeName(),employee.getPhoneNumber(),employee.getEmailAddress(),employee.getGender());
         } catch (EmployeesException e) {
-            e.printStackTrace();
+            FunctionLibrary.showAlertError(e.getMessage());
         }
     }
     private void setButtonClick(){

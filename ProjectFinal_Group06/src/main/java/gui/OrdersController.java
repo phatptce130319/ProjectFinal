@@ -29,7 +29,7 @@ import java.util.List;
 public class OrdersController {
     private List<String> orderName;
     static Orders addOrder;
-    static boolean doneClick;
+    static boolean isBought;
     static boolean isAdd = false;
     public static Orders selectedItem = null;
     static boolean isDelete = false;
@@ -77,7 +77,7 @@ public class OrdersController {
             }
             TextFields.bindAutoCompletion(searchField,orderName);
         } catch (OrdersException | CustomersException | EmployeesException ignored) {
-            return;
+            System.out.println("Here");
         }
         ordersList = FXCollections.observableList(OrdersModel.sOrderList);
         mappingData();
@@ -127,7 +127,6 @@ public class OrdersController {
             try {
                 return new SimpleIntegerProperty(cellData.getValue().getOrderId()).asObject();
             } catch (OrdersException e) {
-                e.printStackTrace();
                 return new SimpleIntegerProperty(-1).asObject();
             }
         });
@@ -135,7 +134,6 @@ public class OrdersController {
             try {
                 return new SimpleStringProperty(cm.getCustomer(cellData.getValue().getCustomerId()).getCustomerName());
             } catch (OrdersException | CustomersException e) {
-                e.printStackTrace();
                 return null;
             }
         });
@@ -145,7 +143,6 @@ public class OrdersController {
             try {
                 return new SimpleStringProperty(em.getEmployee(cellData.getValue().getEmployeeId()).getEmployeeName());
             } catch (OrdersException | EmployeesException e) {
-                e.printStackTrace();
                 return null;
             }
         });
@@ -192,16 +189,16 @@ public class OrdersController {
     private void setButtonClick(){
         addButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/add_order_dialog.fxml","Add Order Dialog");
-            if (isAdd) {
+            if (isAdd && isBought) {
                 try {
                     om.addOrder(addOrder.getCustomerId(),addOrder.getEmployeeId(),addOrder.getDateOrder(),addOrder.getAddressOrder());
-                    addOrder.setOrderId(OrdersModel.lastedIndex);
                     ordersList.add(addOrder);
                 } catch (OrdersException e) {
                     e.printStackTrace();
                 }
             }
             isAdd = false;
+            isBought = false;
         });
         deleteButton.setOnMouseClicked(event -> {
             DeleteDialogController.type = DeleteDialogController.ORDERS;
