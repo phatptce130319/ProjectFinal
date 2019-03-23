@@ -1,38 +1,22 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXNodesList;
-import com.jfoenix.controls.JFXTextField;
 import entity.*;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.VPos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.ComboBoxTableCell;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
-import util.FunctionLibrary;
 
 
 public class InfoController {
+    //Declare some GUI views, and connect to data models
     private ObservableList<OrderItems> orderItemsList;
     private OrderItemsModel om;
     private ProductsModel pm;
@@ -55,6 +39,7 @@ public class InfoController {
     @FXML
     private void initialize(){
         try {
+            //Load the data from database
             om = new OrderItemsModel();
             om.loadOrderItems();
             pm = new ProductsModel();
@@ -73,6 +58,7 @@ public class InfoController {
         });
     }
     private void mappingData(){
+        //Mapping data to views
         productIdColumn.setCellValueFactory(cellData -> {
             try {
                 return new SimpleIntegerProperty(cellData.getValue().getProductId()).asObject();
@@ -115,23 +101,12 @@ public class InfoController {
                 return null;
             }
         });
-
         FilteredList<OrderItems> filteredData = new FilteredList<>(orderItemsList, p -> true);
-
-
-
-            // Compare first name and last name of every person with filter text.
-
-
         SortedList<OrderItems> sortedData = new SortedList<>(filteredData);
 
         sortedData.comparatorProperty().bind(orderItemTable.comparatorProperty());
 
         orderItemTable.setItems(sortedData);
-
     }
-
-
-
 
 }

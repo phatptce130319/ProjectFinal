@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrdersController {
+    public static List<OrderItems> listItem;
+    //Declare some GUI views and connection to database
     private List<String> orderName;
     static Orders addOrder;
     static boolean isBought;
@@ -37,9 +39,9 @@ public class OrdersController {
     private OrdersModel om;
     private CustomersModel cm;
     private EmployeesModel em;
+    private OrderItemsModel oim;
     private JFXButton addButton;
     private JFXButton deleteButton;
-    private JFXButton editButton;
     private JFXButton infoButton;
     @FXML
     private GridPane mainFrame;
@@ -58,6 +60,7 @@ public class OrdersController {
     @FXML
     private TableColumn<Orders, String> orderAddressColumn;
 
+    //Initialize the views , and get the database
     @FXML
     private void initialize(){
         ordersTable.setEditable(true);
@@ -65,10 +68,14 @@ public class OrdersController {
             om = new OrdersModel();
             cm = new CustomersModel();
             em = new EmployeesModel();
+            oim = new OrderItemsModel();
             om.loadOrders();
             cm.loadCustomers();
             em.loadEmployees();
+            oim.loadOrderItems();
             orderName = new ArrayList<>();
+            listItem = new ArrayList<>();
+            //Create a list of name to create a recommend list name
             for (Customers customers : CustomersModel.sCustomersList){
                 orderName.add(customers.getCustomerName());
             }
@@ -76,10 +83,10 @@ public class OrdersController {
                 orderName.add(employees.getEmployeeName());
             }
             TextFields.bindAutoCompletion(searchField,orderName);
-        } catch (OrdersException | CustomersException | EmployeesException ignored) {
-            System.out.println("Here");
+        } catch (OrdersException | CustomersException | EmployeesException | OrderItemsException ignored) {
         }
         ordersList = FXCollections.observableList(OrdersModel.sOrderList);
+        //Mapping data to views and add some function buttons
         mappingData();
         addButton = new JFXButton("",new ImageView(new Image(getClass().getResourceAsStream("/add_icon.png"))));
         addButton.getStyleClass().addAll("animated-option-button","animated-option-sub-button");
@@ -88,10 +95,6 @@ public class OrdersController {
         deleteButton.getStyleClass().addAll("animated-option-button","animated-option-sub-button");
         deleteButton.setButtonType(JFXButton.ButtonType.RAISED);
         deleteButton.setDisable(true);
-        editButton = new JFXButton("",new ImageView(new Image(getClass().getResourceAsStream("/edit_icon.png"))));
-        editButton.getStyleClass().addAll("animated-option-button","animated-option-sub-button");
-        editButton.setButtonType(JFXButton.ButtonType.RAISED);
-        editButton.setDisable(true);
         infoButton = new JFXButton("",new ImageView(new Image(getClass().getResourceAsStream("/info_icon.png"))));
         infoButton.getStyleClass().addAll("animated-option-button","animated-option-sub-button");
         infoButton.setButtonType(JFXButton.ButtonType.RAISED);
@@ -116,13 +119,13 @@ public class OrdersController {
             row.setOnMouseClicked(mouseEvent -> {
                 selectedItem = row.getItem();
                 deleteButton.setDisable(false);
-                editButton.setDisable(false);
                 infoButton.setDisable(false);
             });
             return row;
         });
     }
     private void mappingData(){
+        //Take date from database and load to table columns
         orderIDColumn.setCellValueFactory(cellData -> {
             try {
                 return new SimpleIntegerProperty(cellData.getValue().getOrderId()).asObject();
@@ -134,6 +137,7 @@ public class OrdersController {
             try {
                 return new SimpleStringProperty(cm.getCustomer(cellData.getValue().getCustomerId()).getCustomerName());
             } catch (OrdersException | CustomersException e) {
+                FunctionLibrary.showAlertError(e.getMessage());
                 return null;
             }
         });
@@ -143,6 +147,7 @@ public class OrdersController {
             try {
                 return new SimpleStringProperty(em.getEmployee(cellData.getValue().getEmployeeId()).getEmployeeName());
             } catch (OrdersException | EmployeesException e) {
+                FunctionLibrary.showAlertError(e.getMessage());
                 return null;
             }
         });
@@ -166,15 +171,15 @@ public class OrdersController {
         });
         FilteredList<Orders> filteredData = new FilteredList<>(ordersList, p -> true);
         searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(orders -> {
-            // If filter text is empty, display all persons.
+            // If filter text is empty, display all .
             if (newValue == null || newValue.isEmpty()) {
                 return true;
             }
-            // Compare first name and last name of every person with filter text.
+            // Take the filter text
             String lowerCaseFilter = newValue.toLowerCase();
             try {
                 if (orders.getOrderId().toString().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true; // Filter matches customer's name, employee's name or order's id.
                 } else if (cm.getCustomer(orders.getCustomerId()).getCustomerName().toLowerCase().contains(lowerCaseFilter)) return true;
                 else if (em.getEmployee(orders.getEmployeeId()).getEmployeeName().toLowerCase().contains(lowerCaseFilter)) return true;
             } catch (OrdersException | CustomersException  | EmployeesException e) {
@@ -182,15 +187,25 @@ public class OrdersController {
             }
             return false; // Does not match.
         }));
+        //Sort the data
         SortedList<Orders> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(ordersTable.comparatorProperty());
         ordersTable.setItems(sortedData);
     }
     private void setButtonClick(){
+        //Set action to buttons , load views depends on what button is clicked
         addButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/add_order_dialog.fxml","Add Order Dialog");
             if (isAdd && isBought) {
                 try {
+                    //if customer's order something and confirm buy, create an order
+                    listItem.forEach(orderItems -> {
+                        try {
+                            oim.addOrderItem(orderItems.getOrderId(), orderItems.getProductId(), orderItems.getProductPrice(), orderItems.getProductQuantity());
+                        } catch (OrderItemsException e) {
+                            e.printStackTrace();
+                        }
+                    });
                     om.addOrder(addOrder.getCustomerId(),addOrder.getEmployeeId(),addOrder.getDateOrder(),addOrder.getAddressOrder());
                     ordersList.add(addOrder);
                 } catch (OrdersException e) {
@@ -214,15 +229,10 @@ public class OrdersController {
             isDelete = false;
             deleteButton.setDisable(true);
         });
-        editButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/edit_order_dialog.fxml","Edit Order Dialog");
-            infoButton.setDisable(true);
-            editButton.setDisable(true);
-        });
+        //Click info to see detail of orders
         infoButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/info_dialog.fxml","Detail of order");
             infoButton.setDisable(true);
-            editButton.setDisable(true);
         });
     }
 

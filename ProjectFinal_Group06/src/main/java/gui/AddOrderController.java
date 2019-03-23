@@ -148,12 +148,14 @@ public class AddOrderController {
                 try {
                     cusID = Integer.parseInt(customerID.getText());
                     if (cusID > cm.getLastedIndex()) throw new CustomersException("Exceeded Customer ID");
+                    cm.getCustomer(cusID);
                 } catch (NumberFormatException e) {
                     throw new OrdersException("Customer ID must be a number");
                 }
                 try {
                     emID = Integer.parseInt(creatorID.getText());
                     if (emID > em.getLastedIndex()) throw new EmployeesException("Exceeded Customer ID");
+                    em.getEmployee(emID);
                 } catch (NumberFormatException e) {
                     throw new OrdersException("Creator ID must be a number");
                 }
@@ -191,8 +193,9 @@ public class AddOrderController {
                     if (isAdd) {
                         try {
                             //Create an order item add to the order
-                            oim.addOrderItem(om.getLastedIndex() + 1, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
-                        } catch (ProductsException e) {
+                            OrderItems temp = new OrderItems(-1, om.getLastedIndex() + 1, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
+                            OrdersController.listItem.add(temp);
+                        } catch (ProductsException | OrderItemsException e) {
                             FunctionLibrary.showAlertError(e.getMessage());
                         }
                     }

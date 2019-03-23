@@ -19,9 +19,9 @@ import java.io.IOException;
 import java.net.URL;
 
 public class MainController {
+    //Declare some GUI views for the main frame
     @FXML
     private JFXTabPane tabContainer;
-
     @FXML
     private Tab customersTab;
 
@@ -45,19 +45,18 @@ public class MainController {
 
     @FXML
     private AnchorPane ordersContainer;
-
-
+    //The size of tab, and default index tab
     private double tabWidth = 90.0;
     public static int lastSelectedTabIndex = 0;
 
-    /// Life cycle
 
+    //Initialize the views
     @FXML
     public void initialize() {
         configureView();
     }
     /// Private
-
+    //Set the size of each tab, change color , change view depends on the tab is clicked or not
     private void configureView() {
         tabContainer.setTabMinWidth(tabWidth);
         tabContainer.setTabMaxWidth(tabWidth);
@@ -75,7 +74,7 @@ public class MainController {
                 currentTab.setStyle("-fx-background-color: -fx-accent;");
             }
         };
-
+        // Configure specific tab
         configureTab(customersTab, "Customers", "/customers.png", customersContainer, getClass().getResource("/customers_view.fxml"), replaceBackgroundColorHandler);
         configureTab(productsTab, "Products", "/products.png", productsContainer, getClass().getResource("/products_view.fxml"), replaceBackgroundColorHandler);
         configureTab(employeesTab, "Employees", "/employees.png", employeesContainer, getClass().getResource("/employees_view.fxml"), replaceBackgroundColorHandler);
@@ -83,6 +82,7 @@ public class MainController {
         customersTab.setStyle("-fx-background-color: -fx-focus-color;");
     }
 
+    //Set icon for tab, color , label, what layout file to display
     private void configureTab(Tab tab, String title, String iconPath, AnchorPane containerPane, URL resourceURL, EventHandler<Event> onSelectionChangedEvent) {
         double imageWidth = 40.0;
 

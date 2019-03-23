@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
+    //The entry to the application
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/mainScreen.fxml"));
         primaryStage.setTitle("Agricultural Products Manager");
