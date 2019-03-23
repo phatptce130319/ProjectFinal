@@ -84,7 +84,6 @@ public class InfoController {
                 return null;
             }
         });
-
         productQuantityColumn.setCellValueFactory(cellData -> {
             try {
                 return new SimpleStringProperty(cellData.getValue().getProductQuantity().toString());
