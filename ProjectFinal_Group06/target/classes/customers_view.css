@@ -37,6 +37,11 @@
     -fx-text-fill:linear-gradient(#009688,#4CAF50) ;
     -fx-font-size: 24px ;
 }
+
+.normal-text {
+    -fx-font-family: "Book Antiqua";
+    -fx-text-fill: linear-gradient(#009688, #4CAF50);
+}
 .radio-button .dot{
     -fx-mark-color: linear-gradient(#009688,#4CAF50) ;
 }

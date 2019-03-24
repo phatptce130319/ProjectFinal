@@ -28,6 +28,7 @@ import java.util.Objects;
 
 public class AddOrderController {
     //Declare some GUI views and connection to other database
+    //Phan Tan Phat
     public static int quantity;
     static boolean isAdd = false;
     private static Products selectedItem = null;

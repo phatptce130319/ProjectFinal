@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 
 public class InfoController {
+    //Ha Van Ngoan
     //Declare some GUI views, and connect to data models
     private ObservableList<OrderItems> orderItemsList;
     private OrderItemsModel om;
