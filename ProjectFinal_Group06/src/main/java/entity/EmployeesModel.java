@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//Author: Phan Tan Phat
 public class EmployeesModel {
     public static List<Employees> sEmployeesList;
     private Connection mConnection;

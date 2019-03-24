@@ -18,6 +18,7 @@ import javafx.scene.text.TextAlignment;
 import java.io.IOException;
 import java.net.URL;
 
+//Author: Phan Tan Phat
 public class MainController {
     //Declare some GUI views for the main frame
     @FXML

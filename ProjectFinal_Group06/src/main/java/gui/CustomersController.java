@@ -33,6 +33,7 @@ import util.FunctionLibrary;
 import java.util.ArrayList;
 import java.util.List;
 
+//Author: Phan Tan Phat
 public class CustomersController {
     //Declare some GUI views with connection to database
     static Customers addCustomer;

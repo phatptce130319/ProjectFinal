@@ -25,6 +25,7 @@ public class AddProductDialogController {
     @FXML
     private JFXButton addButton;
 
+    //Dang Buu Hoa
     @FXML
     private void initialize() {
         try {

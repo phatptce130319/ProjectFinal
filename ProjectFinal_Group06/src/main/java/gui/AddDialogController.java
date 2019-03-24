@@ -13,6 +13,7 @@ import util.FunctionLibrary;
 
 public class AddDialogController {
     //Declare some view objects and some connection to other table
+    //Dang Buu Hoa
     private CustomersModel cm;
     @FXML
     private JFXTextField nameField;

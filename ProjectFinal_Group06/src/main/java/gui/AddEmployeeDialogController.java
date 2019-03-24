@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddEmployeeDialogController {
+    //Dang Buu Hoa
     //Declare some GUI views and connection to other tables
     private EmployeesModel em;
     @FXML

@@ -29,6 +29,7 @@ import util.FunctionLibrary;
 import java.util.ArrayList;
 import java.util.List;
 
+//Ha Van Ngoan
 public class ProductsController {
     //Declare some GUI views and data connection
     private List<String> productsName;
