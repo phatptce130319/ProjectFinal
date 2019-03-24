@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0077b00-77cf-4f84-9f26-3f5d069b6c5a" name="Default Changelist" comment="Complete all things">
+    <list default="true" id="c0077b00-77cf-4f84-9f26-3f5d069b6c5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/InfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/customers_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/customers_view.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/products_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/products_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/CustomersModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/CustomersModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/EmployeesModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/EmployeesModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Gender.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Gender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/OrdersModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/OrdersModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/PriceModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/PriceModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/ProductsModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/ProductsModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddEmployeeDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddEmployeeDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddProductDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddProductDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/AddQuantityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/AddQuantityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/CustomersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/CustomersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/DeleteDialogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/DeleteDialogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/EmployeesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/EmployeesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/InfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/InfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/OrdersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/OrdersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/ProductsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/add_order_dialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/add_order_dialog.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/customers_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/customers_view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/products_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/products_view.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -87,25 +66,25 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/quantity_product.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/products_view.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="59" column="101" selection-start-line="59" selection-start-column="101" selection-end-line="59" selection-end-column="101" />
+            <state relative-caret-position="1288">
+              <caret line="56" column="100" selection-start-line="56" selection-start-column="100" selection-end-line="56" selection-end-column="100" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/InfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="85" column="11" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+            <state relative-caret-position="118">
+              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,33 +94,33 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/orders_view.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="100" column="54" lean-forward="true" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
+            <state relative-caret-position="1679">
+              <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+            <state relative-caret-position="1150">
+              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -268,6 +247,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -333,7 +313,6 @@
         </subPane>
       </pane>
       <pane id="Course" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,7 +429,8 @@
       <workItem from="1553244154365" duration="146000" />
       <workItem from="1553264062668" duration="16452000" />
       <workItem from="1553311814526" duration="3625000" />
-      <workItem from="1553332061574" duration="714000" />
+      <workItem from="1553332061574" duration="1359000" />
+      <workItem from="1553428774048" duration="698000" />
     </task>
     <task id="LOCAL-00001" summary="Fix database">
       <created>1552922741885</created>
@@ -508,17 +488,24 @@
       <option name="project" value="LOCAL" />
       <updated>1553315436126</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update the labels to specify the measurement of price and size">
+      <created>1553332810865</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1553332810865</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137120000" />
+    <option name="totallyTimeSpent" value="138463000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22921109" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23187633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -527,7 +514,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977587" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17075774" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17075774" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -581,7 +568,8 @@
     <MESSAGE value="Done all functions needed, need to comment" />
     <MESSAGE value="Check more error , and add a lots of comments&#10;Need to check the gap ID , and add more comments. Optimize the unused import" />
     <MESSAGE value="Complete all things" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete all things" />
+    <MESSAGE value="Update the labels to specify the measurement of price and size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the labels to specify the measurement of price and size" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -897,26 +885,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/orders_view.fxml">
-      <provider editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/test.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/quantity_product.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/products_view.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="56" column="100" selection-start-line="56" selection-start-column="100" selection-end-line="56" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/orders_view.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/add_dialog.fxml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/add_employee_dialog.fxml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/add_order_dialog.fxml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/ProductsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="100" column="54" lean-forward="true" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
+        <state relative-caret-position="1679">
+          <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -925,35 +926,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/customers_view.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+        <state relative-caret-position="1150">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/quantity_product.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/products_view.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="59" column="101" selection-start-line="59" selection-start-column="101" selection-end-line="59" selection-end-column="101" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/test.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/InfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="85" column="11" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+        <state relative-caret-position="118">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
