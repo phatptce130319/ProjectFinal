@@ -2,12 +2,17 @@
 
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainFrame" maxHeight="-Infinity" maxWidth="-Infinity"
-          minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-          xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="gui.ProductsController">
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<GridPane fx:id="mainFrame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@customers_view.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProductsController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,8 +25,7 @@
     <children>
         <HBox prefHeight="15" prefWidth="200.0" GridPane.columnSpan="2147483647">
             <children>
-                <JFXTextField fx:id="searchField" labelFloat="true" promptText="Enter product's name or ID."
-                              HBox.hgrow="ALWAYS">
+                <JFXTextField fx:id="searchField" labelFloat="true" promptText="Enter product's name or ID." HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
@@ -49,14 +53,13 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </HBox>
-        <TableView fx:id="productsTable" prefHeight="200.0" prefWidth="200.0" stylesheets="@customers_view.css"
-                   tableMenuButtonVisible="true" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+        <TableView fx:id="productsTable" prefHeight="200.0" prefWidth="200.0" stylesheets="@customers_view.css" tableMenuButtonVisible="true" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
             <columns>
                 <TableColumn fx:id="productsIdColumn" prefWidth="75.0" text="Product ID" />
                 <TableColumn fx:id="productsNameColumn" prefWidth="75.0" text="Product Name" />
-                <TableColumn fx:id="productsPriceColumn" prefWidth="75.0" text="Product Price ($)"/>
+                <TableColumn fx:id="productsPriceColumn" prefWidth="75.0" text="Product Price ($)" />
                 <TableColumn fx:id="productsColorColumn" prefWidth="75.0" text="Product Color" />
-                <TableColumn fx:id="productsSizeColumn" prefWidth="75.0" text="Product Size (inch)"/>
+                <TableColumn fx:id="productsSizeColumn" prefWidth="75.0" text="Product Size (inch)" />
                 <TableColumn fx:id="productsDescriptionColumn" prefWidth="75.0" text="Product Description" />
             </columns>
             <GridPane.margin>
