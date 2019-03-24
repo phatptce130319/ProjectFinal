@@ -14,7 +14,7 @@ public class PriceModel {
 //Initialize some connection
     PriceModel() throws PriceException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
         } catch (SQLException e) {
             throw new PriceException("Can't connect to database");

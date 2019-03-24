@@ -14,7 +14,7 @@ public class OrderItemsModel {
     //Initialize some connection
     public OrderItemsModel() throws OrderItemsException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
             om = new OrdersModel();
             om.loadOrders();

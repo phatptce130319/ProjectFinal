@@ -15,7 +15,7 @@ public class ProductsModel {
     //Initialize some connection
     public ProductsModel() throws ProductsException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
         } catch (SQLException e) {
             throw new ProductsException("Cannot connect to database");

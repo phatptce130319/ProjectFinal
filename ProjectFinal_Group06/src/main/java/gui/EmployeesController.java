@@ -73,7 +73,9 @@ public class EmployeesController {
                 employeesName.add(employees.getEmployeeName());
             }
             TextFields.bindAutoCompletion(searchField,employeesName);
-        } catch (EmployeesException ignored) {
+        } catch (EmployeesException e) {
+            FunctionLibrary.showAlertError(e.getMessage());
+            return;
         }
         employeesList = FXCollections.observableList(EmployeesModel.sEmployeesList);
         //Add function buttons and mapping data to views

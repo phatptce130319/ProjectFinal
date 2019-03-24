@@ -13,7 +13,7 @@ public class InvoicesModel {
     //Initialize some connection
     InvoicesModel() throws InvoicesException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
         } catch (SQLException e) {
             throw new InvoicesException("Cannot connect to database");

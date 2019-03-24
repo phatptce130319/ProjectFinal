@@ -13,7 +13,7 @@ public class OrdersModel {
     //Initialize some connection
     public OrdersModel() throws OrdersException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
             //language=TSQL
             String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
