@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeesController {
+    //Declare some GUI views and some data to take values from the database
     private List<String> employeesName;
     static Employees addEmployee;
     static boolean isAdd = false;
@@ -61,11 +62,13 @@ public class EmployeesController {
     private TableColumn<Employees, String> phoneColumn;
     @FXML
     private void initialize(){
+        //Initialize the GUI and load the data
         employeesTable.setEditable(true);
         try {
             em = new EmployeesModel();
             em.loadEmployees();
             employeesName = new ArrayList<>();
+            //Get the name for recommend text fields
             for (Employees employees : EmployeesModel.sEmployeesList){
                 employeesName.add(employees.getEmployeeName());
             }
@@ -73,6 +76,7 @@ public class EmployeesController {
         } catch (EmployeesException ignored) {
         }
         employeesList = FXCollections.observableList(EmployeesModel.sEmployeesList);
+        //Add function buttons and mapping data to views
         mappingData();
         setEditTable();
         addButton = new JFXButton("",new ImageView(new Image(getClass().getResourceAsStream("/add_icon.png"))));
@@ -105,6 +109,7 @@ public class EmployeesController {
         });
     }
     private void mappingData(){
+        //Take data in each field of the database and then map to the table column
         idColumn.setCellValueFactory(cellData -> {
             try {
                 return new SimpleIntegerProperty(cellData.getValue().getEmployeeId()).asObject();
@@ -151,19 +156,19 @@ public class EmployeesController {
 
         FilteredList<Employees> filteredData = new FilteredList<>(employeesList, p -> true);
 
-
+        //Change the table views if the search bar change
         searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(employee -> {
-            // If filter text is empty, display all persons.
+            // If filter text is empty, display all .
             if (newValue == null || newValue.isEmpty()) {
                 return true;
             }
 
-            // Compare first name and last name of every person with filter text.
+            // Take the filter text, and compare
             String lowerCaseFilter = newValue.toLowerCase();
 
             try {
                 if (employee.getEmployeeName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true; // Filter matches id and name.
                 } else if (employee.getEmployeeId().toString().equals(lowerCaseFilter)) {
                     return true;
                 }
@@ -172,7 +177,7 @@ public class EmployeesController {
             }
             return false; // Does not match.
         }));
-
+        //Sort data and map to views
         SortedList<Employees> sortedData = new SortedList<>(filteredData);
 
         sortedData.comparatorProperty().bind(employeesTable.comparatorProperty());
@@ -185,6 +190,7 @@ public class EmployeesController {
     }
 
     private void setEditableColumn() {
+        //Set editable column
         nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         nameColumn.setOnEditCommit(event -> setEditOnColumn(event,2));
         emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -193,6 +199,7 @@ public class EmployeesController {
         phoneColumn.setOnEditCommit(event -> setEditOnColumn(event,5));
         ObservableList<Gender> genderList = FXCollections.observableArrayList(//
                 Gender.values());
+        //Specific implementation for gender column
         genderColumn.setCellValueFactory(param -> {
             Employees employee = param.getValue();
             // F,M
@@ -219,7 +226,9 @@ public class EmployeesController {
             }
         });
     }
-    private void setEditOnColumn(TableColumn.CellEditEvent<Employees,String> event,int columnIndex) {
+
+    //Decide what value in the column to change
+    private void setEditOnColumn(TableColumn.CellEditEvent<Employees,String> event, int columnIndex) {
         TablePosition<Employees, String> pos = event.getTablePosition();
         String value = event.getNewValue();
         int row = pos.getRow();
@@ -238,14 +247,17 @@ public class EmployeesController {
             }
             em.updateEmployee(employee.getEmployeeId(),employee.getEmployeeName(),employee.getPhoneNumber(),employee.getEmailAddress(),employee.getGender());
         } catch (EmployeesException e) {
-            e.printStackTrace();
+            FunctionLibrary.showAlertError(e.getMessage());
         }
     }
+
+    //Map actions to buttons
     private void setButtonClick(){
         addButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/add_employee_dialog.fxml","Add Employee Dialog");
             if (isAdd) {
                 try {
+                    //Create an object , add to database and the employee list
                     em.addEmployee(addEmployee.getEmployeeName(),addEmployee.getPhoneNumber(),addEmployee.getEmailAddress(),addEmployee.getGender());
                     employeesList.add(addEmployee);
                     employeesName.add(addEmployee.getEmployeeName());
@@ -260,6 +272,7 @@ public class EmployeesController {
             FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Employee Dialog");
             DeleteDialogController.type = DeleteDialogController.EMPLOYEES;
             if (isDelete) {
+                //Delete from both database and employee list
                 employeesList.remove(selectedItem);
                 try {
                     em.deleteEmployee(selectedItem.getEmployeeId());

@@ -62,6 +62,7 @@ public class CustomersModel {
             }
         }
 
+    //Get the newest index in the table to update, and optimize the database
     public int getLastedIndex() {
         //language=TSQL
         int index = -1;
@@ -77,6 +78,7 @@ public class CustomersModel {
         return index;
     }
 
+    //delete a customer in database
     public void deleteCustomer(int customerID) {
             String delete = "DELETE FROM product_manager.customers WHERE customer_id = ?";
         try {
@@ -108,6 +110,7 @@ public class CustomersModel {
             }
         }
 
+    //Set a value for a prepare statement
     private void setValue(String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country, String update) throws SQLException {
         mPreparedStatement = mConnection.prepareStatement(update);
         mPreparedStatement.setString(1, customerName);

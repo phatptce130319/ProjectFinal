@@ -46,3 +46,7 @@
 .table-row-cell:selected {
     -fx-background-color: linear-gradient(#009688,#4CAF50);
 }
+
+.price-size-table-column {
+    -fx-alignment: CENTER_RIGHT;
+}

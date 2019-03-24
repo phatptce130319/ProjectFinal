@@ -8,7 +8,7 @@ package entity;/*
  *
  * @author Dang Buu Hoa
  */
-//The exception is generated if entity.Price has errors
+//The exception is generated if Price has errors
 class PriceException extends Exception {
      PriceException(String message) {
         super (message);

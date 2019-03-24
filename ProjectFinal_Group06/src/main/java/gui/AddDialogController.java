@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import util.FunctionLibrary;
 
 public class AddDialogController {
+    //Declare some view objects and some connection to other table
     private CustomersModel cm;
     @FXML
     private JFXTextField nameField;
@@ -36,6 +37,7 @@ public class AddDialogController {
     private ToggleGroup genderGroup;
     @FXML
     private void initialize(){
+        //When the main frame is initialized
         try {
             cm = new CustomersModel();
             cm.loadCustomers();
@@ -46,10 +48,12 @@ public class AddDialogController {
         maleRadio.setToggleGroup(genderGroup);
         femaleRadio.setToggleGroup(genderGroup);
         setAddAction();
-
     }
+
+    //Set action click on buttons
     private void setAddAction(){
         addButton.setOnMouseClicked(event -> {
+            //Get information from views
             String name = nameField.getText();
             String email = emailField.getText();
             String phone = phoneField.getText();
@@ -60,6 +64,7 @@ public class AddDialogController {
             RadioButton genderRadio = (RadioButton) genderGroup.getSelectedToggle();
             String gender = genderRadio.getText();
             try {
+                //Create an object and add to the database
                 CustomersController.addCustomer = new Customers(cm.getLastedIndex() + 1, name, gender, email, phone, address, townCity, stateCountyProvince, country);
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 CustomersController.isAdd = true;

@@ -30,7 +30,7 @@ public final class Products {
     
     //set product ID
     public void setProductId(Integer productId) throws ProductsException {
-        if (productId.toString().chars().anyMatch(Character::isLetter))
+        if (productId.toString().chars().anyMatch(Character::isLetter) || productId.toString().equals(""))
             throw new ProductsException("Only accept numbers");
         this.productId = productId;
     }
@@ -43,9 +43,7 @@ public final class Products {
     
     //set product Name
     public void setProductName(String productName) throws ProductsException {
-        if (productName.chars().noneMatch(Character::isLetter))
-            throw new ProductsException("Only alphabet letters are accepted");
-        if (productName.equals("")) throw new ProductsException("The field cannot be empty");
+        if (productName.equals("")) throw new ProductsException("The product name cannot be empty");
         this.productName = productName;
     }
     
@@ -57,8 +55,8 @@ public final class Products {
     
     //set product entity.Price
     public void setProductPrice(Double productPrice) throws ProductsException {
-        if (productPrice.toString().chars().anyMatch(Character::isLetter))
-            throw new ProductsException("Only accept numbers");
+        if (productPrice.toString().chars().anyMatch(Character::isLetter) || productPrice.toString().equals(""))
+            throw new ProductsException("Only accept numbers in product price");
         this.productPrice = productPrice;
     }
 
@@ -70,9 +68,9 @@ public final class Products {
 
     //set product Color
     public void setProductColor(String productColor) throws ProductsException {
-        if (productColor.chars().noneMatch(Character::isLetter))
-            throw new ProductsException("Only alphabet letters are accepted");
-        if (productColor.equals("")) throw new ProductsException("The field cannot be empty");
+        if (productColor.chars().anyMatch(Character::isDigit))
+            throw new ProductsException("Only alphabet letters are accepted in product color");
+        if (productColor.equals("")) throw new ProductsException("The product color cannot be empty");
         this.productColor = productColor;
     }
 
@@ -84,8 +82,8 @@ public final class Products {
 
     //set product Size
     public void setProductSize(Double productSize) throws ProductsException {
-        if (productSize.toString().chars().anyMatch(Character::isLetter))
-            throw new ProductsException("Only accept numbers");
+        if (productSize.toString().chars().anyMatch(Character::isLetter) || productSize.toString().equals(""))
+            throw new ProductsException("Only accept numbers in product size");
         this.productSize = productSize;
     }
 
@@ -97,9 +95,7 @@ public final class Products {
 
     //set product Description
     public void setProductDescription(String productDescription) throws ProductsException {
-        if (productDescription.chars().noneMatch(Character::isLetter))
-            throw new ProductsException("Only alphabet letters are accepted");
-        if (productDescription.equals("")) throw new ProductsException("The field cannot be empty");
+        if (productDescription.equals("")) throw new ProductsException("The product description cannot be empty");
         this.productDescription = productDescription;
     }
 }

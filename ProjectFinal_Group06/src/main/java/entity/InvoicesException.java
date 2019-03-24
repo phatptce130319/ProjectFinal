@@ -8,7 +8,7 @@ package entity;/*
  *
  * @author Ha Van Ngoan
  */
-//The exception is generated if Invoidces has errors
+//The exception is generated if the Invoices has errors
 class InvoicesException extends Exception {
     InvoicesException(String message) {
         super (message);

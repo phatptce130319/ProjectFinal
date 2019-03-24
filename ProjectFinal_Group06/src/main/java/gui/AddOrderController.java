@@ -27,6 +27,7 @@ import java.util.Objects;
 
 
 public class AddOrderController {
+    //Declare some GUI views and connection to other database
     public static int quantity;
     static boolean isAdd = false;
     private static Products selectedItem = null;
@@ -34,6 +35,8 @@ public class AddOrderController {
     private ProductsModel pm;
     private OrderItemsModel oim;
     private OrdersModel om;
+    private CustomersModel cm;
+    private EmployeesModel em;
     @FXML
     private GridPane mainFrame;
     @FXML
@@ -56,28 +59,116 @@ public class AddOrderController {
     private TableColumn<Products, String> productsSizeColumn;
     @FXML
     private TableColumn<Products, String> productsColorColumn;
+
+    //sort data , and create a filter to search for item
+    static void sortData(FilteredList<Products> filteredData, JFXTextField searchField, TableView<Products> productsTable) {
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(product -> {
+            // If filter text is empty, display all data.
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            //get the value, and match all case
+            String lowerCaseFilter = newValue.toLowerCase();
+
+            try {
+                if (product.getProductName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches id or  name.
+                } else if (product.getProductId().toString().equals(lowerCaseFilter)) {
+                    return true;
+                }
+            } catch (ProductsException e) {
+                e.printStackTrace();
+            }
+            return false; // Does not match.
+        }));
+
+        SortedList<Products> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(productsTable.comparatorProperty());
+
+        productsTable.setItems(sortedData);
+    }
+
+    //A function to set which field of an item is altered
+    static void setIndex(int columnIndex, String value, Products product, ProductsModel pm) {
+        try {
+            switch (columnIndex) {
+                case 2:
+                    product.setProductName(value);
+                    break;
+                case 3:
+                    try {
+                        product.setProductPrice(Double.parseDouble(value));
+                    } catch (NumberFormatException e) {
+                        throw new ProductsException("Only accept number in product price");
+                    }
+                    break;
+                case 4:
+                    product.setProductColor(value);
+                    break;
+                case 5:
+                    try {
+                        product.setProductSize(Double.parseDouble(value));
+                    } catch (NumberFormatException e) {
+                        throw new ProductsException("Only accept number in product size");
+                    }
+                    break;
+                case 6:
+                    product.setProductDescription(value);
+                    break;
+            }
+            pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
+        } catch (ProductsException e) {
+            FunctionLibrary.showAlertError(e.getMessage());
+        }
+    }
+
+    //Initialize the view and load the tables
     @FXML
     private void initialize() {
         try {
             pm = new ProductsModel();
             oim = new OrderItemsModel();
             om = new OrdersModel();
+            cm = new CustomersModel();
+            em = new EmployeesModel();
             oim.loadOrderItems();
             pm.loadProducts();
-
-        } catch (ProductsException | OrderItemsException | OrdersException ignored) {
-
+            cm.loadCustomers();
+            em.loadEmployees();
+        } catch (ProductsException | OrderItemsException | OrdersException | CustomersException | EmployeesException ignored) {
         }
+        //Map action to a button
         doneButton.setOnMouseClicked(event -> {
+            //Get data from views and create an object
             OrdersController.isAdd = true;
+            Orders temp;
+            int cusID, emID;
             try {
-                OrdersController.addOrder = new Orders(OrdersModel.lastedIndex,Integer.parseInt(customerID.getText()),Integer.parseInt(creatorID.getText()),new java.sql.Date(System.currentTimeMillis()),orderAddress.getText());
-            } catch (OrdersException | NumberFormatException e) {
+                try {
+                    cusID = Integer.parseInt(customerID.getText());
+                    if (cusID > cm.getLastedIndex()) throw new CustomersException("Exceeded Customer ID");
+                    cm.getCustomer(cusID);
+                } catch (NumberFormatException e) {
+                    throw new OrdersException("Customer ID must be a number");
+                }
+                try {
+                    emID = Integer.parseInt(creatorID.getText());
+                    if (emID > em.getLastedIndex()) throw new EmployeesException("Exceeded Customer ID");
+                    em.getEmployee(emID);
+                } catch (NumberFormatException e) {
+                    throw new OrdersException("Creator ID must be a number");
+                }
+                temp = new Orders(om.getLastedIndex() + 1, cusID, emID, new java.sql.Date(System.currentTimeMillis()), orderAddress.getText());
+                OrdersController.addOrder = temp;
+            } catch (OrdersException | CustomersException | EmployeesException e) {
                 FunctionLibrary.showAlertError(e.getMessage());
+                return;
             }
             Stage stage = (Stage) doneButton.getScene().getWindow();
             stage.close();
         });
+        //Mapping data to views
         productsList = FXCollections.observableList(ProductsModel.sProductsList);
         mappingData();
         setEditTable();
@@ -101,71 +192,25 @@ public class AddOrderController {
                     stage.showAndWait();
                     if (isAdd) {
                         try {
-                            oim.addOrderItem(om.getLastedIndex() + 1, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
-                        } catch (ProductsException ignored) {
+                            //Create an order item add to the order
+                            OrderItems temp = new OrderItems(-1, om.getLastedIndex() + 1, selectedItem.getProductId(), selectedItem.getProductPrice(), quantity);
+                            OrdersController.listItem.add(temp);
+                        } catch (ProductsException | OrderItemsException e) {
+                            FunctionLibrary.showAlertError(e.getMessage());
                         }
                     }
                 }
-
             });
             return row;
         });
     }
 
-    static void sortData(FilteredList<Products> filteredData, JFXTextField searchField, TableView<Products> productsTable) {
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(product -> {
-            // If filter text is empty, display all persons.
-            if (newValue == null || newValue.isEmpty()) {
-                return true;
-            }
-
-            // Compare first name and last name of every person with filter text.
-            String lowerCaseFilter = newValue.toLowerCase();
-
-            try {
-                if (product.getProductName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (product.getProductId().toString().equals(lowerCaseFilter)) {
-                    return true;
-                }
-            } catch (ProductsException e) {
-                e.printStackTrace();
-            }
-            return false; // Does not match.
-        }));
-
-        SortedList<Products> sortedData = new SortedList<>(filteredData);
-
-        sortedData.comparatorProperty().bind(productsTable.comparatorProperty());
-
-        productsTable.setItems(sortedData);
-    }
-
-    static void setIndex(int columnIndex, String value, Products product, ProductsModel pm) throws ProductsException {
-        switch (columnIndex) {
-            case 2:
-                product.setProductName(value);
-                break;
-            case 3:
-                product.setProductPrice(Double.parseDouble(value));
-                break;
-            case 4:
-                product.setProductColor(value);
-                break;
-            case 5:
-                product.setProductSize(Double.parseDouble(value));
-                break;
-            case 6:
-                product.setProductDescription(value);
-                break;
-        }
-        pm.updateProduct(product.getProductId(), product.getProductName(), product.getProductPrice(), product.getProductColor(), product.getProductSize(), product.getProductDescription());
-    }
-
     private void setEditTable() {
         setEditableColumn();
     }
+
     private void setEditableColumn() {
+        //Allow table is editable
         productsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         productsNameColumn.setOnEditCommit(event -> setEditOnColumn(event, 2));
         productsPriceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -177,6 +222,7 @@ public class AddOrderController {
 
     }
 
+    //After data change map to the table again
     private void mappingData() {
         productsNameColumn.setCellValueFactory(cellData -> {
             try {
@@ -216,16 +262,13 @@ public class AddOrderController {
 
     }
 
+    //Set editable columns
     private void setEditOnColumn(TableColumn.CellEditEvent<Products, String> event, int columnIndex) {
         TablePosition<Products, String> pos = event.getTablePosition();
         String value = event.getNewValue();
         int row = pos.getRow();
         Products product = event.getTableView().getItems().get(row);
-        try {
             setIndex(columnIndex, value, product, pm);
-        } catch (ProductsException ignored) {
-
-        }
     }
 
 }

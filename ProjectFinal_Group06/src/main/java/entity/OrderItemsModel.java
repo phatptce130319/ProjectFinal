@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OrderItemsModel {
     static List<OrderItems> sOrderItemsList;
-    public static int orderIndex;
+    private OrdersModel om;
     private Connection mConnection;
     private Statement mStatement;
     private PreparedStatement mPreparedStatement;
@@ -16,11 +16,9 @@ public class OrderItemsModel {
         try {
             mConnection = DatabaseConnection.getMySQLConnection();
             mStatement = mConnection.createStatement();
-            String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
-            mResultSet = mStatement.executeQuery(query);
-            mResultSet.next();
-            orderIndex = mResultSet.getInt("order_id");
-        } catch (SQLException e) {
+            om = new OrdersModel();
+            om.loadOrders();
+        } catch (SQLException | OrdersException e) {
             sOrderItemsList = new ArrayList<>();
 
         }
@@ -52,19 +50,14 @@ public class OrderItemsModel {
         try {
             setValue(orderId,productID,productPrice,productQuantity,insert);
             mPreparedStatement.executeUpdate();
-
             //language=TSQL
-            String query = "SELECT * FROM product_manager.orders ORDER BY order_id DESC";
+            String query = "SELECT * FROM product_manager.order_items ORDER BY order_item_id DESC";
             mResultSet = mStatement.executeQuery(query);
             mResultSet.next();
-            orderIndex = mResultSet.getInt("order_id");
-            query = "SELECT * FROM product_manager.order_items ORDER BY order_item_id DESC";
-            mResultSet = mStatement.executeQuery(query);
-            mResultSet.next();
-            sOrderItemsList.add(new OrderItems(mResultSet.getInt("order_item_id"), OrdersModel.lastedIndex + 1, mResultSet.getInt("product_id"), mResultSet.getDouble("product_price"), mResultSet.getInt("product_quantity")));
+            sOrderItemsList.add(new OrderItems(mResultSet.getInt("order_item_id"), om.getLastedIndex() + 1, mResultSet.getInt("product_id"), mResultSet.getDouble("product_price"), mResultSet.getInt("product_quantity")));
             return true;
         } catch (SQLException | OrderItemsException e) {
-
+            e.printStackTrace();
             return false;
         }
     }

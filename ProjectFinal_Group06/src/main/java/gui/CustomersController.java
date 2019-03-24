@@ -34,8 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomersController {
+    //Declare some GUI views with connection to database
     static Customers addCustomer;
-    List<String>customerName;
+    private List<String> customerName;
     static boolean isAdd = false;
     private static Customers selectedItem = null;
     static boolean isDelete = false;
@@ -69,8 +70,10 @@ public class CustomersController {
     private TableColumn<Customers, String> countryColumn;
     @FXML
     private void initialize(){
+        //Initialize the GUI views
         customersTable.setEditable(true);
         try {
+            //load the data in tables
             cm = new CustomersModel();
             cm.loadCustomers();
             customerName = new ArrayList<>();
@@ -102,7 +105,9 @@ public class CustomersController {
         GridPane.setValignment(nodesList, VPos.CENTER);
         GridPane.setHalignment(nodesList, HPos.RIGHT);
         GridPane.setMargin(nodesList,new Insets(0,15,0,0));
+        // Set button click action
         setButtonClick();
+        //Alter the delete button state when select
         customersTable.setRowFactory(tableView -> {
             TableRow<Customers> row = new TableRow<>();
             // If a row of our table is clicked...
@@ -113,6 +118,8 @@ public class CustomersController {
             return row;
         });
     }
+
+    //Mapping data from database to table
     private void mappingData(){
         customerIdColumn.setCellValueFactory(cellData -> {
             try {
@@ -201,12 +208,12 @@ public class CustomersController {
                 return true;
             }
 
-            // Compare first name and last name of every person with filter text.
+            // Get the filter string
             String lowerCaseFilter = newValue.toLowerCase();
 
             try {
                 if (customer.getCustomerName().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true; // Filter matches name or id
                 } else if (customer.getCustomerId().toString().equals(lowerCaseFilter)) {
                     return true;
                 }
@@ -228,6 +235,7 @@ public class CustomersController {
     }
 
     private void setEditableColumn() {
+        //Set the column editable
         customerNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         customerNameColumn.setOnEditCommit(event -> setEditOnColumn(event,2));
         emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -246,7 +254,7 @@ public class CustomersController {
                 Gender.values());
         genderColumn.setCellValueFactory(param -> {
             Customers customer = param.getValue();
-            // F,M
+            // Female , Male combo box
             String genderCode = null;
             try {
                 genderCode = customer.getGender();
@@ -278,6 +286,7 @@ public class CustomersController {
         try {
             switch (columnIndex){
                 case 2:
+                    //Set which field to change values
                     customer.setCustomerName(value);
                     break;
                 case 4:
@@ -301,18 +310,22 @@ public class CustomersController {
             }
             cm.updateCustomer(customer.getCustomerId(),customer.getCustomerName(),customer.getGender(),customer.getEmailAddress(),customer.getPhoneNumber(),customer.getAddressLine(),customer.getTownCity(),customer.getStateCountyProvince(),customer.getCountry());
         } catch (CustomersException e) {
-            e.printStackTrace();
+            FunctionLibrary.showAlertError(e.getMessage());
         }
     }
     private void setButtonClick(){
+        //Set button click add and delete
         addButton.setOnMouseClicked(event -> {
+            //launch the add dialog
             FunctionLibrary.setUpNewWindows("/add_dialog.fxml","Add Customer Dialog");
             if (isAdd) {
                 try {
+                    //Get the data back, add to database and map to GUI view
                     cm.addCustomer(addCustomer.getCustomerName(),addCustomer.getGender(),addCustomer.getEmailAddress(),addCustomer.getPhoneNumber(),addCustomer.getAddressLine(),addCustomer.getTownCity(),addCustomer.getStateCountyProvince(),addCustomer.getCountry());
                     customerList.add(addCustomer);
                     customerName.add(addCustomer.getCustomerName());
                     TextFields.bindAutoCompletion(searchField,customerName);
+
                 } catch (CustomersException e) {
                     e.printStackTrace();
                 }
@@ -320,9 +333,11 @@ public class CustomersController {
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
+            //Launch the delete dialog
             FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Customer Dialog");
             DeleteDialogController.type = DeleteDialogController.CUSTOMERS;
             if (isDelete) {
+                //Remove an item from database and GUI views
                 customerList.remove(selectedItem);
                 try {
                     cm.deleteCustomer(selectedItem.getCustomerId());

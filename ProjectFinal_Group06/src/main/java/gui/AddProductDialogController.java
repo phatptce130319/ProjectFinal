@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import util.FunctionLibrary;
 
+//Declare some GUI fields and connect to database
 public class AddProductDialogController {
     private ProductsModel pm;
     @FXML
@@ -27,6 +28,7 @@ public class AddProductDialogController {
     @FXML
     private void initialize() {
         try {
+            //Load the database
             pm = new ProductsModel();
             pm.loadProducts();
         } catch (ProductsException e) {
@@ -34,20 +36,40 @@ public class AddProductDialogController {
         }
         setAddAction();
     }
+
+    //Set actions to buttons
     private void setAddAction() {
         addButton.setOnMouseClicked(event -> {
-            String name = nameField.getText();
-            String price = priceField.getText();
-            String color = colorField.getText();
-            String size = sizeField.getText();
-            String description = descriptionField.getText();
+            Products tem;
             try {
-                ProductsController.addProduct = new Products(pm.getLastedIndex() + 1, name, Double.parseDouble(price), color, Double.parseDouble(size), description);
+                String name = nameField.getText();
+                Double price;
+                Double size;
+                try {
+                    price = Double.parseDouble(priceField.getText());
+                } catch (Exception e) {
+                    throw new ProductsException("Price must not be empty");
+                }
+                String color = colorField.getText();
+                try {
+                    size = Double.parseDouble(sizeField.getText());
+                } catch (Exception e) {
+                    throw new ProductsException("Size must not be empty");
+                }
+                //Get value from GUI fields and create an object
+                String description = descriptionField.getText();
+                tem = new Products(pm.getLastedIndex() + 1, name, price, color, size, description);
+            } catch (ProductsException e) {
+                FunctionLibrary.showAlertError(e.getMessage());
+                return;
+            }
+            try {
+                //Pass value to parent
+                ProductsController.addProduct = tem;
                 Stage stage = (Stage) addButton.getScene().getWindow();
                 ProductsController.isAdd = true;
                 stage.close();
-            } catch (ProductsException e) {
-                FunctionLibrary.showAlertError(e.getMessage());
+            } catch (NumberFormatException ignored) {
             }
         });
     }

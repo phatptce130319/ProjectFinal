@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsController {
+    //Declare some GUI views and data connection
     private List<String> productsName;
     static Products addProduct;
     static boolean isAdd = false;
@@ -60,11 +61,13 @@ public class ProductsController {
 
     @FXML
     private void initialize() {
+        //Load the data, and set editable product table
         productsTable.setEditable(true);
         try {
             pm = new ProductsModel();
             pm.loadProducts();
             productsName = new ArrayList<>();
+            //Create a recommend text field
             for (Products products : ProductsModel.sProductsList){
                 productsName.add(products.getProductName());
             }
@@ -74,6 +77,7 @@ public class ProductsController {
         productsList = FXCollections.observableList(ProductsModel.sProductsList);
         mappingData();
         setEditTable();
+        //Mapping data and add some function buttons
         addButton = new JFXButton("", new ImageView(new Image(getClass().getResourceAsStream("/add_icon.png"))));
         addButton.getStyleClass().addAll("animated-option-button", "animated-option-sub-button");
         addButton.setButtonType(JFXButton.ButtonType.RAISED);
@@ -105,6 +109,7 @@ public class ProductsController {
     }
 
     private void mappingData() {
+        //Mapping data to table columns views
         productsIdColumn.setCellValueFactory(cellData -> {
             try {
                 return new SimpleIntegerProperty(cellData.getValue().getProductId()).asObject();
@@ -121,7 +126,6 @@ public class ProductsController {
                 return null;
             }
         });
-
 
         productsPriceColumn.setCellValueFactory(cellData -> {
             try {
@@ -158,10 +162,8 @@ public class ProductsController {
                 return null;
             }
         });
-
+        //Sort the data, when re-display
         FilteredList<Products> filteredData = new FilteredList<>(productsList, p -> true);
-
-
         AddOrderController.sortData(filteredData, searchField, productsTable);
 
     }
@@ -170,13 +172,14 @@ public class ProductsController {
         setEditableColumn();
     }
 
+    //Set change when data in columns change
     private void setEditableColumn() {
         productsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         productsNameColumn.setOnEditCommit(event -> setEditOnColumn(event, 2));
         productsPriceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
+        productsPriceColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
         productsColorColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 3));
+        productsColorColumn.setOnEditCommit(event -> setEditOnColumn(event, 4));
         productsSizeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         productsSizeColumn.setOnEditCommit(event -> setEditOnColumn(event, 5));
         productsDescriptionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -184,23 +187,22 @@ public class ProductsController {
 
     }
 
+    //Get the item in column clicked
     private void setEditOnColumn(TableColumn.CellEditEvent<Products, String> event, int columnIndex) {
         TablePosition<Products, String> pos = event.getTablePosition();
         String value = event.getNewValue();
         int row = pos.getRow();
         Products product = event.getTableView().getItems().get(row);
-        try {
-            AddOrderController.setIndex(columnIndex, value, product, pm);
-        } catch (ProductsException e) {
-            e.printStackTrace();
-        }
+        AddOrderController.setIndex(columnIndex, value, product, pm);
     }
 
+    //Set some action to buttons
     private void setButtonClick() {
         addButton.setOnMouseClicked(event -> {
             FunctionLibrary.setUpNewWindows("/add_product_dialog.fxml", "Add Product Dialog");
             if (isAdd) {
                 try {
+                    //Create a new product and add to database
                     pm.addProduct(addProduct.getProductName(), addProduct.getProductPrice(), addProduct.getProductColor(), addProduct.getProductSize(), addProduct.getProductDescription());
                     productsList.add(addProduct);
                     productsName.add(addProduct.getProductName());
@@ -212,6 +214,7 @@ public class ProductsController {
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
+            //Delete a product
             DeleteDialogController.type = DeleteDialogController.PRODUCTS;
             FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Product Dialog");
             if (isDelete) {

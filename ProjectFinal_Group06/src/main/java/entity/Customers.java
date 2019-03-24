@@ -37,6 +37,7 @@ public final class Customers {
     public void setCustomerId(Integer customerId) throws CustomersException {
         if (!customerId.toString().chars().allMatch(Character::isDigit))
             throw new CustomersException("Only accept numbers");
+        if (customerId.toString().equals("")) throw new CustomersException("Customer ID must not be empty");
         this.customerId = customerId;
     }
 
@@ -48,9 +49,9 @@ public final class Customers {
 
     //Set customer name
     public void setCustomerName(String customerName) throws CustomersException {
-        if (customerName.chars().noneMatch(Character::isLetter))
-            throw new CustomersException("Only alphabet letters are accepted");
-        if (customerName.equals("")) throw new CustomersException("The field cannot be empty");
+        if (customerName.chars().anyMatch(Character::isDigit))
+            throw new CustomersException("Only alphabet letters are accepted in customer's name");
+        if (customerName.equals("")) throw new CustomersException("The customer's name must not be empty");
         this.customerName = FunctionLibrary.convertToTitleCase(customerName);
     }
 
@@ -62,7 +63,7 @@ public final class Customers {
 
     //Set gender
     public void setGender(String Gender) throws CustomersException {
-        if (Gender.equals("")) throw new CustomersException("The field cannot be empty");
+        if (Gender.equals("")) throw new CustomersException("Gender cannot be empty");
         if (!Gender.equals("Female") & !Gender.equals("Male"))
             throw new CustomersException("Only Female or Male is accepted");
         this.gender = FunctionLibrary.convertToTitleCase(Gender);
@@ -76,7 +77,7 @@ public final class Customers {
 
     //Set email address
     public void setEmailAddress(String emailAddress) throws CustomersException {
-        if (emailAddress.equals("")) throw new CustomersException("The field cannot be empty");
+        if (emailAddress.equals("")) throw new CustomersException("The email cannot be empty");
         if (!emailAddress.matches("^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"))
             throw new CustomersException("Invalid email address");
         this.emailAddress = FunctionLibrary.convertToTitleCase(emailAddress);
@@ -90,9 +91,11 @@ public final class Customers {
 
     //Set phone number
     public void setPhoneNumber(String phoneNumber) throws CustomersException {
-        if (phoneNumber.equals("")) throw new CustomersException("The field cannot be empty");
-        if (phoneNumber.length() != 10 | phoneNumber.chars().anyMatch(Character::isLetter))
+        if (phoneNumber.equals("")) throw new CustomersException("The phone number cannot be empty");
+        if (phoneNumber.length() != 10 | phoneNumber.chars().anyMatch(Character::isLetter)) {
             throw new CustomersException("Phone number must be a 10 digits string");
+        }
+
         this.phoneNumber = phoneNumber;
     }
 
@@ -104,7 +107,7 @@ public final class Customers {
 
     //Set address line
      public void setAddressLine(String addressLine) throws CustomersException {
-        if (addressLine.equals("")) throw new CustomersException("The field cannot be empty");
+         if (addressLine.equals("")) throw new CustomersException("The address cannot be empty");
         this.addressLine = addressLine;
     }
 
@@ -116,7 +119,7 @@ public final class Customers {
 
     //Set town city
     public void setTownCity(String townCity) throws CustomersException {
-        if (townCity.equals("")) throw new CustomersException("The field cannot be empty");
+        if (townCity.equals("")) throw new CustomersException("The town or city cannot be empty");
         this.townCity = FunctionLibrary.convertToTitleCase(townCity);
     }
 
@@ -129,7 +132,7 @@ public final class Customers {
 
     //Set state, county and province
     public void setStateCountyProvince(String stateCountyProvince) throws CustomersException {
-        if (stateCountyProvince.equals("")) throw new CustomersException("The field cannot be empty");
+        if (stateCountyProvince.equals("")) throw new CustomersException("The state cannot be empty");
         this.stateCountyProvince = FunctionLibrary.convertToTitleCase(stateCountyProvince);
     }
 
@@ -141,7 +144,7 @@ public final class Customers {
 
     //Set country
     public void setCountry(String country) throws CustomersException {
-        if (country.equals("")) throw new CustomersException("The field cannot be empty");
+        if (country.equals("")) throw new CustomersException("The country cannot be empty");
         this.country = FunctionLibrary.convertToTitleCase(country);
     }
     @Override
