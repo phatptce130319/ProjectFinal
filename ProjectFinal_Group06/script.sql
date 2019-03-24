@@ -84,7 +84,7 @@ create table product_manager.products
     product_price       nvarchar(100) not null,
     product_color       nvarchar(50)  not null,
     product_size        float         not null,
-    product_description nvarchar(500) not null
+    product_description nvarchar(2000) not null
 )
 go
 
