@@ -60,6 +60,7 @@ public class OrdersController {
     @FXML
     private TableColumn<Orders, String> orderAddressColumn;
 
+    //Author: Phan Tan Phat
     //Initialize the views , and get the database
     @FXML
     private void initialize(){

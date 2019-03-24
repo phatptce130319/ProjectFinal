@@ -8,6 +8,7 @@ import util.FunctionLibrary;
 
 public class AddQuantityController {
     //Declare GUI views
+    //Ha Van Ngoan
     @FXML
     JFXTextField quantityField;
     @FXML

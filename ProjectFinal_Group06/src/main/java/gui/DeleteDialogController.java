@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
+//Phan Tan Phat
 public class DeleteDialogController {
     //Declare some GUI views, and some code to find out what to delete
     public static final String CUSTOMERS = "CUSTOMERS";

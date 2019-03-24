@@ -33,6 +33,7 @@ import util.FunctionLibrary;
 import java.util.ArrayList;
 import java.util.List;
 
+//Dang Buu Hoa
 public class EmployeesController {
     //Declare some GUI views and some data to take values from the database
     private List<String> employeesName;
