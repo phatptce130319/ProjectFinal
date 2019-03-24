@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+//Author: Phan Tan Phat
 public class Main extends Application {
 
     @Override
@@ -18,7 +19,6 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/icon.png"));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

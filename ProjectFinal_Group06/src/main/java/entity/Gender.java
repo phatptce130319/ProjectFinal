@@ -1,5 +1,6 @@
 package entity;
 
+//Author: Phan Tan Phat
 public enum Gender {
     //An enum use for mapping to combo box to select gender
     FEMALE("Female", "Female"), MALE("Male", "Male");
