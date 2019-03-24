@@ -37,20 +37,6 @@
         <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
         <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="product_manager@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
-        <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
-        <item name="order_items: table" type="63ab2ba1:MsImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="product_manager@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="product_manager: database" type="ccb7ac2a:MsImplModel$Database" />
-        <item name="product_manager: schema" type="2865ee2e:MsImplModel$Schema" />
-        <item name="orders: table" type="63ab2ba1:MsImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -300,6 +286,11 @@
             </path>
             <path>
               <item name="ProjectFinal_Group06" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProjectFinal_Group06" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProjectFinal_Group06" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -424,7 +415,7 @@
       <workItem from="1553264062668" duration="16452000" />
       <workItem from="1553311814526" duration="3625000" />
       <workItem from="1553332061574" duration="1359000" />
-      <workItem from="1553428774048" duration="1202000" />
+      <workItem from="1553428774048" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="Fix database">
       <created>1552922741885</created>
@@ -500,11 +491,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138967000" />
+    <option name="totallyTimeSpent" value="139641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23187633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -529,7 +519,7 @@
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32337245" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32870865" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.044444446" />
-      <window_info anchor="bottom" id="SQL Generator" order="16" weight="0.32977587" />
+      <window_info anchor="bottom" id="SQL Generator" order="16" visible="true" weight="0.32977587" />
       <window_info anchor="bottom" id="Duplicates" order="17" weight="0.32977587" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
