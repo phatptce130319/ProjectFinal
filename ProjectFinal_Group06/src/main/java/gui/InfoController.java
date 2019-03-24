@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
@@ -20,6 +21,9 @@ public class InfoController {
     private ObservableList<OrderItems> orderItemsList;
     private OrderItemsModel om;
     private ProductsModel pm;
+    private double total = 0;
+    @FXML
+    private Label totalLabel;
     @FXML
     private GridPane mainFrame;
     @FXML
@@ -94,7 +98,10 @@ public class InfoController {
         });
         productTotalColumn.setCellValueFactory(cellData -> {
             try {
-                return new SimpleStringProperty(Double.toString(cellData.getValue().getProductQuantity() * cellData.getValue().getProductPrice()));
+                double value = cellData.getValue().getProductQuantity() * cellData.getValue().getProductPrice();
+                total += value;
+                totalLabel.setText(String.format("Label: %.2f$", total));
+                return new SimpleStringProperty(String.format("%.2f", value));
             } catch (OrderItemsException e) {
                 e.printStackTrace();
                 return null;

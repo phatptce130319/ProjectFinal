@@ -98,8 +98,8 @@ public class OrderItemsModel {
         mPreparedStatement = mConnection.prepareStatement(update);
         mPreparedStatement.setInt(1, orderId);
         mPreparedStatement.setInt(2, productID);
-        mPreparedStatement.setDouble(3, productPrice);
-        mPreparedStatement.setInt(4, productQuantity);
+        mPreparedStatement.setDouble(4, productPrice);
+        mPreparedStatement.setInt(3, productQuantity);
     }
 
     //Get the type by giving an ID
