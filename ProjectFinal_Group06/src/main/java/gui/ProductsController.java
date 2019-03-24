@@ -131,7 +131,7 @@ public class ProductsController {
 
         productsPriceColumn.setCellValueFactory(cellData -> {
             try {
-                return new SimpleStringProperty(cellData.getValue().getProductPrice().toString());
+                return new SimpleStringProperty(String.format("%.2f", cellData.getValue().getProductPrice()));
             } catch (ProductsException e) {
                 e.printStackTrace();
                 return null;
@@ -149,7 +149,7 @@ public class ProductsController {
 
         productsSizeColumn.setCellValueFactory(cellData -> {
             try {
-                return new SimpleStringProperty(cellData.getValue().getProductSize().toString());
+                return new SimpleStringProperty(String.format("%.2f", cellData.getValue().getProductSize()));
             } catch (ProductsException e) {
                 e.printStackTrace();
                 return null;
