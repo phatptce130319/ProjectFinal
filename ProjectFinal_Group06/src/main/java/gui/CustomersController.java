@@ -82,7 +82,9 @@ public class CustomersController {
                 customerName.add(customers.getCustomerName());
             }
             TextFields.bindAutoCompletion(searchField,customerName);
-        } catch (CustomersException ignored) {
+        } catch (CustomersException e) {
+            FunctionLibrary.showAlertError(e.getMessage());
+            return;
         }
         customerList = FXCollections.observableList(CustomersModel.sCustomersList);
         mappingData();

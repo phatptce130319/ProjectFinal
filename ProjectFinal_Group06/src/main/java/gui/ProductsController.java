@@ -72,7 +72,9 @@ public class ProductsController {
                 productsName.add(products.getProductName());
             }
             TextFields.bindAutoCompletion(searchField,productsName);
-        } catch (ProductsException ignored) {
+        } catch (ProductsException e) {
+            FunctionLibrary.showAlertError(e.getMessage());
+            return;
         }
         productsList = FXCollections.observableList(ProductsModel.sProductsList);
         mappingData();

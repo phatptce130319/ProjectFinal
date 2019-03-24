@@ -13,7 +13,7 @@ public class EmployeesModel {
     //Initialize some connection
     public EmployeesModel() throws EmployeesException {
         try {
-            mConnection = DatabaseConnection.getMySQLConnection();
+            mConnection = DatabaseConnection.getSQLServerConnection();
             mStatement = mConnection.createStatement();
         } catch (SQLException e) {
             throw new EmployeesException("Cannot connect to database");

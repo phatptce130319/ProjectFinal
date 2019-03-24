@@ -13,7 +13,7 @@ public class CustomersModel {
         //Initialize some connection
         public CustomersModel() throws CustomersException {
             try {
-                mConnection = DatabaseConnection.getMySQLConnection();
+                mConnection = DatabaseConnection.getSQLServerConnection();
                 mStatement = mConnection.createStatement();
             } catch (SQLException e) {
                 throw new CustomersException("Cannot connect to database");
