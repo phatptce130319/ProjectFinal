@@ -28,8 +28,6 @@ import java.util.List;
 
 public class OrdersController {
     public static List<OrderItems> listItem;
-    //Declare some GUI views and connection to database
-    private List<String> orderName;
     static Orders addOrder;
     static boolean isBought;
     static boolean isAdd = false;
@@ -74,7 +72,8 @@ public class OrdersController {
             cm.loadCustomers();
             em.loadEmployees();
             oim.loadOrderItems();
-            orderName = new ArrayList<>();
+            //Declare some GUI views and connection to database
+            List<String> orderName = new ArrayList<>();
             listItem = new ArrayList<>();
             //Create a list of name to create a recommend list name
             for (Customers customers : CustomersModel.sCustomersList){
@@ -83,7 +82,7 @@ public class OrdersController {
             for(Employees employees : EmployeesModel.sEmployeesList){
                 orderName.add(employees.getEmployeeName());
             }
-            TextFields.bindAutoCompletion(searchField,orderName);
+            TextFields.bindAutoCompletion(searchField, orderName);
         } catch (OrdersException | CustomersException | EmployeesException | OrderItemsException ignored) {
         }
         ordersList = FXCollections.observableList(OrdersModel.sOrderList);
@@ -196,7 +195,7 @@ public class OrdersController {
     private void setButtonClick(){
         //Set action to buttons , load views depends on what button is clicked
         addButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/add_order_dialog.fxml","Add Order Dialog");
+            FunctionLibrary.setUpNewWindows("/add_order_dialog.fxml", "Add Order Dialog", 800, 600);
             if (isAdd && isBought) {
                 try {
                     //if customer's order something and confirm buy, create an order
@@ -213,12 +212,13 @@ public class OrdersController {
                     e.printStackTrace();
                 }
             }
+            if (!isBought) FunctionLibrary.showAlertError("There is no items in the order list");
             isAdd = false;
             isBought = false;
         });
         deleteButton.setOnMouseClicked(event -> {
             DeleteDialogController.type = DeleteDialogController.ORDERS;
-            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Order Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Order Dialog", 600, 400);
             if (isDelete) {
                 ordersList.remove(selectedItem);
                 try {
@@ -232,7 +232,7 @@ public class OrdersController {
         });
         //Click info to see detail of orders
         infoButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/info_dialog.fxml","Detail of order");
+            FunctionLibrary.setUpNewWindows("/info_dialog.fxml", "Detail of order", 800, 600);
             infoButton.setDisable(true);
         });
     }

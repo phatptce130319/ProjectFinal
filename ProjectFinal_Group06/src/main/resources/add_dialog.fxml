@@ -140,7 +140,7 @@
         </unFocusColor>
     </JFXTextField>
     <JFXTextField fx:id="stateCountyProvinceField" labelFloat="true" layoutX="10.0" layoutY="65.0"
-                  promptText="State/Province" styleClass="small-test" GridPane.rowIndex="3">
+                  promptText="State/Province" GridPane.rowIndex="3">
         <GridPane.margin>
           <Insets right="5.0"/>
         </GridPane.margin>

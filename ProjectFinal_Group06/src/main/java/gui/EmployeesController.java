@@ -31,12 +31,16 @@ import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 //Dang Buu Hoa
 public class EmployeesController {
     //Declare some GUI views and some data to take values from the database
     private List<String> employeesName;
+    private Set<String> employeeAddress;
+    private Set<String> employeePhone;
     static Employees addEmployee;
     static boolean isAdd = false;
     private static Employees selectedItem = null;
@@ -69,9 +73,13 @@ public class EmployeesController {
             em = new EmployeesModel();
             em.loadEmployees();
             employeesName = new ArrayList<>();
+            employeeAddress = new HashSet<>();
+            employeePhone = new HashSet<>();
             //Get the name for recommend text fields
             for (Employees employees : EmployeesModel.sEmployeesList){
                 employeesName.add(employees.getEmployeeName());
+                employeeAddress.add(employees.getEmailAddress());
+                employeePhone.add(employees.getPhoneNumber());
             }
             TextFields.bindAutoCompletion(searchField,employeesName);
         } catch (EmployeesException e) {
@@ -239,13 +247,17 @@ public class EmployeesController {
         try {
             switch (columnIndex){
                 case 2:
-                    employee.setEmployeeName(value);
+                    employee.setEmployeeName(value.trim());
                     break;
                 case 4:
-                    employee.setEmailAddress(value);
+                    if (employeeAddress.contains(value))
+                        throw new EmployeesException("The email is already in the database");
+                    employee.setEmailAddress(value.trim());
                     break;
                 case 5:
-                    employee.setPhoneNumber(value);
+                    if (employeePhone.contains(value))
+                        throw new EmployeesException("The phone is already in the database");
+                    employee.setPhoneNumber(value.trim());
                     break;
             }
             em.updateEmployee(employee.getEmployeeId(),employee.getEmployeeName(),employee.getPhoneNumber(),employee.getEmailAddress(),employee.getGender());
@@ -257,30 +269,36 @@ public class EmployeesController {
     //Map actions to buttons
     private void setButtonClick(){
         addButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/add_employee_dialog.fxml","Add Employee Dialog");
+            FunctionLibrary.setUpNewWindows("/add_employee_dialog.fxml", "Add Employee Dialog", 800, 600);
             if (isAdd) {
                 try {
                     //Create an object , add to database and the employee list
                     em.addEmployee(addEmployee.getEmployeeName(),addEmployee.getPhoneNumber(),addEmployee.getEmailAddress(),addEmployee.getGender());
                     employeesList.add(addEmployee);
                     employeesName.add(addEmployee.getEmployeeName());
+                    employeeAddress.add(addEmployee.getEmailAddress());
+                    employeePhone.add(addEmployee.getPhoneNumber());
                     TextFields.bindAutoCompletion(searchField,employeesName);
                 } catch (EmployeesException e) {
-                    e.printStackTrace();
+                    FunctionLibrary.showAlertError(e.getMessage());
                 }
             }
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Employee Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Employee Dialog", 600, 400);
             DeleteDialogController.type = DeleteDialogController.EMPLOYEES;
             if (isDelete) {
                 //Delete from both database and employee list
                 employeesList.remove(selectedItem);
                 try {
                     em.deleteEmployee(selectedItem.getEmployeeId());
+                    employeesName.remove(selectedItem.getEmployeeName());
+                    employeeAddress.remove(selectedItem.getEmailAddress());
+                    employeePhone.remove(selectedItem.getPhoneNumber());
+                    TextFields.bindAutoCompletion(searchField, employeesName);
                 } catch (EmployeesException e) {
-                    e.printStackTrace();
+                    FunctionLibrary.showAlertError(e.getMessage());
                 }
             }
             isDelete = false;

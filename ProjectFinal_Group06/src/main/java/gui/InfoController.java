@@ -101,7 +101,7 @@ public class InfoController {
             try {
                 double value = cellData.getValue().getProductQuantity() * cellData.getValue().getProductPrice();
                 total += value;
-                totalLabel.setText(String.format("Label: %.2f$", total));
+                totalLabel.setText(String.format("Total: $%.2f", total));
                 return new SimpleStringProperty(String.format("%.2f", value));
             } catch (OrderItemsException e) {
                 e.printStackTrace();

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--Phan Tan Phat -->
+
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -25,7 +27,7 @@
     </padding>
     <Label styleClass="tittle" text="Add Order" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER"
            GridPane.valignment="CENTER"/>
-    <JFXTextField fx:id="customerID" labelFloat="true" promptText="Customer's ID" GridPane.rowIndex="1">
+    <JFXTextField fx:id="customerPhone" labelFloat="true" promptText="Customer's Phone" GridPane.rowIndex="1">
         <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
         </GridPane.margin>
@@ -48,7 +50,7 @@
             </RadialGradient>
         </unFocusColor>
     </JFXTextField>
-    <JFXTextField fx:id="creatorID" labelFloat="true" promptText="Creator's ID" GridPane.rowIndex="3">
+    <JFXTextField fx:id="creatorPhone" labelFloat="true" promptText="Creator's Phone" GridPane.rowIndex="3">
         <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
         </GridPane.margin>

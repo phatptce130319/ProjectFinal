@@ -202,7 +202,7 @@ public class ProductsController {
     //Set some action to buttons
     private void setButtonClick() {
         addButton.setOnMouseClicked(event -> {
-            FunctionLibrary.setUpNewWindows("/add_product_dialog.fxml", "Add Product Dialog");
+            FunctionLibrary.setUpNewWindows("/add_product_dialog.fxml", "Add Product Dialog", 800, 600);
             if (isAdd) {
                 try {
                     //Create a new product and add to database
@@ -219,7 +219,7 @@ public class ProductsController {
         deleteButton.setOnMouseClicked(event -> {
             //Delete a product
             DeleteDialogController.type = DeleteDialogController.PRODUCTS;
-            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Product Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Product Dialog", 600, 400);
             if (isDelete) {
                 productsList.remove(selectedItem);
                 try {

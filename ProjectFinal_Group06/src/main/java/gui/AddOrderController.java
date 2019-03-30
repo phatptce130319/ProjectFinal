@@ -20,9 +20,12 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -41,11 +44,11 @@ public class AddOrderController {
     @FXML
     private GridPane mainFrame;
     @FXML
-    private JFXTextField customerID;
+    private JFXTextField customerPhone;
     @FXML
     private JFXTextField orderAddress;
     @FXML
-    private JFXTextField creatorID;
+    private JFXTextField creatorPhone;
     @FXML
     private JFXButton doneButton;
     @FXML
@@ -60,6 +63,8 @@ public class AddOrderController {
     private TableColumn<Products, String> productsSizeColumn;
     @FXML
     private TableColumn<Products, String> productsColorColumn;
+    private List<String> customerPhoneList;
+    private List<String> employeesPhoneList;
 
     //sort data , and create a filter to search for item
     static void sortData(FilteredList<Products> filteredData, JFXTextField searchField, TableView<Products> productsTable) {
@@ -137,30 +142,37 @@ public class AddOrderController {
             pm.loadProducts();
             cm.loadCustomers();
             em.loadEmployees();
+            customerPhoneList = new ArrayList<>();
+            employeesPhoneList = new ArrayList<>();
         } catch (ProductsException | OrderItemsException | OrdersException | CustomersException | EmployeesException ignored) {
         }
+        for (Employees employees : EmployeesModel.sEmployeesList) {
+            try {
+                employeesPhoneList.add(employees.getPhoneNumber());
+            } catch (EmployeesException e) {
+                e.printStackTrace();
+            }
+        }
+        TextFields.bindAutoCompletion(creatorPhone, employeesPhoneList);
+        for (Customers customers : CustomersModel.sCustomersList) {
+            try {
+                customerPhoneList.add(customers.getPhoneNumber());
+            } catch (CustomersException e) {
+                e.printStackTrace();
+            }
+        }
+        TextFields.bindAutoCompletion(customerPhone, customerPhoneList);
+
         //Map action to a button
         doneButton.setOnMouseClicked(event -> {
             //Get data from views and create an object
             OrdersController.isAdd = true;
             Orders temp;
-            int cusID, emID;
+            String cusPhone, emPhone;
             try {
-                try {
-                    cusID = Integer.parseInt(customerID.getText());
-                    if (cusID > cm.getLastedIndex()) throw new CustomersException("Exceeded Customer ID");
-                    cm.getCustomer(cusID);
-                } catch (NumberFormatException e) {
-                    throw new OrdersException("Customer ID must be a number");
-                }
-                try {
-                    emID = Integer.parseInt(creatorID.getText());
-                    if (emID > em.getLastedIndex()) throw new EmployeesException("Exceeded Customer ID");
-                    em.getEmployee(emID);
-                } catch (NumberFormatException e) {
-                    throw new OrdersException("Creator ID must be a number");
-                }
-                temp = new Orders(om.getLastedIndex() + 1, cusID, emID, new java.sql.Date(System.currentTimeMillis()), orderAddress.getText());
+                cusPhone = customerPhone.getText().trim();
+                emPhone = creatorPhone.getText().trim();
+                temp = new Orders(om.getLastedIndex() + 1, cm.getID(cusPhone), em.getID(emPhone), new java.sql.Date(System.currentTimeMillis()), orderAddress.getText());
                 OrdersController.addOrder = temp;
             } catch (OrdersException | CustomersException | EmployeesException e) {
                 FunctionLibrary.showAlertError(e.getMessage());

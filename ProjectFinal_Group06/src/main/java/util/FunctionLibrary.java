@@ -42,7 +42,8 @@ public final class FunctionLibrary {
         alert.setContentText(alertInfo);
         alert.showAndWait();
     }
-    public static void setUpNewWindows(String resource, String windowName) {
+
+    public static void setUpNewWindows(String resource, String windowName, int width, int height) {
         Parent root = null;
         try {
             root = FXMLLoader.load(FunctionLibrary.class.getResource(resource));
@@ -51,7 +52,7 @@ public final class FunctionLibrary {
         }
         Stage stage = new Stage();
         stage.setTitle(windowName);
-        stage.setScene(new Scene(Objects.requireNonNull(root), 1080, 768));
+        stage.setScene(new Scene(Objects.requireNonNull(root), width, height));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setResizable(false);
         stage.setFullScreen(false);

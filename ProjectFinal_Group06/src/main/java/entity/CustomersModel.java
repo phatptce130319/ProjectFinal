@@ -45,7 +45,14 @@ public class CustomersModel {
         }
 
         //Add a type to database
-        public boolean addCustomer(String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) {
+        public boolean addCustomer(String customerName, String customerGender, String emailAddress, String phoneNumber, String addressLine, String townCity, String stateCountyProvince, String country) throws CustomersException {
+            for (Customers customers : sCustomersList) {
+                if (customers.getPhoneNumber().equals(phoneNumber)) {
+                    throw new CustomersException("Phone number is duplicated");
+                } else if (customers.getEmailAddress().equals(emailAddress)) {
+                    throw new CustomersException("Address is duplicated");
+                }
+            }
             //language=TSQL
             String insert = "INSERT INTO product_manager.customers values(?,?,?,?,?,?,?,?)";
             try {
@@ -77,6 +84,21 @@ public class CustomersModel {
             e.printStackTrace();
         }
         return index;
+    }
+
+    //Get the id from phone number
+    public int getID(String phone) throws CustomersException {
+
+        try {
+            //language=TSQL
+            mPreparedStatement = mConnection.prepareStatement("SELECT customer_id from product_manager.customers where phone_number = ?");
+            mPreparedStatement.setString(1, phone);
+            mResultSet = mPreparedStatement.executeQuery();
+            mResultSet.next();
+            return mResultSet.getInt("customer_id");
+        } catch (SQLException e) {
+            throw new CustomersException("Cannot find the phone of customer");
+        }
     }
 
     //delete a customer in database

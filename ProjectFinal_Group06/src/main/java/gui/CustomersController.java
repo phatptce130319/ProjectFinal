@@ -31,13 +31,17 @@ import org.controlsfx.control.textfield.TextFields;
 import util.FunctionLibrary;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 //Author: Phan Tan Phat
 public class CustomersController {
     //Declare some GUI views with connection to database
     static Customers addCustomer;
     private List<String> customerName;
+    private Set<String> customerAddress;
+    private Set<String> customerPhone;
     static boolean isAdd = false;
     private static Customers selectedItem = null;
     static boolean isDelete = false;
@@ -78,9 +82,12 @@ public class CustomersController {
             cm = new CustomersModel();
             cm.loadCustomers();
             customerName = new ArrayList<>();
-            customerName = new ArrayList<>();
+            customerAddress = new HashSet<>();
+            customerPhone = new HashSet<>();
             for (Customers customers : CustomersModel.sCustomersList){
                 customerName.add(customers.getCustomerName());
+                customerAddress.add(customers.getEmailAddress());
+                customerPhone.add(customers.getPhoneNumber());
             }
             TextFields.bindAutoCompletion(searchField,customerName);
         } catch (CustomersException e) {
@@ -293,9 +300,13 @@ public class CustomersController {
                     customer.setCustomerName(value);
                     break;
                 case 4:
+                    if (customerAddress.contains(value))
+                        throw new CustomersException("The email is already in the database");
                     customer.setEmailAddress(value);
                     break;
                 case 5:
+                    if (customerPhone.contains(value))
+                        throw new CustomersException("The phone is already in the database");
                     customer.setPhoneNumber(value);
                     break;
                 case 6:
@@ -320,30 +331,36 @@ public class CustomersController {
         //Set button click add and delete
         addButton.setOnMouseClicked(event -> {
             //launch the add dialog
-            FunctionLibrary.setUpNewWindows("/add_dialog.fxml","Add Customer Dialog");
+            FunctionLibrary.setUpNewWindows("/add_dialog.fxml", "Add Customer Dialog", 800, 600);
             if (isAdd) {
                 try {
                     //Get the data back, add to database and map to GUI view
                     cm.addCustomer(addCustomer.getCustomerName(),addCustomer.getGender(),addCustomer.getEmailAddress(),addCustomer.getPhoneNumber(),addCustomer.getAddressLine(),addCustomer.getTownCity(),addCustomer.getStateCountyProvince(),addCustomer.getCountry());
                     customerList.add(addCustomer);
                     customerName.add(addCustomer.getCustomerName());
+                    customerAddress.add(addCustomer.getEmailAddress());
+                    customerPhone.add(addCustomer.getPhoneNumber());
                     TextFields.bindAutoCompletion(searchField,customerName);
 
                 } catch (CustomersException e) {
-                    e.printStackTrace();
+                    FunctionLibrary.showAlertError(e.getMessage());
                 }
             }
             isAdd = false;
         });
         deleteButton.setOnMouseClicked(event -> {
             //Launch the delete dialog
-            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml","Delete Customer Dialog");
+            FunctionLibrary.setUpNewWindows("/delete_dialog.fxml", "Delete Customer Dialog", 600, 400);
             DeleteDialogController.type = DeleteDialogController.CUSTOMERS;
             if (isDelete) {
                 //Remove an item from database and GUI views
                 customerList.remove(selectedItem);
                 try {
                     cm.deleteCustomer(selectedItem.getCustomerId());
+                    customerName.remove(selectedItem.getCustomerName());
+                    customerAddress.remove(selectedItem.getEmailAddress());
+                    customerPhone.remove(selectedItem.getPhoneNumber());
+                    TextFields.bindAutoCompletion(searchField, customerName);
                 } catch (CustomersException e) {
                     e.printStackTrace();
                 }

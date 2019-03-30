@@ -50,7 +50,14 @@ public class EmployeesModel {
         }
     }
     //Add a type to database
-    public boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) {
+    public boolean addEmployee(String employeesName, String employeesGender, String emailAddress, String phoneNumber) throws EmployeesException {
+        for (Employees employees : sEmployeesList) {
+            if (employees.getPhoneNumber().equals(phoneNumber)) {
+                throw new EmployeesException("Phone number is duplicated");
+            } else if (employees.getEmailAddress().equals(emailAddress)) {
+                throw new EmployeesException("Address is duplicated");
+            }
+        }
         //language=TSQL
         String insert = "INSERT INTO product_manager.employees values(?,?,?,?)";
         try {
@@ -68,6 +75,20 @@ public class EmployeesModel {
         }
     }
 
+    //Get the id from phone number
+    public int getID(String phone) throws EmployeesException {
+
+        try {
+            //language=TSQL
+            mPreparedStatement = mConnection.prepareStatement("SELECT employee_id from product_manager.employees where phone_number = ?");
+            mPreparedStatement.setString(1, phone);
+            mResultSet = mPreparedStatement.executeQuery();
+            mResultSet.next();
+            return mResultSet.getInt("employee_id");
+        } catch (SQLException e) {
+            throw new EmployeesException("Cannot find the phone of employee");
+        }
+    }
     public int getLastedIndex() {
         //language=TSQL
         int index = -1;
@@ -84,7 +105,7 @@ public class EmployeesModel {
     }
 
     //Update a type with a specific ID
-    public boolean updateEmployee(int employeeId, String employeeName, String employeeGender, String emailAddress, String phoneNumber) throws EmployeesException {
+    public boolean updateEmployee(int employeeId, String employeeName, String employeeGender, String phoneNumber, String emailAddress) throws EmployeesException {
         //language=TSQL
         String update = "UPDATE product_manager.employees SET employee_name = ?, gender = ?, email_address = ?, phone_number = ? WHERE employee_id = ?";
         try {
